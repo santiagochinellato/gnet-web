@@ -24,9 +24,7 @@ export const metadata: Metadata = {
   title: "Gnet | Internet de Alta Velocidad en Bariloche",
   description: "Conexión estable y rápida diseñada para la Patagonia.",
   icons: {
-    icon: "/Gnet-white.png",
-    shortcut: "/Gnet-white.png",
-    apple: "/Gnet-white.png",
+    icon: "/favicon.ico",
   },
 };
 
@@ -38,6 +36,7 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} font-body antialiased bg-slate-50 dark:bg-slate-950 transition-colors duration-300`}
       >
         <ThemeProvider

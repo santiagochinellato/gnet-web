@@ -1,5 +1,5 @@
 import { MapPin } from "lucide-react";
-import MapaCobertura from "@/components/ui/map-coverage";
+import { CoverageMap } from "@/components/coverage/coverage-map";
 
 export function CoverageMapSection() {
   return (
@@ -21,8 +21,8 @@ export function CoverageMapSection() {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-2 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 mb-10 overflow-hidden">
-          <MapaCobertura />
+        <div className="bg-white dark:bg-slate-900 p-2 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 mb-10 overflow-hidden relative z-0">
+          <CoverageMap className="h-[500px] md:h-[600px] rounded-2xl" />
         </div>
 
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">
