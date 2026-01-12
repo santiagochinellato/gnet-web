@@ -19,7 +19,7 @@ export function Footer() {
           </p>
         </div>
         <div>
-          <h4 className="text-white font-bold mb-4">Servicios</h4>
+          <h3 className="text-white font-bold mb-4">Servicios</h3>
           <ul className="space-y-2 text-sm">
             <li>
               <Link className="hover:text-[var(--color-primary)]" href="#">

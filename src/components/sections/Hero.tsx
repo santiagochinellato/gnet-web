@@ -1,4 +1,3 @@
-import { Wifi } from "lucide-react";
 import Image from "next/image";
 import { HeroForm } from "@/components/hero/HeroForm";
 import { HeroBadge } from "@/components/hero/HeroBadge";
@@ -14,6 +13,10 @@ export function HeroSection() {
           fill
           className="object-cover"
           priority
+          sizes="100vw"
+          quality={90}
+          // @ts-ignore - Next.js 16 supports this pass-through for <img> but TS types might lag
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-slate-900/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/40" />

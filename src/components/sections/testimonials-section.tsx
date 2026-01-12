@@ -44,7 +44,7 @@ export function TestimonialsSection() {
                 ))}
               </div>
               <p className="text-gray-700 dark:text-slate-300 mb-6 italic flex-1 relative z-10 font-medium leading-relaxed">
-                "{review.text}"
+                &quot;{review.text}&quot;
               </p>
               <div className="flex items-center gap-3">
                 <div className="size-10 rounded-full bg-slate-200 overflow-hidden relative">
@@ -56,9 +56,9 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <h5 className="font-bold text-sm text-gray-900 dark:text-white">
+                  <div className="font-bold text-sm text-gray-900 dark:text-white">
                     {review.name}
-                  </h5>
+                  </div>
                   <span className="text-xs text-gray-500 dark:text-slate-400">
                     {review.zone}
                   </span>

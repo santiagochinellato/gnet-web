@@ -3,31 +3,48 @@
 @variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --color-primary: #1E88E5;
-  --color-secondary: #00ACC1;
-  --color-success: #43A047;
-  --color-surface: #FFFFFF;
+  --color-primary: #1565c0;
+  --color-secondary: #00acc1;
+  --color-success: #43a047;
+  --color-surface: #ffffff;
   --color-surface-glass: rgba(255, 255, 255, 0.7);
 
   --font-heading: var(--font-poppins);
   --font-body: var(--font-inter);
-  
+
   --animate-fade-in: fade-in 0.5s ease-out forwards;
   --animate-slide-up: slide-up 0.7s ease-out forwards;
 
   @keyframes fade-in {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
   }
 
   @keyframes slide-up {
-    0% { opacity: 0; transform: translateY(20px); }
-    100% { opacity: 1; transform: translateY(0); }
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   @keyframes latency-bar {
-    0%, 100% { transform: scaleY(1); opacity: 1; }
-    50% { transform: scaleY(0.7); opacity: 0.8; }
+    0%,
+    100% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scaleY(0.7);
+      opacity: 0.8;
+    }
   }
 }
 
@@ -40,5 +57,3 @@ body {
   @apply bg-slate-50 text-slate-900 font-body antialiased transition-colors duration-300;
   @apply dark:bg-slate-950 dark:text-slate-50;
 }
-
-

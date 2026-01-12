@@ -246,9 +246,9 @@ export default function MapaCobertura() {
 
         {/* Legend */}
         <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-slate-900/90 backdrop-blur p-4 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 z-10 transition-transform hover:scale-105">
-          <h4 className="font-bold mb-3 text-gray-800 dark:text-gray-200 text-sm">
+          <div className="font-bold mb-3 text-gray-800 dark:text-gray-200 text-sm">
             Referencias
-          </h4>
+          </div>
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               <span className="w-4 h-4 rounded bg-emerald-500 opacity-60 border border-emerald-700 shadow-sm"></span>

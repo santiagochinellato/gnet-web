@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar"; // Keeping existing Navbar 
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -35,6 +36,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        <link rel="preconnect" href="https://basemaps.cartocdn.com" />
+        <link rel="dns-prefetch" href="https://basemaps.cartocdn.com" />
+      </head>
       <body
         suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} font-body antialiased bg-slate-50 dark:bg-slate-950 transition-colors duration-300`}
@@ -64,6 +69,7 @@ export default function RootLayout({
                 },
               }}
             />
+            <SpeedInsights />
           </SmoothScroll>
         </ThemeProvider>
       </body>
