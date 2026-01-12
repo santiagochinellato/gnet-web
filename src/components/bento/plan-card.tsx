@@ -14,8 +14,8 @@ export function PlanCard({ type, speed }: PlanProps) {
     <GlassCard
       hoverEffect={true}
       className={cn(
-        "flex flex-col justify-between min-w-[260px] md:min-w-0 h-[220px] md:h-full snap-center",
-        isHome ? "bg-white/80" : "bg-gradient-to-br from-white/90 to-teal-50/80"
+        "flex flex-col justify-between h-full p-8",
+        isHome ? "bg-white" : "bg-gradient-to-br from-white to-teal-50"
       )}
     >
       <div className="flex justify-between items-start">

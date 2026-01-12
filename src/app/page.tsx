@@ -1,58 +1,140 @@
-import { HeroCoverage } from "@/components/bento/hero-coverage";
+import { HeroSection } from "@/components/sections/Hero";
 import { PlanCard } from "@/components/bento/plan-card";
 import { B2BCard } from "@/components/bento/b2b-card";
-import { NetworkStatus } from "@/components/bento/network-status";
+import { ShieldCheck, Server } from "lucide-react";
 import { GlassCard } from "@/components/ui/glass-card";
-import { ShieldCheck } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-4 md:p-8 flex items-center justify-center">
-      {/* CONTENEDOR MAESTRO DEL BENTO GRID */}
-      {/* Mobile: Flex Column normal. Desktop: Grid 12 columnas x 6 filas */}
-      <div className="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 md:grid-rows-6 gap-4 md:h-[850px]">
-        {/* 1. HERO (Principal) */}
-        <HeroCoverage />
+    <main className="min-h-screen bg-slate-50 font-sans">
+      {/* 1. SECCIÓN HERO (Full Width) */}
+      <HeroSection />
 
-        {/* 2. PLANES (Desktop: Columna Derecha / Mobile: Carrusel Horizontal) */}
-        <div
-          className="col-span-1 md:col-span-4 md:row-span-4 md:grid md:grid-rows-2 md:gap-4
-                        flex overflow-x-auto snap-x gap-4 py-2 md:py-0 no-scrollbar order-2 md:order-none"
-        >
-          <PlanCard type="hogar" speed="100" />
-          <PlanCard type="turista" speed="50" />
-          {/* La B2B card aparece aquí solo en mobile para el carrusel */}
-          <div className="md:hidden">
-            <B2BCard />
+      {/* 2. SECCIÓN DE SERVICIOS (Con aire y márgenes) */}
+      <section className="pb-20 px-6 md:px-12 max-w-7xl mx-auto -mt-24 relative z-20">
+        {/* Título de Sección */}
+        <div className="mb-8 flex items-end justify-between px-4">
+          <div>
+            <span className="text-teal-400 font-bold uppercase tracking-wider text-xs mb-2 block">
+              Nuestros Servicios
+            </span>
+            <h2 className="text-3xl font-bold text-white">Elige tu conexión</h2>
+          </div>
+          <div className="hidden md:block text-slate-400 text-sm max-w-xs text-right">
+            Planes diseñados para adaptarse a la geografía de Bariloche.
           </div>
         </div>
 
-        {/* 3. FILA INFERIOR (B2B + Status + Branding) */}
+        {/* GRILLA REAL */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Plan Hogar */}
+          <div className="h-[380px]">
+            <PlanCard type="hogar" speed="300" />
+          </div>
 
-        {/* B2B Card (Solo Desktop) */}
-        <div className="hidden md:block col-span-12 md:col-span-4 md:row-span-2 order-3">
-          <B2BCard />
+          {/* Plan Turista */}
+          <div className="h-[380px]">
+            <PlanCard type="turista" speed="50" />
+          </div>
+
+          {/* Tarjeta B2B / Empresas */}
+          <div className="h-[380px]">
+            <B2BCard />
+          </div>
         </div>
+      </section>
 
-        {/* Status + Extra Info */}
-        <div className="col-span-12 md:col-span-8 md:row-span-2 grid grid-cols-1 md:grid-cols-2 gap-4 order-4">
-          <NetworkStatus />
+      {/* 3. SECCIÓN DE CONFIANZA & SEGURIDAD */}
+      <section className="py-24 bg-white border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 grid lg:grid-cols-2 gap-16 items-center">
+          <div className="order-2 lg:order-1">
+            <div className="bg-slate-100 rounded-[2.5rem] h-[450px] w-full flex items-center justify-center border border-slate-200 relative overflow-hidden group">
+              {/* Pattern */}
+              <div className="absolute inset-0 bg-[radial-gradient(#94a3b8_1px,transparent_1px)] [background-size:24px_24px] opacity-30"></div>
 
-          <GlassCard className="flex items-center gap-4 bg-teal-50/50 justify-center">
-            <div className="p-3 bg-white rounded-full shadow-sm">
-              <ShieldCheck className="text-teal-600" size={24} />
+              {/* Decorative Circles */}
+              <div className="absolute w-64 h-64 bg-teal-500/10 rounded-full blur-3xl -top-10 -right-10 mix-blend-multiply transition-all duration-1000 group-hover:bg-teal-500/20" />
+              <div className="absolute w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -bottom-10 -left-10 mix-blend-multiply transition-all duration-1000 group-hover:bg-indigo-500/20" />
+
+              <div className="relative z-10 text-center p-8">
+                <div className="inline-flex bg-white shadow-lg p-4 rounded-2xl mb-4">
+                  <div className="flex -space-x-2">
+                    {[1, 2, 3, 4].map((i) => (
+                      <div
+                        key={i}
+                        className={`w-8 h-8 rounded-full border-2 border-white bg-slate-200`}
+                      />
+                    ))}
+                  </div>
+                  <div className="ml-4 flex flex-col justify-center text-left">
+                    <span className="text-xs font-bold text-slate-800">
+                      2.4k+ Clientes
+                    </span>
+                    <span className="text-[10px] text-slate-500">
+                      Confían en Gnet
+                    </span>
+                  </div>
+                </div>
+                <p className="text-slate-400 font-medium text-sm">
+                  Cobertura en todo el ejido urbano
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-xs font-bold text-teal-800 uppercase tracking-wide">
-                Seguridad Electrónica
-              </p>
-              <p className="text-sm text-teal-700/80">
-                Distribuidor Oficial Hikvision
-              </p>
+          </div>
+
+          <div className="order-1 lg:order-2">
+            <span className="text-teal-600 font-bold uppercase tracking-wider text-sm mb-2 block">
+              Ecosistema Gnet
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+              Más que solo <br /> cables de fibra.
+            </h2>
+            <p className="text-slate-600 text-lg leading-relaxed mb-10">
+              Somos el socio tecnológico de Bariloche. Proveemos la
+              infraestructura crítica para seguridad, turismo y desarrollo
+              empresarial.
+            </p>
+
+            <div className="flex flex-col gap-4">
+              <GlassCard
+                className="p-5 flex items-start gap-4 bg-slate-50 hover:bg-white transition-colors border-slate-200"
+                variant="light"
+              >
+                <div className="p-3 bg-teal-100 rounded-xl text-teal-600">
+                  <ShieldCheck size={24} />
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900 text-lg">
+                    Seguridad Electrónica
+                  </div>
+                  <p className="text-sm text-slate-500 leading-snug mt-1">
+                    Sistemas de CCTV inteligentes y control de accesos. Partner
+                    oficial de Hikvision.
+                  </p>
+                </div>
+              </GlassCard>
+
+              <GlassCard
+                className="p-5 flex items-start gap-4 bg-slate-50 hover:bg-white transition-colors border-slate-200"
+                variant="light"
+              >
+                <div className="p-3 bg-indigo-100 rounded-xl text-indigo-600">
+                  <Server size={24} />
+                </div>
+                <div>
+                  <div className="font-bold text-slate-900 text-lg">
+                    Data Center Local
+                  </div>
+                  <p className="text-sm text-slate-500 leading-snug mt-1">
+                    Hosting de baja latencia y enlaces dedicados para
+                    proveedores de servicios.
+                  </p>
+                </div>
+              </GlassCard>
             </div>
-          </GlassCard>
+          </div>
         </div>
-      </div>
+      </section>
     </main>
   );
 }

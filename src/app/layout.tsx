@@ -13,6 +13,8 @@ export const metadata: Metadata = {
     "Proveedor de internet por fibra óptica, soluciones para ISP y seguridad electrónica en la Patagonia.",
 };
 
+import { Navbar } from "@/components/layout/navbar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +23,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${geistSans.variable} font-sans antialiased`}>
+        <Navbar />
         {children}
       </body>
     </html>
