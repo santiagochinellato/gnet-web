@@ -22,7 +22,7 @@ export function HeroSecurity() {
                 celular.
               </h2>
             </div>
-            <div className="flex flex-wrap gap-4 justify-center">
+            <div className="flex flex-wrap gap-4 justify-center md:justify-start">
               <button className="flex h-12 items-center justify-center rounded-lg bg-[var(--color-primary)] px-6 text-white text-base font-bold shadow-lg hover:bg-blue-600 transition-colors cursor-pointer">
                 Solicitar Cotización
               </button>
