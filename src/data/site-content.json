@@ -144,6 +144,11 @@
     "ctaPrimary": { "text": "Contratar Ahora", "link": "/planes" },
     "ctaSecondary": { "text": "Contactar Ventas", "link": "/contacto" }
   },
+  "homeSeo": {
+    "title": "Gnet | Internet de Alta Velocidad en Bariloche",
+    "description": "Conexión estable y rápida diseñada para la Patagonia.",
+    "keywords": ["internet", "fibra optica", "bariloche", "isp", "velocidad"]
+  },
   "footer": {
     "brandDescription": "Conectando Bariloche con tecnología de fibra óptica de clase mundial. Velocidad, estabilidad y soporte local real.",
     "servicesTitle": "Servicios",
@@ -174,6 +179,11 @@
     ]
   },
   "isp": {
+    "seo": {
+      "title": "Gnet ISP | Soluciones para Proveedores de Internet",
+      "description": "Ingeniería, soporte y consultoría especializada para ISPs regionales.",
+      "keywords": ["isp", "ingenieria", "consultoria", "redes", "proveedores internet"]
+    },
     "hero": {
       "badge": "Certified ISP Solutions Partner",
       "title": "Scale Your Network Infrastructure",
@@ -215,6 +225,11 @@
     }
   },
   "security": {
+    "seo": {
+      "title": "Gnet Seguridad | Cámaras y Monitoreo en Bariloche",
+      "description": "Soluciones de seguridad electrónica, cámaras IP y alarmas monitoreadas.",
+      "keywords": ["seguridad", "camaras", "alarmas", "bariloche", "monitoreo"]
+    },
     "hero": {
       "badge": "Seguridad Electrónica",
       "title": "Cámaras de Seguridad",
@@ -286,6 +301,11 @@
     }
   },
   "planes": {
+    "seo": {
+      "title": "Planes de Internet Gnet | Hogar, Turismo y Empresas",
+      "description": "Conocé nuestros planes de fibra óptica de alta velocidad.",
+      "keywords": ["planes internet", "precios internet", "fibra optica", "bariloche"]
+    },
     "hero": {
       "title": "Planes para cada necesidad",
       "description": "Conectividad confiable en Bariloche para tu hogar, tus vacaciones o tu negocio. Navegá sin límites con la red más estable de la Patagonia."
@@ -380,6 +400,11 @@
     }
   },
   "contact": {
+    "seo": {
+      "title": "Contacto Gnet | Atención al Cliente y Ventas",
+      "description": "Comunicate con nosotros por teléfono, WhatsApp o visitanos en nuestras oficinas.",
+      "keywords": ["contacto", "telefono", "direccion", "gnet", "soporte"]
+    },
     "hero": {
       "title": "Contáctanos",
       "description": "Estamos para ayudarte. Elige el medio que prefieras para comunicarte con nosotros o envíanos un mensaje directo."

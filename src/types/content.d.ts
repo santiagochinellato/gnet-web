@@ -1,6 +1,13 @@
 import { LucideProps } from "lucide-react";
 import { ForwardRefExoticComponent, RefAttributes } from "react";
 
+export interface SeoConfig {
+  title: string;
+  description: string;
+  ogImage?: string;
+  keywords?: string[];
+}
+
 export type IconName =
   | "Headset"
   | "Zap"
@@ -164,6 +171,7 @@ export interface CaseStudyItem {
 }
 
 export interface ISPContent {
+  seo?: SeoConfig;
   hero: {
     badge: string;
     title: string;
@@ -221,6 +229,7 @@ export interface ComparisonRow {
 }
 
 export interface SecurityContent {
+  seo?: SeoConfig;
   hero: {
     badge: string;
     title: string;
@@ -269,6 +278,7 @@ export interface PlanesCategoryContent {
 }
 
 export interface PlanesContent {
+  seo?: SeoConfig;
   hero: {
     title: string;
     description: string;
@@ -308,6 +318,7 @@ export interface DeptEmail {
 }
 
 export interface ContactContent {
+  seo?: SeoConfig;
   hero: {
     title: string;
     description: string;
@@ -333,6 +344,7 @@ export interface SiteContent {
   testimonials: TestimonialsSection;
   ctaHighlight: CTAHighlight;
   footer: FooterContent;
+  homeSeo?: SeoConfig;
   isp: ISPContent;
   security: SecurityContent;
   planes: PlanesContent;

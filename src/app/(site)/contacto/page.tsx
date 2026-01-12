@@ -4,8 +4,16 @@ import { ContactForm } from "@/components/sections/contact/contact-form";
 import { ContactSidebar } from "@/components/sections/contact/contact-sidebar";
 import { getSiteContent } from "@/lib/content";
 
-export default function ContactPage() {
-  const content = getSiteContent();
+import { Metadata } from "next";
+import { mapSeoConfig } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent();
+  return mapSeoConfig(content.contact.seo);
+}
+
+export default async function ContactPage() {
+  const content = await getSiteContent();
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 flex flex-col font-display transition-colors duration-300">
       <section className="flex-1 bg-slate-50 dark:bg-slate-950/50 pt-16">

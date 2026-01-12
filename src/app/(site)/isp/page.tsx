@@ -6,6 +6,14 @@ import { CTAISP } from "@/components/sections/isp/cta-isp";
 import { Footer } from "@/components/layout/footer";
 import { getSiteContent } from "@/lib/content";
 
+import { Metadata } from "next";
+import { mapSeoConfig } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent();
+  return mapSeoConfig(content.isp.seo);
+}
+
 export default async function ISPPage() {
   const content = await getSiteContent();
   return (

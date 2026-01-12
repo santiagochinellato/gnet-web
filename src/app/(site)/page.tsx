@@ -8,8 +8,16 @@ import { CTAHighlight } from "@/components/sections/cta-highlight";
 import { Footer } from "@/components/layout/footer";
 import { getSiteContent } from "@/lib/content";
 
-export default function Home() {
-  const content = getSiteContent();
+import { Metadata } from "next";
+import { mapSeoConfig } from "@/lib/seo";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const content = await getSiteContent();
+  return mapSeoConfig(content.homeSeo);
+}
+
+export default async function Home() {
+  const content = await getSiteContent();
 
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col font-display">
