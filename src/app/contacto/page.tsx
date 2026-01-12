@@ -13,20 +13,19 @@ export default function ContactPage() {
           {/* Page Heading */}
           <div className="mb-10 text-center md:text-left">
             <h1 className="text-4xl font-black leading-tight tracking-tight text-slate-900 dark:text-white md:text-5xl">
-              Contáctanos
+              {content.contact.hero.title}
             </h1>
             <p className="mt-4 text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
-              Estamos para ayudarte. Elige el medio que prefieras para
-              comunicarte con nosotros o envíanos un mensaje directo.
+              {content.contact.hero.description}
             </p>
           </div>
 
-          <ContactCards />
+          <ContactCards content={content.contact.cards} />
 
           {/* Main Grid Layout (Form + Info Sidebar) */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             <ContactForm />
-            <ContactSidebar />
+            <ContactSidebar content={content.contact.sidebar} />
           </div>
         </div>
       </section>

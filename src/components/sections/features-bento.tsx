@@ -52,46 +52,27 @@ export function FeaturesBento({ content }: { content: FeaturesContent }) {
           {/* Grid Column */}
           <div className="flex-[1.5] grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
             {content.items.map((item, index) => {
-              const Icon = iconMap[item.iconName];
-
-              // Determine styles based on index or just simple pattern?
-              // Original code had different colors for each card.
-              // Card 1: Primary (Headset)
-              // Card 2: Secondary (Zap)
-              // Card 3: Purple (ShieldCheck)
-              // Card 4: Orange (FileText)
-              // I will attempt to restore this based on iconName or index.
-
-              let colors =
-                "bg-[var(--color-primary)]/10 text-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-white";
-              if (item.iconName === "Zap")
-                colors =
-                  "bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] group-hover:bg-[var(--color-secondary)] group-hover:text-white";
-              if (item.iconName === "ShieldCheck")
-                colors =
-                  "bg-purple-100 dark:bg-slate-800 text-purple-600 group-hover:bg-purple-600 group-hover:text-white";
-              if (item.iconName === "FileText")
-                colors =
-                  "bg-orange-100 dark:bg-slate-800 text-orange-600 group-hover:bg-orange-500 group-hover:text-white";
-
+              // Determine styles based on index if needed, but for now simplified.
               return (
                 <div
                   key={index}
                   className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-all group items-center md:items-start"
                 >
-                  <div
-                    className={`size-12 rounded-xl flex items-center justify-center transition-colors ${colors}`}
-                  >
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 text-center md:text-left">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 rounded-2xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] group-hover:scale-110 transition-transform duration-300">
+                      {(() => {
+                        const Icon =
+                          iconMap[item.iconName as keyof typeof iconMap];
+                        return Icon ? <Icon className="w-8 h-8" /> : null;
+                      })()}
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                       {item.title}
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-slate-400 text-center md:text-left">
-                      {item.description}
-                    </p>
+                    </h3>
                   </div>
+                  <p className="text-sm text-gray-600 dark:text-slate-400 text-center md:text-left">
+                    {item.description}
+                  </p>
                 </div>
               );
             })}

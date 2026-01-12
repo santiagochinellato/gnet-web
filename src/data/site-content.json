@@ -1,74 +1,433 @@
 {
   "navigation": [
-    { "label": "Inicio", "href": "/" },
-    { "label": "Cobertura", "href": "/#cobertura" },
-    { "label": "Planes", "href": "/planes" },
-    { "label": "Seguridad Electrónica", "href": "/seguridad" },
-    { "label": "Servicios ISP", "href": "/isp" },
-    { "label": "Contacto", "href": "/contacto" }
+    { "href": "/", "label": "Inicio" },
+    { "href": "/planes", "label": "Planes" },
+    { "href": "/#cobertura", "label": "Cobertura" },
+    { "href": "/isp", "label": "ISP" },
+    { "href": "/seguridad", "label": "Seguridad" },
+    { "href": "/contacto", "label": "Contacto" }
   ],
   "hero": {
     "title": "Internet de Alta <br /> Velocidad que",
     "highlight": "sí funciona",
-    "description": "Conexión estable de fibra óptica y seguridad electrónica para tu hogar o empresa, sin cortes por el clima.",
+    "description": "Conectividad por fibra óptica real en Bariloche. Planes simétricos para tu hogar, empresa o turismo.",
     "ctaText": "Ver nuestros planes",
     "ctaLink": "/planes",
     "imageSrc": "/hero.webp"
   },
   "features": {
-    "sectionTitle": "Diferenciales",
-    "headline": "Lo que nos hace <br /> diferentes en la zona",
-    "description": "Entendemos los desafíos geográficos de Bariloche. Por eso diseñamos una red robusta preparada para la nieve, el viento y la montaña.",
-    "ctaText": "Conocé nuestra tecnología",
+    "sectionTitle": "Por qué elegir Gnet",
+    "headline": "La conexión que <br />bariloche esperaba",
+    "description": "Infraestructura de última generación diseñada para resistir el clima patagónico y brindar la mejor experiencia online.",
+    "ctaText": "Conocé más sobre nosotros",
     "items": [
       {
         "iconName": "Headset",
         "title": "Soporte Local Real",
-        "description": "Atención inmediata desde el centro de Bariloche. Nada de call centers remotos."
+        "description": "Hablás con gente de acá. Resolvemos tus dudas en minutos, no en días."
       },
       {
         "iconName": "Zap",
-        "title": "Fibra Óptica Pura",
-        "description": "Velocidad simétrica sin cortes ni interrupciones, ideal para streaming y gaming."
+        "title": "Instalación Rápida",
+        "description": "Activamos tu servicio en 48hs hábiles. Sin esperas eternas ni trámites complejos."
       },
       {
         "iconName": "ShieldCheck",
-        "title": "Seguridad Integrada",
-        "description": "Monitoreo y sistemas de alarma que se integran perfectamente a tu servicio."
+        "title": "Estabilidad Climática",
+        "description": "Red 100% fibra soterrada y posteadura reforzada anti-viento. Tu conexión no se corta."
       },
       {
         "iconName": "FileText",
         "title": "Sin Letra Chica",
-        "description": "Precios claros en pesos y contratos transparentes desde el día uno."
+        "description": "Precios transparentes y sin contratos de permanencia en planes hogar."
       }
     ]
   },
-  "footer": {
-    "description": "Conectando Bariloche con el mundo a través de la mejor tecnología de fibra óptica.",
-    "headings": {
-      "services": "Servicios",
-      "company": "Compañía",
-      "contact": "Contacto"
-    },
-    "servicesLinks": [
-      { "label": "Internet Hogar", "href": "#" },
-      { "label": "Internet Empresas", "href": "#" },
-      { "label": "Cámaras de Seguridad", "href": "#" }
-    ],
-    "companyLinks": [
-      { "label": "Nosotros", "href": "#" },
-      { "label": "Cobertura", "href": "/#cobertura" },
-      { "label": "Trabajá con nosotros", "href": "#" }
-    ],
-    "contactInfo": {
-      "phone": "+54 9 294-4335435",
-      "email": "hola@gnet.com.ar",
-      "address": "Mitre 123, Bariloche"
-    },
-    "copyright": "© 2024 Gnet Telecomunicaciones. Todos los derechos reservados.",
-    "legalLinks": [
-      { "label": "Términos y Condiciones", "href": "#" },
-      { "label": "Política de Privacidad", "href": "#" }
+  "pricing": {
+    "badge": "Nuestros Planes",
+    "title": "Conectividad a tu medida",
+    "description": "Elegí la velocidad que necesitás para tu casa, tu cabaña turística o tu negocio.",
+    "plans": [
+      {
+        "title": "Hogar",
+        "description": "Para familias y home office.",
+        "price": "$15.000",
+        "period": "/mes",
+        "features": ["100 Mbps Simétricos", "Instalación Bonificada", "Router WiFi 6 incluido"],
+        "ctaText": "Ver Detalles",
+        "ctaLink": "/planes?tab=hogar",
+        "badge": "POPULAR",
+        "recommended": false
+      },
+      {
+        "title": "Short Term",
+        "description": "Ideal alquileres temporarios.",
+        "price": "$10.000",
+        "period": "/semana",
+        "features": ["50 Mbps", "Sin Contrato Fijo", "Activación inmediata"],
+        "ctaText": "Contratar Ahora",
+        "ctaLink": "/planes?tab=turista",
+        "badge": "TURISMO",
+        "recommended": false,
+        "color": "secondary"
+      },
+      {
+        "title": "Empresas",
+        "description": "Soluciones corporativas.",
+        "price": "A Medida",
+        "period": "",
+        "features": ["Hasta 1 Gbps", "IP Fija Disponible", "SLA Garantizado"],
+        "ctaText": "Contactar Asesor",
+        "ctaLink": "/planes?tab=comercios",
+        "recommended": false
+      }
     ]
+  },
+  "coverage": {
+    "badge": "Zonas de servicio",
+    "title": "Nuestra Cobertura",
+    "description": "Expandimos nuestra red de fibra óptica constantemente para llegar a cada rincón de Bariloche.",
+    "barriosTitle": "Barrios Conectados",
+    "barrios": [
+      "Centro Cívico", "Belgrano", "Melipal", "Jardín Botánico", "Las Victorias",
+      "San Francisco", "Pinar del Lago", "Playa Bonita", "Los Coihues", "km 4 a km 8"
+    ]
+  },
+  "faq": {
+    "title": "Preguntas Frecuentes",
+    "description": "Resolvemos tus dudas sobre el servicio y la instalación.",
+    "items": [
+      {
+        "q": "¿Cómo afecta la nieve o el viento al servicio?",
+        "a": "Nuestra red es 100% fibra óptica (FTTH). A diferencia del internet por aire o satelital, la fibra no sufre interferencias por tormentas, nieve intensa o vientos fuertes. Además, contamos con posteadura reforzada y tendidos soterrados en zonas críticas."
+      },
+      {
+        "q": "¿Cuánto demora la instalación?",
+        "a": "Generalmente realizamos la instalación dentro de las 48 a 72 horas hábiles desde la confirmación de la solicitud, dependiendo de la disponibilidad técnica en tu zona y las condiciones climáticas del momento."
+      },
+      {
+        "q": "¿El servicio tiene permanencia mínima?",
+        "a": "Nuestros planes 'Hogar' y 'Empresas' estándar no tienen cláusulas de permanencia. Sos libre de dar de baja el servicio cuando quieras. Solo algunas promociones específicas de costo de instalación bonificado pueden requerir 6 meses de permanencia."
+      },
+      {
+        "q": "¿Necesito línea telefónica fija?",
+        "a": "No, en absoluto. Gnet instala un cable de fibra óptica independiente directo a tu domicilio. No utilizamos la red de cobre de telefonía tradicional."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "Lo que dicen nuestros vecinos",
+    "reviews": [
+      {
+        "text": "Vivo en el Km 8 y siempre tuve problemas con el viento hasta que contraté Gnet. La fibra no se corta nunca.",
+        "name": "María González",
+        "zone": "Barrio Pinar del Lago",
+        "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuCictHp7GusfXE8H3pDVTBFvn2zDbs8rpVUK-sCY80nmYtEePsYjQdiTlIfn0WAtN0xihnEBXQXAuQPq5t98DEEkum4jc7z5XyQOmKr02AiLt6bIJmbeNsn3KeaojbC-gPEVSevLDsRv3a6ixmnbZjGD5jNLrCaaXrW4lYOw_X7JGSrFWAiZeTxeAnficq3LUReUfpaJu9fPn-JVvaQ6P8xkfQtP4Sfwe0ZVkaWQWsUX9ZGVGfHJXYkjesLA2UoZq8cC4RHihOML9fE"
+      },
+      {
+        "text": "Tengo cabañas para turismo y el servicio short-term es genial. Activo y desactivo según la temporada.",
+        "name": "Pablo Rossi",
+        "zone": "Cabañas El Mirador",
+        "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuAwfR4-k_ffdCaKNavI30OxbH2k8id9EDMbgajofFsCP5yX4mj6tDuR3vvZw9USQuC6XsydW8J43DZHGZ3daeegwTaTHQO8wl4tWBCp17eUQI2gJiPT5SOqBOPQowbLFLn1IGSXLgSOvhkjqjXqQb7KxPCMMtbJg-u4jRhM4jNp0LMENSb2NdZRCOB8fd13XzuZHP_n-J5ur4GRKhdQ5eUSNANyu7UtT8HQnnVykhqIY7MYce4TK3O0f01wG9S0HyAN-5w26Mrm-f5Z"
+      },
+      {
+        "text": "El soporte técnico es excelente. Llamás y te atiende alguien de acá, no una máquina.",
+        "name": "Luciana M.",
+        "zone": "Centro Cívico",
+        "img": "https://lh3.googleusercontent.com/aida-public/AB6AXuAetxIB-_a_rH6N5vBNg6nenhpUdm8UI9lRMD0QpT8WyitbPxhW924VICrBo2dOBxiwIjcOF_s3pRZeac5TSJy1agXRAG2MTNDGSh3VRKPELUoT_0buZZUF3UW5y9eKFFwWRmwj3x6EjYKD7CCfLm-2iHZNJwkmGVyGA56_tiwsrrr-HUMklJHU-eJoWCh5__WkoxCVjZbyssezlSfT_UBYiP5wcHEqHldoWOkukqDgVasB0zKaoaig9otn_hjPoGqBhKR-1JcxCNkO"
+      }
+    ]
+  },
+  "ctaHighlight": {
+    "title": "¿Listo para volar?",
+    "text": "Sumate a la red de fibra óptica más confiable de la Patagonia. Instalación rápida y garantía de satisfacción.",
+    "ctaPrimary": { "text": "Contratar Ahora", "link": "/planes" },
+    "ctaSecondary": { "text": "Contactar Ventas", "link": "/contacto" }
+  },
+  "footer": {
+    "brandDescription": "Conectando Bariloche con tecnología de fibra óptica de clase mundial. Velocidad, estabilidad y soporte local real.",
+    "servicesTitle": "Servicios",
+    "servicesLinks": [
+      { "label": "Internet Hogar", "href": "/planes" },
+      { "label": "Internet Empresas", "href": "/isp" },
+      { "label": "Turismo / Short-term", "href": "/planes" },
+      { "label": "Seguridad Electrónica", "href": "/seguridad" },
+      { "label": "Diseño de Redes", "href": "/isp" }
+    ],
+    "companyTitle": "Empresa",
+    "companyLinks": [
+      { "label": "Quiénes Somos", "href": "/#nosotros" },
+      { "label": "Cobertura", "href": "/coverage" },
+      { "label": "Contacto", "href": "/contacto" },
+      { "label": "Trabajá con nosotros", "href": "/rrhh" }
+    ],
+    "contactTitle": "Contacto",
+    "contactInfo": {
+      "address": "Mitre 123, 2do Piso, Bariloche",
+      "phone": "+54 9 294 444-0000",
+      "email": "info@gnet.com.ar"
+    },
+    "copyright": "Gnet Telecomunicaciones. Todos los derechos reservados.",
+    "legalLinks": [
+      { "label": "Términos y Condiciones", "href": "/terminos" },
+      { "label": "Política de Privacidad", "href": "/privacidad" }
+    ]
+  },
+  "isp": {
+    "hero": {
+      "badge": "Certified ISP Solutions Partner",
+      "title": "Scale Your Network Infrastructure",
+      "subtitle": "Premium B2B consulting and engineering for Internet Service Providers.",
+      "ctaPrimary": { "text": "Schedule Consultation", "link": "/contacto" },
+      "ctaSecondary": { "text": "View Case Studies", "link": "#cases" }
+    },
+    "stats": [
+      { "iconName": "Headset", "value": "500+", "label": "Tickets Resueltos Mensualmente" },
+      { "iconName": "Zap", "value": "99.9%", "label": "Uptime de Red Garantizado" },
+      { "iconName": "BadgeCheck", "value": "10+", "label": "Años de Experiencia ISP" }
+    ],
+    "services": {
+      "title": "Nuestros Servicios Principales",
+      "description": "Soluciones punta a punta diseñadas específicamente para los desafíos únicos de los ISPs regionales.",
+      "items": [
+        { "iconName": "Headset", "title": "Call Center Especializado", "description": "Atención de incidencias, configuración remota de abonados y creación de tickets detallados para tus técnicos." },
+        { "iconName": "Globe", "title": "Ingeniería & Diseño de Red", "description": "Diseño de topologías, soluciones llave en mano, auditorías y estrategias de Alta Disponibilidad para evitar caídas." },
+        { "iconName": "Server", "title": "Virtualización & Cloud", "description": "Administración de servidores, migración a entornos virtuales y optimización de infraestructura." },
+        { "iconName": "Shield", "title": "Seguridad & QoS", "description": "Políticas avanzadas de tráfico, VPNs seguras y automatización de procesos diarios." },
+        { "iconName": "PcCase", "title": "Laboratorio de Hardware", "description": "Reparación de antenas, paneles y servidores. Mantenimiento preventivo multimarca." }
+      ]
+    },
+    "caseStudies": {
+      "title": "Casos de Éxito",
+      "description": "Descubrí cómo potenciamos a otros proveedores de internet.",
+      "linkText": "Ver todos los proyectos",
+      "items": [
+        { "image": "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop", "title": "Migración a Fibra Óptica", "subtitle": "Connect Patagonia - Bariloche", "ctaText": "Ver Caso" },
+        { "image": "/redwisp.jpg", "title": "Optimización de Red WISP", "subtitle": "Andes Link - Cobertura Regional", "ctaText": "Ver Caso" },
+        { "image": "https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop", "title": "Reingeniería de Core", "subtitle": "SurNet - Actualización de Infraestructura", "ctaText": "Ver Caso" }
+      ]
+    },
+    "cta": {
+      "title": "¿Listo para potenciar tu ISP?",
+      "text": "Sumate a más de 50 ISPs regionales que confían en Gnet para su ingeniería y soporte técnico.",
+      "ctaPrimary": { "text": "Solicitar Presupuesto", "link": "/contacto" },
+      "ctaSecondary": { "text": "Contactar Ventas", "link": "/contacto" }
+    }
+  },
+  "security": {
+    "hero": {
+      "badge": "Seguridad Electrónica",
+      "title": "Cámaras de Seguridad",
+      "subtitle": "Vigilancia en Alta Definición. Protegé lo que más importa con tecnología Dahua y Hikvision. Monitoreo remoto 4K desde tu celular.",
+      "ctaText": "Solicitar Cotización",
+      "backgroundImage": "https://lh3.googleusercontent.com/aida-public/AB6AXuA2_c1riM9Jk3M9zhksxbDk7a_pAPPHrhx1kFO6hGN9MAVq4m65TPKr6Ldjw3y11G5kEN0e7ysEeB3kUgVxL4moNPUStBrCM2QjPAGs0t5m1uETbFl2AEB0R1zSRJarzo9SCZzXnoqW30SU1DNE2n6drEKbrQZNvfan1a4_PtQG37npf_wGSSV5KtPQDygV1NDrO0t9YOGNWmeigrTUN-zVWDXtPMMKjPGzpdpr0hYOHUdhC9-hCebAfOjwDqhZJaQVdWCKOakNGUM2"
+    },
+    "solutions": {
+      "tabs": [
+        {
+          "key": "comercio",
+          "iconName": "Store",
+          "label": "Comercio",
+          "title": "Soluciones para Comercio",
+          "description": "Prevención de pérdidas y seguridad para empleados. Controle su negocio desde cualquier lugar con nuestras soluciones de monitoreo inteligente con detección de rostros y conteo de personas.",
+          "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuD8t-FUAhA2WNDKZUYAitsLP_dapVtFnAVXCdNDme7mr_t2TO09RlP3DvIeLCah4MHdLmU8uWnyP6QBOHu0LCM7BDBHcdF_m1IFt__UeaBLTfFMw8DGigx90OOzlIoqPcbU-qMHKQr3K3rNbx8ACKFYketi5lcuFcJSRFA-5dVBuomr_ypLE_JZXFst9bk0F2Es6qGbyaZnQlRj96NrT_rOBZWbm0OuN8gTsbAQ1LCPvC_3ghxLQKi1U-6-294N7_hsYlqbJ6AmnFH-"
+        },
+        {
+          "key": "oficina",
+          "iconName": "Building2",
+          "label": "Oficina",
+          "title": "Seguridad Corporativa",
+          "description": "Control de accesos y videovigilancia IP para oficinas modernas. Gestione quién entra y sale, y proteja sus activos más valiosos con sistemas de alarma monitoreados 24/7.",
+          "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200"
+        },
+        {
+          "key": "hogar",
+          "iconName": "Home",
+          "label": "Hogar",
+          "title": "Protección Residencial",
+          "description": "Tranquilidad para su familia. Cámaras WiFi de fácil uso, porteros visores y alarmas perimetrales para que su hogar esté siempre seguro, esté donde esté.",
+          "image": "https://images.unsplash.com/photo-1558036117-15db63622051?q=80&w=1200"
+        }
+      ]
+    },
+    "services": {
+      "title": "Nuestros Servicios",
+      "description": "Soluciones integrales de seguridad electrónica instaladas por expertos certificados en Bariloche.",
+      "items": [
+        { "iconName": "Video", "title": "Cámaras IP/WiFi", "description": "Instalación profesional con cableado oculto y configuración remota." },
+        { "iconName": "Fingerprint", "title": "Control de Accesos", "description": "Sistemas biométricos para gestión de personal y visitas." },
+        { "iconName": "Wrench", "title": "Mantenimiento", "description": "Revisiones preventivas, limpieza y actualización de firmware." },
+        { "iconName": "Bell", "title": "Sistemas de Alarma", "description": "Sensores de movimiento y monitoreo 24/7 con respuesta rápida." },
+        { "iconName": "Cable", "title": "Cableado Estructurado", "description": "Redes de datos certificadas para oficinas y grandes superficies." },
+        { "iconName": "Settings", "title": "Configuración DVR/NVR", "description": "Centralización de grabaciones y acceso remoto seguro." }
+      ]
+    },
+    "gallery": {
+      "title": "Instalaciones Recientes",
+      "linkText": "Ver todas",
+      "items": [
+        { "title": "Residencia Los Coihues", "category": "Hogar", "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCoiTwKvqjuJ1xMLEZMTqkDyZvzGTj_oGhudf0WhlGqiMTemN-fbbBxoGp9MJheb9QIpAjlYgjn0q-KvFyNRQ_R26lX94hDsKSY2UW_-LYBjIqBKRma2JpUNf2fF8m-QY25gFSLqZ9Enbvkldo_STFQrzy_QsVOQFuRM17MNkd6kV03e9EAH8qq_fryZnGk32kzr9uWFfGZS3_LvEr59b2AwwcN2LswCa4LNLvf0aU8EoQh8ZY-BoVRLMgmQcaBZY96U070HsSzupxu" },
+        { "title": "Oficinas Centro Civico", "category": "Empresas", "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC_pYy0m1VB0a3ZLYXsT2PHpGocvvAZToI5wA-lCyHBY-E2XcCaed2WPt2j4JtFoj7wdzO-WqjIfdxXzcxTrJGGK79soXvM5WiQSHgrKm5hrJqgvXbvbqGSXKBcQ2PKghqTlUzNJgzqqFfGZ2IYs88iXtLs6bU9j3dQg5sndd2xNqwe4-65dzwtMsK6sQbYFivSi8sn_40AXl76pIelcJtl9LSyZWoN81eqA3HWq5onLR4PsBu5ukGlL6zltXB1pLr02-75fySmrpkP" },
+        { "title": "Data Center Gnet", "category": "Infraestructura", "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDeDogi_TFpq21238FB9NPZnX97WTr8D_6HoKC4Je8y6UNgbkqpEFZyVAP6w_3f5FvdWshLn_vNSCKnmsZWt1tyjCGsRldBZfwaEgl7fdrkLv_m6j250eaenBfsl8-H-uJnUe-I12rJ0NSRS9B4bPG33YBhVgLZkTsjB8mwuIeFVXE4xAxJQJLC3_5Z0Fp03bysp-hSex_cvLiZgZpN4V15VUUn-AwU8aHUzonA_nz58kldqu-HA1h6blD46guagPW-LkwF-1eEFeGd" }
+      ]
+    },
+    "comparison": {
+      "title": "Tecnología de Vanguardia",
+      "description": "Trabajamos exclusivamente con las marcas líderes del mercado para garantizar durabilidad y la mejor calidad de imagen.",
+      "brandStandard": "Dahua",
+      "brandPro": "Hikvision",
+      "rows": [
+        { "label": "Resolución", "valueStandard": "Full HD 1080p", "valuePro": "4K Ultra HD (8MP)" },
+        { "label": "Visión Nocturna", "valueStandard": "IR hasta 20 metros", "valuePro": "ColorVu (Color 24/7)" },
+        { "label": "Inteligencia Artificial", "valueStandard": "Detección de Movimiento", "valuePro": "AcuSense (Humanos/Vehículos)" },
+        { "label": "Almacenamiento", "valueStandard": "H.264 (Estándar)", "valuePro": "H.265+ (Optimizado)" },
+        { "label": "App Móvil", "valueStandard": "DMSS", "valuePro": "Hik-Connect" }
+      ]
+    }
+  },
+  "planes": {
+    "hero": {
+      "title": "Planes para cada necesidad",
+      "description": "Conectividad confiable en Bariloche para tu hogar, tus vacaciones o tu negocio. Navegá sin límites con la red más estable de la Patagonia."
+    },
+    "tabs": {
+      "hogar": "Hogar",
+      "turista": "Turista",
+      "comercios": "Comercios"
+    },
+    "categories": {
+      "hogar": {
+        "plans": [
+          {
+            "title": "Plan 50 MEGAS",
+            "description": "Ideal para streaming y uso diario",
+            "price": "$12.000",
+            "period": "",
+            "features": ["50 Mbps de bajada", "Router Wi-Fi 5", "Soporte Estándar", "IP Dinámica"],
+            "ctaText": "Contratar",
+            "ctaLink": "#"
+          },
+          {
+            "title": "Plan 100 MEGAS",
+            "description": "Para familias, gaming y trabajo",
+            "price": "$18.000",
+            "period": "",
+            "recommended": true,
+            "features": ["100 Mbps de bajada", "Router Dual Band", "Prioridad de tráfico", "Soporte Premium"],
+            "ctaText": "Contratar Ahora",
+            "ctaLink": "#"
+          }
+        ],
+        "benefitsTitle": "Todos nuestros planes incluyen:",
+        "benefits": [
+          { "title": "Instalación bonificada", "text": "Te conectamos sin costo inicial en zonas de cobertura." },
+          { "title": "Sin contratos de permanencia", "text": "Sos libre de elegirnos cada mes sin ataduras." },
+          { "title": "Soporte técnico local", "text": "Atención rápida por gente de Bariloche." },
+          { "title": "Pagos digitales simples", "text": "Mercado Pago, tarjetas y débito automático." }
+        ]
+      },
+      "turista": {
+        "plans": [
+          {
+            "title": "Pack Semana",
+            "description": "Conexión rápida por 7 días",
+            "price": "$10.000",
+            "period": "/semana",
+            "color": "secondary",
+            "features": ["50 Mbps de bajada", "Router Pre-instalado", "Activación inmediata", "Sin contratos"],
+            "ctaText": "Contratar",
+            "ctaLink": "#"
+          },
+          {
+            "title": "Pack Mes",
+            "description": "Estadías prolongadas",
+            "price": "$25.000",
+            "period": "/mes",
+            "recommended": true,
+            "color": "secondary",
+            "features": ["100 Mbps de bajada", "Router Dual Band", "Soporte prioritario", "Sin contratos"],
+            "ctaText": "Contratar Ahora",
+            "ctaLink": "#"
+          }
+        ],
+        "benefitsTitle": "Beneficios para Turistas",
+        "benefits": []
+      },
+      "comercios": {
+        "plans": [],
+        "ctaBox": {
+            "title": "Soluciones Corporativas",
+            "description": "Ofrecemos enlaces dedicados, IP fija y SLA garantizado para empresas que requieren máxima disponibilidad.",
+            "ctaText": "Contactar a Ventas Corporativas"
+        },
+        "benefitsTitle": "Beneficios para Empresas",
+        "benefits": []
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "description": "Todo lo que necesitás saber antes de contratar.",
+      "items": [
+        { "q": "¿Cuánto tarda la instalación?", "a": "Dependiendo de la zona y la demanda, la instalación suele realizarse dentro de los 3 a 5 días hábiles luego de confirmada la solicitud." },
+        { "q": "¿Los planes tienen límite de descarga?", "a": "No, todos nuestros planes de hogar son ilimitados. Podés navegar, ver películas y descargar archivos sin preocuparte por el consumo de datos." },
+        { "q": "¿Qué pasa si hay nieve o mal clima?", "a": "Nuestra red de fibra óptica está soterrada en gran parte de la ciudad y diseñada para resistir las condiciones climáticas de Bariloche, garantizando estabilidad incluso en invierno." }
+      ]
+    },
+    "cta": {
+      "title": "¿Tenés dudas?",
+      "text": "Nuestro equipo comercial está listo para asesorarte sobre el mejor plan para tu zona.",
+      "whatsappText": "WhatsApp"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contáctanos",
+      "description": "Estamos para ayudarte. Elige el medio que prefieras para comunicarte con nosotros o envíanos un mensaje directo."
+    },
+    "cards": [
+      {
+        "iconName": "Phone",
+        "title": "Teléfono",
+        "value": "+54 9 294 444-0000",
+        "subtext": "Lunes a Viernes 9-18hs",
+        "ctaText": "Llamar ahora",
+        "action": "tel:+5492944440000"
+      },
+      {
+        "iconName": "MessageCircle", 
+        "title": "WhatsApp",
+        "value": "+54 9 294 444-1111",
+        "subtext": "Atención 24/7",
+        "ctaText": "Enviar mensaje",
+        "action": "https://wa.me/5492944441111"
+      },
+      {
+        "iconName": "Mail",
+        "title": "Email",
+        "value": "info@gnet.com.ar",
+        "subtext": "Respondemos en 24hs",
+        "ctaText": "Escribir correo",
+        "action": "mailto:info@gnet.com.ar"
+      }
+    ],
+    "sidebar": {
+      "deptTitle": "Áreas de contacto",
+      "emails": [
+        { "label": "Ventas", "email": "ventas@gnet.com.ar" },
+        { "label": "Soporte Técnico", "email": "soporte@gnet.com.ar" },
+        { "label": "Administración", "email": "admin@gnet.com.ar" }
+      ],
+      "officeTitle": "Nuestras Oficinas",
+      "address": [
+        "Mitre 123, 2do Piso, Oficina 4",
+        "San Carlos de Bariloche",
+        "Río Negro, Argentina"
+      ],
+      "hoursTitle": "Horarios de atención",
+      "hours": [
+        "Lun - Vie: 09:00 - 18:00",
+        "Sábados: Cerrado"
+      ]
+    }
   }
 }

@@ -1,90 +1,73 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import { ISPContent } from "@/types/content";
 
-export function CaseStudiesISP() {
+export function CaseStudiesISP({
+  content,
+}: {
+  content: ISPContent["caseStudies"];
+}) {
   return (
-    <section className="bg-white dark:bg-slate-950 py-20 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mb-12 flex items-end justify-between">
-          <div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white text-center md:text-left">
-              Casos de Éxito
+    <section
+      className="py-20 md:py-28 bg-white dark:bg-slate-950 transition-colors duration-300"
+      id="cases"
+    >
+      <div className="container mx-auto px-4 md:px-10 max-w-7xl">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+          <div className="max-w-2xl">
+            <span className="text-[var(--color-primary)] font-bold tracking-wider text-sm uppercase">
+              {content.title}
+            </span>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mt-2">
+              {content.description}
             </h2>
-            <p className="mt-2 text-lg text-slate-600 dark:text-slate-400 text-center md:text-left">
-              Descubrí cómo potenciamos a otros proveedores de internet.
-            </p>
           </div>
           <Link
-            href="#"
-            className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary)] hover:text-blue-600 sm:flex"
+            href="/contacto"
+            className="hidden md:flex items-center gap-2 font-bold text-[var(--color-primary)] hover:text-blue-700 transition-colors"
           >
-            Ver todos los proyectos <ArrowRight className="w-4 h-4" />
+            {content.linkText} <ArrowRight className="w-5 h-5" />
           </Link>
         </div>
-        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
-          {/* Case Study 1 */}
-          <div className="group cursor-pointer">
-            <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {content.items.map((study, index) => (
+            <div
+              key={index}
+              className="group relative rounded-2xl overflow-hidden aspect-[4/5] cursor-pointer"
+            >
               <Image
-                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop"
-                alt="Técnico trabajando en caja de distribución de fibra óptica"
+                src={study.image}
+                alt={study.title}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-8 w-full">
+                <span className="text-blue-300 font-medium text-sm mb-2 block">
+                  {study.subtitle}
+                </span>
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {study.title}
+                </h3>
+                <div className="flex items-center gap-2 text-white font-bold text-sm opacity-0 transform translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                  {study.ctaText} <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
             </div>
-            <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white group-hover:text-[var(--color-primary)]">
-              Migración a Fibra Óptica
-            </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              Connect Patagonia - Bariloche
-            </p>
-            <span className="mt-2 inline-flex items-center text-sm font-medium text-[var(--color-primary)]">
-              Ver Caso
-            </span>
-          </div>
-          {/* Case Study 2 */}
-          <div className="group cursor-pointer">
-            <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
-              <Image
-                src="/redwisp.jpg"
-                alt="Torre de antena inalámbrica en la montaña"
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white group-hover:text-[var(--color-primary)]">
-              Optimización de Red WISP
-            </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              Andes Link - Cobertura Regional
-            </p>
-            <span className="mt-2 inline-flex items-center text-sm font-medium text-[var(--color-primary)]">
-              Ver Caso
-            </span>
-          </div>
-          {/* Case Study 3 */}
-          <div className="group cursor-pointer">
-            <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
-              <Image
-                src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop"
-                alt="Sala de reuniones corporativa con diagrama de red"
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-            <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white group-hover:text-[var(--color-primary)]">
-              Reingeniería de Core
-            </h3>
-            <p className="text-sm text-slate-500 dark:text-slate-400">
-              SurNet - Actualización de Infraestructura
-            </p>
-            <span className="mt-2 inline-flex items-center text-sm font-medium text-[var(--color-primary)]">
-              Ver Caso
-            </span>
-          </div>
+          ))}
+        </div>
+
+        <div className="mt-8 text-center md:hidden">
+          <Link
+            href="/contacto"
+            className="inline-flex items-center gap-2 font-bold text-[var(--color-primary)]"
+          >
+            {content.linkText} <ArrowRight className="w-5 h-5" />
+          </Link>
         </div>
       </div>
     </section>

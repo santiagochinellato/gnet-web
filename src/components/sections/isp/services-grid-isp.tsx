@@ -1,92 +1,72 @@
 "use client";
 
-import { Headset, Globe, Server, Shield, PcCase } from "lucide-react";
-import { cn } from "@/lib/utils";
+import {
+  Headset,
+  Globe,
+  Server,
+  Shield,
+  PcCase,
+  BadgeCheck,
+} from "lucide-react";
+import { ISPContent } from "@/types/content";
 
-export function ServicesGridISP() {
+const iconMap = {
+  Headset,
+  Globe,
+  Server,
+  Shield,
+  PcCase,
+  BadgeCheck,
+};
+
+export function ServicesGridISP({
+  content,
+}: {
+  content: ISPContent["services"];
+}) {
   return (
-    <section className="pb-24 pt-20 bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Nuestros Servicios Principales
+    <section
+      className="py-20 md:py-28 bg-slate-50 dark:bg-slate-900 transition-colors duration-300"
+      id="services"
+    >
+      <div className="container mx-auto px-4 md:px-10 max-w-7xl">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="text-[var(--color-primary)] font-bold tracking-wider text-sm uppercase">
+            Nuestros Servicios
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white mt-2 mb-6">
+            {content.title}
           </h2>
-          <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            Soluciones punta a punta diseñadas específicamente para los desafíos
-            únicos de los ISPs regionales.
+          <p className="text-lg text-slate-600 dark:text-slate-300">
+            {content.description}
           </p>
         </div>
 
-        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
-          {/* 1. Call Center */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg md:col-span-2 lg:col-span-2 items-center md:items-start">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-[var(--color-primary)]">
-              <Headset className="w-6 h-6" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white text-center md:text-left">
-              Call Center Especializado
-            </h3>
-            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed text-center md:text-left">
-              Atención de incidencias, configuración remota de abonados y
-              creación de tickets detallados para tus técnicos.
-            </p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {content.items.map((service, index) => {
+            const Icon =
+              iconMap[service.iconName as keyof typeof iconMap] || Globe;
 
-          {/* 2. Engineering */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg md:col-span-2 lg:col-span-1 border-l-4 border-l-[var(--color-primary)]/80 items-center md:items-start">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-[var(--color-primary)]">
-              <Globe className="w-6 h-6" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white text-center md:text-left">
-              Ingeniería & Diseño de Red
-            </h3>
-            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed text-center md:text-left">
-              Diseño de topologías, soluciones llave en mano, auditorías y
-              estrategias de Alta Disponibilidad para evitar caídas.
-            </p>
-          </div>
+            const isFirst = index === 0;
+            const colSpan = isFirst ? "md:col-span-2" : "md:col-span-1";
 
-          {/* 3. Virtualization */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg items-center md:items-start">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">
-              <Server className="w-6 h-6" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white text-center md:text-left">
-              Virtualización & Cloud
-            </h3>
-            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed text-center md:text-left">
-              Administración de servidores, migración a entornos virtuales y
-              optimización de infraestructura.
-            </p>
-          </div>
-
-          {/* 4. Security */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg items-center md:items-start">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">
-              <Shield className="w-6 h-6" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white text-center md:text-left">
-              Seguridad & QoS
-            </h3>
-            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed text-center md:text-left">
-              Políticas avanzadas de tráfico, VPNs seguras y automatización de
-              procesos diarios.
-            </p>
-          </div>
-
-          {/* 5. Lab */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg items-center md:items-start">
-            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">
-              <PcCase className="w-6 h-6" />
-            </div>
-            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white text-center md:text-left">
-              Laboratorio de Hardware
-            </h3>
-            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed text-center md:text-left">
-              Reparación de antenas, paneles y servidores. Mantenimiento
-              preventivo multimarca.
-            </p>
-          </div>
+            return (
+              <div
+                key={index}
+                className={`group relative bg-white dark:bg-slate-950 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 ${colSpan}`}
+              >
+                <div className="mb-6 inline-flex p-4 rounded-xl bg-[var(--color-primary)]/10 text-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-white transition-colors duration-300">
+                  <Icon className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-[var(--color-primary)] transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                  {service.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

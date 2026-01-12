@@ -1,7 +1,9 @@
 import { CheckCircle } from "lucide-react";
 import Link from "next/link";
+import { PricingSection } from "@/types/content";
+import { cn } from "@/lib/utils";
 
-export function PricingPlans() {
+export function PricingPlans({ content }: { content: PricingSection }) {
   return (
     <section
       className="py-20 bg-white dark:bg-slate-950 transition-colors duration-300"
@@ -10,140 +12,109 @@ export function PricingPlans() {
       <div className="container mx-auto px-4 md:px-10 max-w-7xl">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <span className="text-[var(--color-secondary)] font-bold tracking-wider text-sm uppercase">
-            Nuestros Planes
+            {content.badge}
           </span>
           <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mt-2 mb-4">
-            Conectividad a tu medida
+            {content.title}
           </h2>
           <p className="text-slate-600 dark:text-slate-300">
-            Elegí la velocidad que necesitás para tu casa, tu cabaña turística o
-            tu negocio.
+            {content.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* HOGAR */}
-          <div className="relative group flex flex-col rounded-2xl border border-gray-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 hover:border-[var(--color-primary)] transition-all duration-300 hover:shadow-xl hover:shadow-[var(--color-primary)]/10">
-            <div className="absolute top-0 right-0 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">
-              POPULAR
-            </div>
-            <div className="mb-6">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Hogar
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
-                Para familias y home office.
-              </p>
-            </div>
-            <div className="mb-6">
-              <span className="text-4xl font-black text-gray-900 dark:text-white">
-                $15.000
-              </span>
-              <span className="text-gray-500 dark:text-slate-400 font-medium">
-                /mes
-              </span>
-            </div>
-            <ul className="flex-1 space-y-4 mb-8">
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-primary)] w-5 h-5 flex-shrink-0" />
-                <span>100 Mbps Simétricos</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-primary)] w-5 h-5 flex-shrink-0" />
-                <span>Instalación Bonificada</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-primary)] w-5 h-5 flex-shrink-0" />
-                <span>Router WiFi 6 incluido</span>
-              </li>
-            </ul>
-            <Link
-              href="/planes?tab=hogar"
-              className="w-full block text-center py-3 px-4 bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 font-bold rounded-lg hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all cursor-pointer"
-            >
-              Ver Detalles
-            </Link>
-          </div>
+          {content.plans.map((plan, index) => {
+            const isSecondary = plan.color === "secondary";
+            const borderColor = isSecondary
+              ? "border-[var(--color-secondary)]/30 dark:border-[var(--color-secondary)]/10"
+              : "border-gray-200 dark:border-slate-800";
+            const hoverBorder = isSecondary
+              ? "hover:border-[var(--color-secondary)]"
+              : "hover:border-[var(--color-primary)]";
+            const hoverShadow = isSecondary
+              ? "hover:shadow-[var(--color-secondary)]/10"
+              : "hover:shadow-[var(--color-primary)]/10";
+            const bgClass = isSecondary
+              ? "bg-gradient-to-b from-[var(--color-secondary)]/5 to-transparent dark:from-[var(--color-secondary)]/10"
+              : "bg-slate-50 dark:bg-slate-900";
 
-          {/* TURISMO / SHORT TERM */}
-          <div className="relative group flex flex-col rounded-2xl border border-[var(--color-secondary)]/30 dark:border-[var(--color-secondary)]/10 bg-gradient-to-b from-[var(--color-secondary)]/5 to-transparent dark:from-[var(--color-secondary)]/10 p-8 hover:border-[var(--color-secondary)] transition-all duration-300 hover:shadow-xl hover:shadow-[var(--color-secondary)]/10">
-            <div className="absolute top-0 right-0 bg-[var(--color-secondary)] text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">
-              TURISMO
-            </div>
-            <div className="mb-6">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Short Term
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
-                Ideal alquileres temporarios.
-              </p>
-            </div>
-            <div className="mb-6">
-              <span className="text-4xl font-black text-gray-900 dark:text-white">
-                $10.000
-              </span>
-              <span className="text-gray-500 dark:text-slate-400 font-medium">
-                /semana
-              </span>
-            </div>
-            <ul className="flex-1 space-y-4 mb-8">
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-secondary)] w-5 h-5 flex-shrink-0" />
-                <span>50 Mbps</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-secondary)] w-5 h-5 flex-shrink-0" />
-                <span>Sin Contrato Fijo</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-secondary)] w-5 h-5 flex-shrink-0" />
-                <span>Activación inmediata</span>
-              </li>
-            </ul>
-            <Link
-              href="/planes?tab=turista"
-              className="w-full block text-center py-3 px-4 bg-[var(--color-secondary)] text-white font-bold rounded-lg hover:bg-cyan-600 shadow-lg shadow-cyan-500/30 transition-all cursor-pointer"
-            >
-              Contratar Ahora
-            </Link>
-          </div>
+            // Button styles
+            const btnClass = isSecondary
+              ? "bg-[var(--color-secondary)] text-white hover:bg-cyan-600 shadow-lg shadow-cyan-500/30"
+              : "bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)]";
 
-          {/* EMPRESAS */}
-          <div className="relative group flex flex-col rounded-2xl border border-gray-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 hover:border-[var(--color-primary)] transition-all duration-300 hover:shadow-xl hover:shadow-[var(--color-primary)]/10">
-            <div className="mb-6">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
-                Empresas
-              </h3>
-              <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
-                Soluciones corporativas.
-              </p>
-            </div>
-            <div className="mb-6">
-              <span className="text-4xl font-black text-gray-900 dark:text-white">
-                A Medida
-              </span>
-            </div>
-            <ul className="flex-1 space-y-4 mb-8">
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-primary)] w-5 h-5 flex-shrink-0" />
-                <span>Hasta 1 Gbps</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-primary)] w-5 h-5 flex-shrink-0" />
-                <span>IP Fija Disponible</span>
-              </li>
-              <li className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300">
-                <CheckCircle className="text-[var(--color-primary)] w-5 h-5 flex-shrink-0" />
-                <span>SLA Garantizado</span>
-              </li>
-            </ul>
-            <Link
-              href="/planes?tab=comercios"
-              className="w-full block text-center py-3 px-4 bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 font-bold rounded-lg hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all cursor-pointer"
-            >
-              Contactar Asesor
-            </Link>
-          </div>
+            return (
+              <div
+                key={index}
+                className={cn(
+                  "relative group flex flex-col rounded-2xl border p-8 transition-all duration-300 hover:shadow-xl",
+                  borderColor,
+                  hoverBorder,
+                  hoverShadow,
+                  bgClass
+                )}
+              >
+                {plan.badge && (
+                  <div
+                    className={cn(
+                      "absolute top-0 right-0 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl",
+                      isSecondary
+                        ? "bg-[var(--color-secondary)]"
+                        : "bg-[var(--color-primary)]"
+                    )}
+                  >
+                    {plan.badge}
+                  </div>
+                )}
+                <div className="mb-6">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                    {plan.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
+                    {plan.description}
+                  </p>
+                </div>
+                <div className="mb-6">
+                  <span className="text-4xl font-black text-gray-900 dark:text-white">
+                    {plan.price}
+                  </span>
+                  {plan.period && (
+                    <span className="text-gray-500 dark:text-slate-400 font-medium">
+                      {" "}
+                      {plan.period}
+                    </span>
+                  )}
+                </div>
+                <ul className="flex-1 space-y-4 mb-8">
+                  {plan.features.map((feature, i) => (
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-sm text-gray-700 dark:text-slate-300"
+                    >
+                      <CheckCircle
+                        className={cn(
+                          "w-5 h-5 flex-shrink-0",
+                          isSecondary
+                            ? "text-[var(--color-secondary)]"
+                            : "text-[var(--color-primary)]"
+                        )}
+                      />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href={plan.ctaLink}
+                  className={cn(
+                    "w-full block text-center py-3 px-4 font-bold rounded-lg transition-all cursor-pointer",
+                    btnClass
+                  )}
+                >
+                  {plan.ctaText}
+                </Link>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,42 +1,34 @@
 "use client";
 
 import Link from "next/link";
+import { ISPContent } from "@/types/content";
 
-export function CTAISP() {
+export function CTAISP({ content }: { content: ISPContent["cta"] }) {
   return (
-    <section className="bg-slate-50 dark:bg-slate-950 py-12 transition-colors duration-300">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-2xl bg-slate-900 px-6 py-16 text-center shadow-2xl sm:px-12 lg:px-16">
-          <div className="relative z-10 mx-auto max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              ¿Listo para potenciar tu ISP?
-            </h2>
-            <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-              Sumate a más de 50 ISPs regionales que confían en Gnet para su
-              ingeniería y soporte técnico.
-            </p>
-            <div className="mt-8 flex justify-center gap-4">
-              <Link
-                href="/contacto"
-                className="rounded-lg bg-[var(--color-primary)] px-6 py-3 text-base font-bold text-white hover:bg-blue-600 transition-colors cursor-pointer"
-              >
-                Solicitar Presupuesto
-              </Link>
-              <button className="rounded-lg bg-white/10 px-6 py-3 text-base font-bold text-white hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/10 cursor-pointer">
-                Contactar Ventas
-              </button>
-            </div>
-          </div>
-          {/* Decorative pattern */}
-          <div className="absolute top-0 left-0 h-full w-full opacity-10">
-            <svg
-              className="h-full w-full"
-              preserveAspectRatio="none"
-              viewBox="0 0 100 100"
-            >
-              <path d="M0 100 C 20 0 50 0 100 100 Z" fill="white"></path>
-            </svg>
-          </div>
+    <section className="py-20 bg-slate-900 overflow-hidden relative">
+      <div className="absolute inset-0 bg-[var(--color-primary)]/10"></div>
+      <div className="absolute -top-40 -right-40 w-96 h-96 bg-[var(--color-primary)]/20 rounded-full blur-3xl"></div>
+
+      <div className="container mx-auto px-4 text-center relative z-10">
+        <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+          {content.title}
+        </h2>
+        <p className="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
+          {content.text}
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            href={content.ctaPrimary.link}
+            className="px-8 py-4 bg-white text-[var(--color-primary)] font-bold rounded-xl hover:bg-blue-50 transition-all shadow-lg hover:-translate-y-1"
+          >
+            {content.ctaPrimary.text}
+          </Link>
+          <Link
+            href={content.ctaSecondary.link}
+            className="px-8 py-4 bg-transparent border border-white/30 text-white font-bold rounded-xl hover:bg-white/10 transition-all hover:-translate-y-1"
+          >
+            {content.ctaSecondary.text}
+          </Link>
         </div>
       </div>
     </section>

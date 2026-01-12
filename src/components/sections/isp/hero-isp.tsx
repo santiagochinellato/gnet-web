@@ -1,28 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { BadgeCheck, Calendar, FileText, Server } from "lucide-react";
+import { BadgeCheck } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { ISPContent } from "@/types/content";
 
-interface HeroISPProps {
-  title?: string;
-  subtitle?: string;
-  badge?: string;
-}
-
-// Workaround for Next.js 16 + React 19 type mismatch
-const NextImage = Image as any;
-
-export function HeroISP({
-  title = "Scale Your Network Infrastructure",
-  subtitle = "Premium B2B consulting and engineering for Internet Service Providers.",
-  badge = "Certified ISP Solutions Partner",
-}: HeroISPProps) {
+export function HeroISP({ content }: { content: ISPContent["hero"] }) {
   return (
     <section className="relative bg-slate-900 py-20 lg:py-32 overflow-hidden">
-      {/* Background Image with Overlay - Matched to Home */}
+      {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -44,7 +31,7 @@ export function HeroISP({
               className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-blue-300 backdrop-blur-sm border border-white/10"
             >
               <BadgeCheck className="w-4 h-4" />
-              {badge}
+              {content.badge}
             </motion.div>
 
             <motion.h1
@@ -53,7 +40,7 @@ export function HeroISP({
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              {title}
+              {content.title}
             </motion.h1>
 
             <motion.p
@@ -62,52 +49,45 @@ export function HeroISP({
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-2xl text-lg text-slate-300 sm:text-xl leading-relaxed"
             >
-              {subtitle}
+              {content.subtitle}
             </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start"
+              className="flex flex-col sm:flex-row gap-4"
             >
               <Link
-                href="/contacto"
-                className="flex items-center gap-2 rounded-lg bg-[var(--color-primary)] px-6 py-3.5 text-base font-bold text-white hover:bg-blue-600 transition-all shadow-lg shadow-blue-500/30"
+                href={content.ctaPrimary.link}
+                className="inline-flex items-center justify-center rounded-lg bg-[var(--color-primary)] px-8 py-4 text-base font-bold text-white shadow-lg shadow-blue-500/20 transition-all hover:bg-blue-600 hover:shadow-blue-500/40 hover:-translate-y-1"
               >
-                <Calendar className="w-5 h-5" />
-                Schedule Consultation
+                {content.ctaPrimary.text}
               </Link>
-              <button className="flex items-center gap-2 rounded-lg bg-white/10 px-6 py-3.5 text-base font-bold text-white hover:bg-white/20 transition-all backdrop-blur-sm border border-white/10">
-                <FileText className="w-5 h-5" />
-                View Case Studies
-              </button>
+              <Link
+                href={content.ctaSecondary.link}
+                className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:-translate-y-1"
+              >
+                {content.ctaSecondary.text}
+              </Link>
             </motion.div>
           </div>
 
-          {/* Decorative Logo Area */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="hidden lg:flex flex-1 justify-end items-center opacity-80 mix-blend-screen"
-          >
-            <div className="relative p-10 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm text-center transform scale-100 hover:scale-105 transition-transform duration-500">
-              <p className="text-white/60 text-base font-mono mb-6 tracking-widest uppercase">
-                Technology Partners
-              </p>
-              <div className="flex items-center justify-center gap-8 text-white/80 font-bold text-2xl tracking-tighter">
-                <div className="relative h-20 w-80 opacity-90 transition-opacity hover:opacity-100">
-                  <NextImage
-                    src="/ubiquiti.png"
-                    alt="Ubiquiti Networks"
-                    fill
-                    className="object-contain brightness-0 invert"
-                  />
-                </div>
+          <div className="relative p-10 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm text-center transform scale-100 hover:scale-105 transition-transform duration-500">
+            <p className="text-white/60 text-base font-mono mb-6 tracking-widest uppercase">
+              Technology Partners
+            </p>
+            <div className="flex items-center justify-center gap-8 text-white/80 font-bold text-2xl tracking-tighter">
+              <div className="relative h-20 w-80 opacity-90 transition-opacity hover:opacity-100">
+                <Image
+                  src="/ubiquiti.png"
+                  alt="Ubiquiti Networks"
+                  fill
+                  className="object-contain brightness-0 invert"
+                />
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

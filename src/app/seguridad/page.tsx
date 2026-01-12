@@ -10,11 +10,11 @@ export default function SecurityPage() {
   const content = getSiteContent();
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 flex flex-col font-display transition-colors duration-300">
-      <HeroSecurity />
-      <SolutionsTabs />
-      <ServicesGridSecurity />
-      <GallerySecurity />
-      <ComparisonTableSecurity />
+      <HeroSecurity content={content.security.hero} />
+      <SolutionsTabs content={content.security.solutions} />
+      <ServicesGridSecurity content={content.security.services} />
+      <GallerySecurity content={content.security.gallery} />
+      <ComparisonTableSecurity content={content.security.comparison} />
       <Footer content={content.footer} />
     </main>
   );

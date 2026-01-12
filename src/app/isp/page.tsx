@@ -6,19 +6,15 @@ import { CTAISP } from "@/components/sections/isp/cta-isp";
 import { Footer } from "@/components/layout/footer";
 import { getSiteContent } from "@/lib/content";
 
-export default function ISPPage() {
-  const content = getSiteContent();
+export default async function ISPPage() {
+  const content = await getSiteContent();
   return (
-    <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <HeroISP
-        badge="Servicios B2B"
-        title="Soluciones Integrales para ISP, WISP y FTTH"
-        subtitle="Delegá la complejidad técnica. Nos ocupamos desde la atención a tus abonados hasta la ingeniería de tu backbone, para que vos te enfoques en crecer."
-      />
-      <StatsISP />
-      <ServicesGridISP />
-      <CaseStudiesISP />
-      <CTAISP />
+    <main className="min-h-screen bg-slate-50 dark:bg-black overflow-x-hidden">
+      <HeroISP content={content.isp.hero} />
+      <StatsISP content={content.isp.stats} />
+      <ServicesGridISP content={content.isp.services} />
+      <CaseStudiesISP content={content.isp.caseStudies} />
+      <CTAISP content={content.isp.cta} />
       <Footer content={content.footer} />
     </main>
   );

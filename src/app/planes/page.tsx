@@ -12,7 +12,7 @@ export default function PlanesPage() {
           <div className="min-h-screen bg-slate-50 dark:bg-slate-950" />
         }
       >
-        <PlanesContent />
+        <PlanesContent content={content.planes} />
       </Suspense>
       <Footer content={content.footer} />
     </main>

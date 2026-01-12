@@ -20,19 +20,19 @@ export default function Home() {
       <FeaturesBento content={content.features} />
 
       {/* 3. Pricing Plans */}
-      <PricingPlans />
+      <PricingPlans content={content.pricing} />
 
       {/* 4. Coverage Map */}
-      <CoverageMapSection />
+      <CoverageMapSection content={content.coverage} />
 
       {/* 5. FAQ */}
-      <FAQSection />
+      <FAQSection content={content.faq} />
 
       {/* 6. Testimonials */}
-      <TestimonialsSection />
+      <TestimonialsSection content={content.testimonials} />
 
       {/* 7. CTA Highlight */}
-      <CTAHighlight />
+      <CTAHighlight content={content.ctaHighlight} />
 
       {/* 8. Footer */}
       <Footer content={content.footer} />
