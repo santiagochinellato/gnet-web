@@ -1,7 +1,26 @@
-import { SectionWrapper } from "@/components/ui/section-wrapper";
-import { ArrowRight, Headset, Zap, ShieldCheck, FileText } from "lucide-react";
+import {
+  ArrowRight,
+  Headset,
+  Zap,
+  ShieldCheck,
+  FileText,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { FeaturesContent } from "@/types/content";
 
-export function FeaturesBento() {
+const iconMap = {
+  Headset,
+  Zap,
+  ShieldCheck,
+  FileText,
+  Phone,
+  Mail,
+  MapPin,
+};
+
+export function FeaturesBento({ content }: { content: FeaturesContent }) {
   return (
     <section className="relative py-20 overflow-hidden bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <div className="absolute inset-0">
@@ -15,87 +34,67 @@ export function FeaturesBento() {
           {/* Sticky Column */}
           <div className="flex-1 md:sticky md:top-24 items-center md:items-start flex flex-col ">
             <h2 className="text-[var(--color-primary)] text-sm font-bold uppercase tracking-widest mb-2 text-center md:text-left">
-              Diferenciales
+              {content.sectionTitle}
             </h2>
-            <h3 className="text-3xl md:text-4xl font-black text-[#0e151b] dark:text-white mb-6 leading-tight text-center md:text-left">
-              Lo que nos hace <br /> diferentes en la zona
-            </h3>
+            <h3
+              className="text-3xl md:text-4xl font-black text-[#0e151b] dark:text-white mb-6 leading-tight text-center md:text-left"
+              dangerouslySetInnerHTML={{ __html: content.headline }}
+            />
             <p className="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed text-center md:text-left">
-              Entendemos los desafíos geográficos de Bariloche. Por eso
-              diseñamos una red robusta preparada para la nieve, el viento y la
-              montaña.
+              {content.description}
             </p>
             <button className="group flex items-center gap-2 text-[var(--color-primary)] font-bold hover:text-[var(--color-secondary)] transition-colors text-center md:text-left">
-              Conocé nuestra tecnología
+              {content.ctaText}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
 
           {/* Grid Column */}
           <div className="flex-[1.5] grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
-            {/* Card 1 */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-all group items-center md:items-start">
-              <div className="size-12 rounded-xl bg-[var(--color-primary)]/10 dark:bg-slate-800 flex items-center justify-center text-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-white transition-colors ">
-                <Headset className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 text-center md:text-left">
-                  Soporte Local Real
-                </h4>
-                <p className="text-sm text-gray-600 dark:text-slate-400 text-center md:text-left">
-                  Atención inmediata desde el centro de Bariloche. Nada de call
-                  centers remotos.
-                </p>
-              </div>
-            </div>
+            {content.items.map((item, index) => {
+              const Icon = iconMap[item.iconName];
 
-            {/* Card 2 */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-all group items-center md:items-start">
-              <div className="size-12 rounded-xl bg-[var(--color-secondary)]/10 dark:bg-slate-800 flex items-center justify-center text-[var(--color-secondary)] group-hover:bg-[var(--color-secondary)] group-hover:text-white transition-colors">
-                <Zap className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 text-center md:text-left">
-                  Fibra Óptica Pura
-                </h4>
-                <p className="text-sm text-gray-600 dark:text-slate-400">
-                  Velocidad simétrica sin cortes ni interrupciones, ideal para
-                  streaming y gaming.
-                </p>
-              </div>
-            </div>
+              // Determine styles based on index or just simple pattern?
+              // Original code had different colors for each card.
+              // Card 1: Primary (Headset)
+              // Card 2: Secondary (Zap)
+              // Card 3: Purple (ShieldCheck)
+              // Card 4: Orange (FileText)
+              // I will attempt to restore this based on iconName or index.
 
-            {/* Card 3 */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-all group  items-center md:items-start">
-              <div className="size-12 rounded-xl bg-purple-100 dark:bg-slate-800 flex items-center justify-center text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
-                <ShieldCheck className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 text-center md:text-left">
-                  Seguridad Integrada
-                </h4>
-                <p className="text-sm text-gray-600 dark:text-slate-400 text-center md:text-left">
-                  Monitoreo y sistemas de alarma que se integran perfectamente a
-                  tu servicio.
-                </p>
-              </div>
-            </div>
+              let colors =
+                "bg-[var(--color-primary)]/10 text-[var(--color-primary)] group-hover:bg-[var(--color-primary)] group-hover:text-white";
+              if (item.iconName === "Zap")
+                colors =
+                  "bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] group-hover:bg-[var(--color-secondary)] group-hover:text-white";
+              if (item.iconName === "ShieldCheck")
+                colors =
+                  "bg-purple-100 dark:bg-slate-800 text-purple-600 group-hover:bg-purple-600 group-hover:text-white";
+              if (item.iconName === "FileText")
+                colors =
+                  "bg-orange-100 dark:bg-slate-800 text-orange-600 group-hover:bg-orange-500 group-hover:text-white";
 
-            {/* Card 4 */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-all group items-center md:items-start">
-              <div className="size-12 rounded-xl bg-orange-100 dark:bg-slate-800 flex items-center justify-center text-orange-600 group-hover:bg-orange-500 group-hover:text-white transition-colors">
-                <FileText className="w-8 h-8" />
-              </div>
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 text-center md:text-left">
-                  Sin Letra Chica
-                </h4>
-                <p className="text-sm text-gray-600 dark:text-slate-400 text-center md:text-left">
-                  Precios claros en pesos y contratos transparentes desde el día
-                  uno.
-                </p>
-              </div>
-            </div>
+              return (
+                <div
+                  key={index}
+                  className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 rounded-2xl flex flex-col gap-4 shadow-sm hover:shadow-md transition-all group items-center md:items-start"
+                >
+                  <div
+                    className={`size-12 rounded-xl flex items-center justify-center transition-colors ${colors}`}
+                  >
+                    <Icon className="w-8 h-8" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-1 text-center md:text-left">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-slate-400 text-center md:text-left">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </div>

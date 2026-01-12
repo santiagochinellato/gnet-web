@@ -7,17 +7,9 @@ import { cn } from "@/lib/utils";
 import { Menu, X, Phone, UserCircle } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { NavLink } from "@/types/content";
 
-const navLinks = [
-  { name: "Inicio", href: "/" },
-  { name: "Planes", href: "/planes" },
-  { name: "Cobertura", href: "/#cobertura" },
-  { name: "Seguridad Electrónica", href: "/seguridad" },
-  { name: "Servicios ISP", href: "/isp" },
-  { name: "Contacto", href: "/contacto" },
-];
-
-export function Navbar() {
+export function Navbar({ links }: { links: NavLink[] }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -56,9 +48,9 @@ export function Navbar() {
 
         {/* DESKTOP LINKS */}
         <nav className="hidden xl:flex items-center gap-6">
-          {navLinks.map((link) => (
+          {links.map((link) => (
             <Link
-              key={link.name}
+              key={link.label}
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
@@ -67,7 +59,7 @@ export function Navbar() {
                   : "text-white drop-shadow-md"
               )}
             >
-              {link.name}
+              {link.label}
             </Link>
           ))}
         </nav>
@@ -108,14 +100,14 @@ export function Navbar() {
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-white border-b border-slate-200 p-4 shadow-xl xl:hidden animate-in slide-in-from-top-2">
           <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
+            {links.map((link) => (
               <Link
-                key={link.name}
+                key={link.label}
                 href={link.href}
                 className="text-lg font-semibold text-slate-800 py-3 border-b border-slate-100 last:border-0"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                {link.name}
+                {link.label}
               </Link>
             ))}
             <div className="flex flex-col gap-3 mt-2">

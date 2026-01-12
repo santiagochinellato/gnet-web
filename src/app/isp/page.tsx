@@ -4,12 +4,12 @@ import { ServicesGridISP } from "@/components/sections/isp/services-grid-isp";
 import { CaseStudiesISP } from "@/components/sections/isp/case-studies-isp";
 import { CTAISP } from "@/components/sections/isp/cta-isp";
 import { Footer } from "@/components/layout/footer";
-import { Navbar } from "@/components/layout/navbar";
+import { getSiteContent } from "@/lib/content";
 
 export default function ISPPage() {
+  const content = getSiteContent();
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <Navbar />
       <HeroISP
         badge="Servicios B2B"
         title="Soluciones Integrales para ISP, WISP y FTTH"
@@ -19,7 +19,7 @@ export default function ISPPage() {
       <ServicesGridISP />
       <CaseStudiesISP />
       <CTAISP />
-      <Footer />
+      <Footer content={content.footer} />
     </main>
   );
 }

@@ -1,14 +1,13 @@
-import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ContactCards } from "@/components/sections/contact/contact-cards";
 import { ContactForm } from "@/components/sections/contact/contact-form";
 import { ContactSidebar } from "@/components/sections/contact/contact-sidebar";
+import { getSiteContent } from "@/lib/content";
 
 export default function ContactPage() {
+  const content = getSiteContent();
   return (
     <main className="min-h-screen bg-white dark:bg-slate-950 flex flex-col font-display transition-colors duration-300">
-      <Navbar />
-
       <section className="flex-1 bg-slate-50 dark:bg-slate-950/50 pt-16">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           {/* Page Heading */}
@@ -32,7 +31,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer content={content.footer} />
     </main>
   );
 }

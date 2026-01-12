@@ -1,0 +1,74 @@
+{
+  "navigation": [
+    { "label": "Inicio", "href": "/" },
+    { "label": "Cobertura", "href": "/#cobertura" },
+    { "label": "Planes", "href": "/planes" },
+    { "label": "Seguridad Electrónica", "href": "/seguridad" },
+    { "label": "Servicios ISP", "href": "/isp" },
+    { "label": "Contacto", "href": "/contacto" }
+  ],
+  "hero": {
+    "title": "Internet de Alta <br /> Velocidad que",
+    "highlight": "sí funciona",
+    "description": "Conexión estable de fibra óptica y seguridad electrónica para tu hogar o empresa, sin cortes por el clima.",
+    "ctaText": "Ver nuestros planes",
+    "ctaLink": "/planes",
+    "imageSrc": "/hero.webp"
+  },
+  "features": {
+    "sectionTitle": "Diferenciales",
+    "headline": "Lo que nos hace <br /> diferentes en la zona",
+    "description": "Entendemos los desafíos geográficos de Bariloche. Por eso diseñamos una red robusta preparada para la nieve, el viento y la montaña.",
+    "ctaText": "Conocé nuestra tecnología",
+    "items": [
+      {
+        "iconName": "Headset",
+        "title": "Soporte Local Real",
+        "description": "Atención inmediata desde el centro de Bariloche. Nada de call centers remotos."
+      },
+      {
+        "iconName": "Zap",
+        "title": "Fibra Óptica Pura",
+        "description": "Velocidad simétrica sin cortes ni interrupciones, ideal para streaming y gaming."
+      },
+      {
+        "iconName": "ShieldCheck",
+        "title": "Seguridad Integrada",
+        "description": "Monitoreo y sistemas de alarma que se integran perfectamente a tu servicio."
+      },
+      {
+        "iconName": "FileText",
+        "title": "Sin Letra Chica",
+        "description": "Precios claros en pesos y contratos transparentes desde el día uno."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Conectando Bariloche con el mundo a través de la mejor tecnología de fibra óptica.",
+    "headings": {
+      "services": "Servicios",
+      "company": "Compañía",
+      "contact": "Contacto"
+    },
+    "servicesLinks": [
+      { "label": "Internet Hogar", "href": "#" },
+      { "label": "Internet Empresas", "href": "#" },
+      { "label": "Cámaras de Seguridad", "href": "#" }
+    ],
+    "companyLinks": [
+      { "label": "Nosotros", "href": "#" },
+      { "label": "Cobertura", "href": "/#cobertura" },
+      { "label": "Trabajá con nosotros", "href": "#" }
+    ],
+    "contactInfo": {
+      "phone": "+54 9 294-4335435",
+      "email": "hola@gnet.com.ar",
+      "address": "Mitre 123, Bariloche"
+    },
+    "copyright": "© 2024 Gnet Telecomunicaciones. Todos los derechos reservados.",
+    "legalLinks": [
+      { "label": "Términos y Condiciones", "href": "#" },
+      { "label": "Política de Privacidad", "href": "#" }
+    ]
+  }
+}

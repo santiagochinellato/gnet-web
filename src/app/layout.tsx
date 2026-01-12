@@ -30,11 +30,16 @@ export const metadata: Metadata = {
   },
 };
 
+import { getSiteContent } from "@/lib/content";
+
+// ... other imports ...
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const content = getSiteContent();
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
@@ -52,7 +57,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <SmoothScroll>
-            <Navbar />
+            <Navbar links={content.navigation} />
             {children}
             <Toaster
               position="top-right"

@@ -6,15 +6,18 @@ import { FAQSection } from "@/components/sections/faq-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { CTAHighlight } from "@/components/sections/cta-highlight";
 import { Footer } from "@/components/layout/footer";
+import { getSiteContent } from "@/lib/content";
 
 export default function Home() {
+  const content = getSiteContent();
+
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col font-display">
       {/* 1. Hero High Conversion */}
-      <HeroSection />
+      <HeroSection content={content.hero} />
 
       {/* 2. Features (Diferenciales) */}
-      <FeaturesBento />
+      <FeaturesBento content={content.features} />
 
       {/* 3. Pricing Plans */}
       <PricingPlans />
@@ -32,7 +35,7 @@ export default function Home() {
       <CTAHighlight />
 
       {/* 8. Footer */}
-      <Footer />
+      <Footer content={content.footer} />
     </main>
   );
 }
