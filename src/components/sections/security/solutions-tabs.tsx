@@ -44,7 +44,7 @@ export function SolutionsTabs({
                     "relative flex items-center justify-center rounded-full px-4 sm:px-6 py-2.5 text-sm font-bold transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]",
                     isActive
                       ? "text-[var(--color-primary)] dark:text-white"
-                      : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                   )}
                 >
                   {isActive && (

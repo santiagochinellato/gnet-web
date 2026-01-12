@@ -6,9 +6,11 @@ import { cn } from "@/lib/utils";
 export function BrandLogo({
   className,
   color = "black",
+  priority = true,
 }: {
   className?: string;
   color?: "black" | "white";
+  priority?: boolean;
 }) {
   return (
     <div className={cn("relative w-32 h-10 flex items-center", className)}>
@@ -20,7 +22,7 @@ export function BrandLogo({
         fill
         sizes="(max-width: 768px) 128px, 176px"
         className={cn("object-contain")}
-        priority // Eager load LCP image
+        priority={priority}
       />
     </div>
   );
