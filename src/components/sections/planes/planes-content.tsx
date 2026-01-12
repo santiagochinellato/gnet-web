@@ -217,7 +217,7 @@ function ComerciosContent() {
           Soluciones Corporativas
         </h3>
         <p className="text-slate-600 dark:text-slate-400 max-w-md mx-auto mb-8">
-          Ofrecemos enlaces dedicados, IP fija, y SLA garantizado para empresas
+          Ofrecemos enlaces dedicados, IP fija y SLA garantizado para empresas
           que requieren máxima disponibilidad.
         </p>
         <button className="rounded-lg bg-[var(--color-primary)] px-8 py-4 text-base font-bold text-white hover:bg-blue-600 transition-colors shadow-lg">
