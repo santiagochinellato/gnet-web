@@ -15,7 +15,7 @@ export function StatsISP() {
               500+
             </dd>
             <dt className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Tickets Resolved Monthly
+              Tickets Resueltos Mensualmente
             </dt>
           </div>
           <div className="flex flex-col items-center justify-center py-10 text-center sm:py-12">
@@ -26,7 +26,7 @@ export function StatsISP() {
               99.9%
             </dd>
             <dt className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Network Uptime Guarantee
+              Uptime de Red Garantizado
             </dt>
           </div>
           <div className="flex flex-col items-center justify-center py-10 text-center sm:py-12">
@@ -37,7 +37,7 @@ export function StatsISP() {
               10+
             </dd>
             <dt className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Years of ISP Experience
+              Años de Experiencia ISP
             </dt>
           </div>
         </div>

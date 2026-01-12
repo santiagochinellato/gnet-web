@@ -24,6 +24,16 @@
     0% { opacity: 0; transform: translateY(20px); }
     100% { opacity: 1; transform: translateY(0); }
   }
+
+  @keyframes latency-bar {
+    0%, 100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(0.7); opacity: 0.8; }
+  }
+}
+
+.animate-latency-bar {
+  transform-origin: bottom;
+  animation: latency-bar 2s infinite ease-in-out;
 }
 
 body {

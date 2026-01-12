@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckCircle2, Headset, HardHat, Wrench } from "lucide-react";
+import { Headset, Globe, Server, Shield, PcCase } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function ServicesGridISP() {
@@ -9,126 +9,83 @@ export function ServicesGridISP() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
-            Our Core Services
+            Nuestros Servicios Principales
           </h2>
           <p className="mt-4 text-lg text-slate-600 dark:text-slate-400">
-            End-to-end solutions designed specifically for the unique challenges
-            of regional ISPs.
+            Soluciones punta a punta diseñadas específicamente para los desafíos
+            únicos de los ISPs regionales.
           </p>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-3">
-          {/* Call Center Card */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:shadow-lg">
-            <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-[var(--color-primary)]">
+        <div className="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 auto-rows-fr">
+          {/* 1. Call Center */}
+          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg md:col-span-2 lg:col-span-2">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-[var(--color-primary)]">
               <Headset className="w-6 h-6" />
             </div>
             <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
-              ISP Call Center
+              Call Center Especializado
             </h3>
-            <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
-              Dedicated Level 1 & 2 support agents trained in ISP workflows.
+            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Atención de incidencias, configuración remota de abonados y
+              creación de tickets detallados para tus técnicos.
             </p>
-            <ul className="mb-8 space-y-3 text-sm text-slate-600 dark:text-slate-300 flex-1">
-              {[
-                "24/7 Level 1 Support",
-                "Ticket Management System",
-                "Customer Retention Strategy",
-                "Multi-language Agents",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <button className="mt-auto w-full rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-3 text-sm font-bold text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer">
-              Learn More
-            </button>
           </div>
 
-          {/* Engineering Card (Featured) */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border-2 border-[var(--color-primary)] bg-white dark:bg-slate-900 p-8 shadow-xl lg:-mt-4 lg:mb-4 scale-105 z-10">
-            <div className="absolute top-0 right-0 rounded-bl-xl bg-[var(--color-primary)] px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">
-              Comprehensive
-            </div>
-            <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-[var(--color-primary)] text-white">
-              <HardHat className="w-6 h-6" />
+          {/* 2. Engineering */}
+          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg md:col-span-2 lg:col-span-1 border-l-4 border-l-[var(--color-primary)]/80">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-[var(--color-primary)]">
+              <Globe className="w-6 h-6" />
             </div>
             <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
-              Engineering & Consulting
+              Ingeniería & Diseño de Red
             </h3>
-            <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
-              Expert network design and configuration for scale and stability.
+            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Diseño de topologías, soluciones llave en mano, auditorías y
+              estrategias de Alta Disponibilidad para evitar caídas.
             </p>
-            <ul className="mb-8 space-y-3 text-sm text-slate-600 dark:text-slate-300 flex-1 columns-1">
-              {[
-                "QoS & Traffic Shaping",
-                "VPN Tunneling & Security",
-                "IPv6 Migration",
-                "OSPF & BGP Routing",
-                "Zabbix/Dude Monitoring",
-                "Disaster Recovery Planning",
-                "Link Bonding",
-                "Hardware Configuration",
-                "Network Design",
-                "WISP Optimization",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <button className="mt-auto w-full rounded-lg bg-[var(--color-primary)] px-4 py-3 text-sm font-bold text-white hover:bg-blue-600 transition-colors shadow-md cursor-pointer">
-              View Capabilities
-            </button>
           </div>
 
-          {/* Equipment Repair Card */}
-          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-8 shadow-sm transition-all hover:shadow-lg">
-            <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 text-[var(--color-primary)]">
-              <Wrench className="w-6 h-6" />
+          {/* 3. Virtualization */}
+          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400">
+              <Server className="w-6 h-6" />
             </div>
             <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
-              Equipment Repair
+              Virtualización & Cloud
             </h3>
-            <p className="mb-6 text-sm text-slate-500 dark:text-slate-400">
-              Certified repair center for major networking hardware brands.
+            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Administración de servidores, migración a entornos virtuales y
+              optimización de infraestructura.
             </p>
-            <ul className="mb-8 space-y-3 text-sm text-slate-600 dark:text-slate-300 flex-1">
-              {[
-                "Authorized Service Center",
-                "Chip-level Repair",
-                "Firmware Recovery",
-                "Warranty Handling",
-                "Antenna Alignment",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mb-6 border-t border-dashed border-slate-200 dark:border-slate-800 pt-6">
-              <p className="mb-3 text-xs font-semibold uppercase tracking-wider text-slate-400">
-                Authorized Brands
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <span className="inline-flex items-center rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Mikrotik
-                </span>
-                <span className="inline-flex items-center rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Cisco
-                </span>
-                <span className="inline-flex items-center rounded bg-slate-100 dark:bg-slate-800 px-2 py-1 text-xs font-bold text-slate-700 dark:text-slate-300">
-                  Ubiquiti
-                </span>
-              </div>
+          </div>
+
+          {/* 4. Security */}
+          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400">
+              <Shield className="w-6 h-6" />
             </div>
-            <button className="mt-auto w-full rounded-lg bg-slate-100 dark:bg-slate-800 px-4 py-3 text-sm font-bold text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer">
-              Start Repair Ticket
-            </button>
+            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+              Seguridad & QoS
+            </h3>
+            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Políticas avanzadas de tráfico, VPNs seguras y automatización de
+              procesos diarios.
+            </p>
+          </div>
+
+          {/* 5. Lab */}
+          <div className="relative flex flex-col overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 shadow-sm transition-all hover:shadow-lg">
+            <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">
+              <PcCase className="w-6 h-6" />
+            </div>
+            <h3 className="mb-2 text-xl font-bold text-slate-900 dark:text-white">
+              Laboratorio de Hardware
+            </h3>
+            <p className="mb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Reparación de antenas, paneles y servidores. Mantenimiento
+              preventivo multimarca.
+            </p>
           </div>
         </div>
       </div>

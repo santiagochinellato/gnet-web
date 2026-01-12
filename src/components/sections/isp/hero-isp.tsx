@@ -3,9 +3,23 @@
 import { motion } from "framer-motion";
 import { BadgeCheck, Calendar, FileText, Server } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
-export function HeroISP() {
+interface HeroISPProps {
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+}
+
+// Workaround for Next.js 16 + React 19 type mismatch
+const NextImage = Image as any;
+
+export function HeroISP({
+  title = "Scale Your Network Infrastructure",
+  subtitle = "Premium B2B consulting and engineering for Internet Service Providers.",
+  badge = "Certified ISP Solutions Partner",
+}: HeroISPProps) {
   return (
     <section className="relative bg-slate-900 py-20 lg:py-32 overflow-hidden">
       {/* Background Image with Overlay - Matched to Home */}
@@ -13,7 +27,7 @@ export function HeroISP() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: 'url("/racks.webp")',
+            backgroundImage: 'url("/racks.jpg")',
           }}
         ></div>
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30"></div>
@@ -30,7 +44,7 @@ export function HeroISP() {
               className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3 py-1 text-sm font-medium text-blue-300 backdrop-blur-sm border border-white/10"
             >
               <BadgeCheck className="w-4 h-4" />
-              Certified ISP Solutions Partner
+              {badge}
             </motion.div>
 
             <motion.h1
@@ -39,10 +53,7 @@ export function HeroISP() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              Scale Your{" "}
-              <span className="text-[var(--color-primary)]">
-                Network Infrastructure
-              </span>
+              {title}
             </motion.h1>
 
             <motion.p
@@ -51,9 +62,7 @@ export function HeroISP() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-2xl text-lg text-slate-300 sm:text-xl leading-relaxed"
             >
-              Premium B2B consulting and engineering for Internet Service
-              Providers. We optimize your backbone, manage your support, and
-              repair your critical hardware.
+              {subtitle}
             </motion.p>
 
             <motion.div
@@ -83,14 +92,18 @@ export function HeroISP() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="hidden lg:flex flex-1 justify-end items-center opacity-80 mix-blend-screen"
           >
-            <div className="relative p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm text-center">
-              <p className="text-white/60 text-sm font-mono mb-4 tracking-widest uppercase">
+            <div className="relative p-10 rounded-2xl bg-gradient-to-br from-white/5 to-white/0 border border-white/10 backdrop-blur-sm text-center transform scale-100 hover:scale-105 transition-transform duration-500">
+              <p className="text-white/60 text-base font-mono mb-6 tracking-widest uppercase">
                 Technology Partners
               </p>
               <div className="flex items-center justify-center gap-8 text-white/80 font-bold text-2xl tracking-tighter">
-                <div className="flex items-center gap-2">
-                  <Server className="w-10 h-10" />
-                  UBIQUITI
+                <div className="relative h-20 w-80 opacity-90 transition-opacity hover:opacity-100">
+                  <NextImage
+                    src="/ubiquiti.png"
+                    alt="Ubiquiti Networks"
+                    fill
+                    className="object-contain brightness-0 invert"
+                  />
                 </div>
               </div>
             </div>

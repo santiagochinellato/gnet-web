@@ -11,17 +11,17 @@ export function CaseStudiesISP() {
         <div className="mb-12 flex items-end justify-between">
           <div>
             <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Recent Case Studies
+              Casos de Éxito
             </h2>
             <p className="mt-2 text-lg text-slate-600 dark:text-slate-400">
-              See how we help other ISPs succeed.
+              Descubrí cómo potenciamos a otros proveedores de internet.
             </p>
           </div>
           <Link
             href="#"
             className="hidden items-center gap-1 text-sm font-semibold text-[var(--color-primary)] hover:text-blue-600 sm:flex"
           >
-            View all projects <ArrowRight className="w-4 h-4" />
+            Ver todos los proyectos <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -30,19 +30,19 @@ export function CaseStudiesISP() {
             <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
               <Image
                 src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?q=80&w=800&auto=format&fit=crop"
-                alt="Technician working on a fiber optic distribution box outdoors"
+                alt="Técnico trabajando en caja de distribución de fibra óptica"
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white group-hover:text-[var(--color-primary)]">
-              Fiber Migration Project
+              Migración a Fibra Óptica
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400">
               Connect Patagonia - Bariloche
             </p>
             <span className="mt-2 inline-flex items-center text-sm font-medium text-[var(--color-primary)]">
-              Read Case Study
+              Ver Caso
             </span>
           </div>
           {/* Case Study 2 */}
@@ -50,19 +50,19 @@ export function CaseStudiesISP() {
             <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
               <Image
                 src="https://images.unsplash.com/photo-1565514020176-db765b148043?q=80&w=800&auto=format&fit=crop"
-                alt="Wireless antenna tower on a mountain top during sunset"
+                alt="Torre de antena inalámbrica en la montaña"
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white group-hover:text-[var(--color-primary)]">
-              WISP Network Optimization
+              Optimización de Red WISP
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              Andes Link - Regional Coverage
+              Andes Link - Cobertura Regional
             </p>
             <span className="mt-2 inline-flex items-center text-sm font-medium text-[var(--color-primary)]">
-              Read Case Study
+              Ver Caso
             </span>
           </div>
           {/* Case Study 3 */}
@@ -70,19 +70,19 @@ export function CaseStudiesISP() {
             <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
               <Image
                 src="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=800&auto=format&fit=crop"
-                alt="Corporate office meeting room with network diagram on whiteboard"
+                alt="Sala de reuniones corporativa con diagrama de red"
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <h3 className="mb-1 text-lg font-bold text-slate-900 dark:text-white group-hover:text-[var(--color-primary)]">
-              Core Network Redesign
+              Reingeniería de Core
             </h3>
             <p className="text-sm text-slate-500 dark:text-slate-400">
-              SurNet - Infrastructure Upgrade
+              SurNet - Actualización de Infraestructura
             </p>
             <span className="mt-2 inline-flex items-center text-sm font-medium text-[var(--color-primary)]">
-              Read Case Study
+              Ver Caso
             </span>
           </div>
         </div>

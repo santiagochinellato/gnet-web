@@ -10,7 +10,11 @@ export default function ISPPage() {
   return (
     <main className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
       <Navbar />
-      <HeroISP />
+      <HeroISP
+        badge="Servicios B2B"
+        title="Soluciones Integrales para ISP, WISP y FTTH"
+        subtitle="Delegá la complejidad técnica. Nos ocupamos desde la atención a tus abonados hasta la ingeniería de tu backbone, para que vos te enfoques en crecer."
+      />
       <StatsISP />
       <ServicesGridISP />
       <CaseStudiesISP />

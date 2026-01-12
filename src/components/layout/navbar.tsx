@@ -10,7 +10,7 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Inicio", href: "/" },
-  { name: "Planes", href: "/#planes" },
+  { name: "Planes", href: "/planes" },
   { name: "Cobertura", href: "/#cobertura" },
   { name: "Seguridad Electrónica", href: "/seguridad" },
   { name: "Servicios ISP", href: "/isp" },
@@ -92,7 +92,13 @@ export function Navbar() {
 
           {/* THEME TOGGLE */}
           <div className="hidden md:block">
-            <ModeToggle />
+            <ModeToggle
+              className={
+                !showScrolledStyle
+                  ? "border-white/20 text-white hover:bg-white/10 dark:hover:bg-white/10"
+                  : ""
+              }
+            />
           </div>
 
           {/* MOBILE TOGGLE */}

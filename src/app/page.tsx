@@ -1,4 +1,4 @@
-import { HeroModern } from "@/components/sections/hero-modern";
+import { HeroSection } from "@/components/sections/Hero";
 import { FeaturesBento } from "@/components/sections/features-bento";
 import { PricingPlans } from "@/components/sections/pricing-plans";
 import { CoverageMapSection } from "@/components/sections/coverage-map-section";
@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col font-display">
       {/* 1. Hero High Conversion */}
-      <HeroModern />
+      <HeroSection />
 
       {/* 2. Features (Diferenciales) */}
       <FeaturesBento />

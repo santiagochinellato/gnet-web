@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 export function PricingPlans() {
   return (
@@ -21,7 +22,6 @@ export function PricingPlans() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* HOGAR */}
           {/* HOGAR */}
           <div className="relative group flex flex-col rounded-2xl border border-gray-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 hover:border-[var(--color-primary)] transition-all duration-300 hover:shadow-xl hover:shadow-[var(--color-primary)]/10">
             <div className="absolute top-0 right-0 bg-[var(--color-primary)] text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">
@@ -57,9 +57,12 @@ export function PricingPlans() {
                 <span>Router WiFi 6 incluido</span>
               </li>
             </ul>
-            <button className="w-full py-3 px-4 bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 font-bold rounded-lg hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all cursor-pointer">
+            <Link
+              href="/planes?tab=hogar"
+              className="w-full block text-center py-3 px-4 bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 font-bold rounded-lg hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all cursor-pointer"
+            >
               Ver Detalles
-            </button>
+            </Link>
           </div>
 
           {/* TURISMO / SHORT TERM */}
@@ -97,13 +100,14 @@ export function PricingPlans() {
                 <span>Activación inmediata</span>
               </li>
             </ul>
-            <button className="w-full py-3 px-4 bg-[var(--color-secondary)] text-white font-bold rounded-lg hover:bg-cyan-600 shadow-lg shadow-cyan-500/30 transition-all cursor-pointer">
+            <Link
+              href="/planes?tab=turista"
+              className="w-full block text-center py-3 px-4 bg-[var(--color-secondary)] text-white font-bold rounded-lg hover:bg-cyan-600 shadow-lg shadow-cyan-500/30 transition-all cursor-pointer"
+            >
               Contratar Ahora
-            </button>
+            </Link>
           </div>
 
-          {/* EMPRESAS */}
-          {/* EMPRESAS */}
           {/* EMPRESAS */}
           <div className="relative group flex flex-col rounded-2xl border border-gray-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-900 p-8 hover:border-[var(--color-primary)] transition-all duration-300 hover:shadow-xl hover:shadow-[var(--color-primary)]/10">
             <div className="mb-6">
@@ -133,9 +137,12 @@ export function PricingPlans() {
                 <span>SLA Garantizado</span>
               </li>
             </ul>
-            <button className="w-full py-3 px-4 bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 font-bold rounded-lg hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all cursor-pointer">
+            <Link
+              href="/planes?tab=comercios"
+              className="w-full block text-center py-3 px-4 bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 font-bold rounded-lg hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)] transition-all cursor-pointer"
+            >
               Contactar Asesor
-            </button>
+            </Link>
           </div>
         </div>
       </div>

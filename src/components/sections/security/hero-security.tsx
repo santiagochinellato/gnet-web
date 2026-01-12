@@ -4,7 +4,7 @@ import { BadgeCheck } from "lucide-react";
 
 export function HeroSecurity() {
   return (
-    <section className="w-full max-w-[960px] mx-auto px-4 py-10 md:px-10">
+    <section className="w-full max-w-[960px] mx-auto px-4 py-10 md:px-10 pt-32">
       <div className="@container">
         <div className="flex flex-col gap-8 md:flex-row md:items-center">
           {/* Hero Content */}

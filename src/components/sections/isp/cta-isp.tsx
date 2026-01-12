@@ -9,21 +9,21 @@ export function CTAISP() {
         <div className="relative overflow-hidden rounded-2xl bg-slate-900 px-6 py-16 text-center shadow-2xl sm:px-12 lg:px-16">
           <div className="relative z-10 mx-auto max-w-2xl">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to upgrade your ISP?
+              ¿Listo para potenciar tu ISP?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-lg text-slate-300">
-              Join 50+ regional ISPs who trust Gnet for their engineering and
-              support needs.
+              Sumate a más de 50 ISPs regionales que confían en Gnet para su
+              ingeniería y soporte técnico.
             </p>
             <div className="mt-8 flex justify-center gap-4">
               <Link
                 href="/contacto"
                 className="rounded-lg bg-[var(--color-primary)] px-6 py-3 text-base font-bold text-white hover:bg-blue-600 transition-colors cursor-pointer"
               >
-                Get a Quote
+                Solicitar Presupuesto
               </Link>
               <button className="rounded-lg bg-white/10 px-6 py-3 text-base font-bold text-white hover:bg-white/20 transition-colors backdrop-blur-sm border border-white/10 cursor-pointer">
-                Contact Sales
+                Contactar Ventas
               </button>
             </div>
           </div>
