@@ -183,6 +183,7 @@ export default function MapaCobertura() {
         maxZoom={15}
         minZoom={10}
         cursor={hoverInfo ? "pointer" : "default"} // Change cursor on hover
+        cooperativeGestures={true}
       >
         <NavigationControl position="top-right" />
 

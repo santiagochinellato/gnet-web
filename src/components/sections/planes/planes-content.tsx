@@ -433,9 +433,9 @@ function CTASection() {
             <button className="flex w-full min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-bold text-[var(--color-primary)] transition-colors hover:bg-blue-50 sm:w-auto">
               WhatsApp
             </button>
-            <button className="flex w-full min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 sm:w-auto">
+            {/* <button className="flex w-full min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg border-2 border-white px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10 sm:w-auto">
               0800-555-GNET
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

@@ -74,19 +74,7 @@ export function Navbar() {
 
         {/* CTA BUTTONS */}
         <div className="flex gap-3 items-center">
-          {/* <button
-            className={cn(
-              "hidden lg:flex cursor-pointer items-center justify-center rounded-full h-10 px-5 text-sm font-bold transition-all border",
-              scrolled
-                ? "bg-gray-100 border-gray-200 text-slate-700 hover:bg-gray-200"
-                : "bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
-            )}
-          >
-            <Phone className="w-4 h-4 mr-2" />
-            <span className="truncate">0800-GNET</span>
-          </button> */}
-
-          <button className="flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all">
+          <button className="hidden xl:flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all">
             <span className="truncate">Sucursal Virtual</span>
           </button>
 
@@ -130,12 +118,17 @@ export function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <div className="flex items-center gap-4 mt-2">
-              <button className="w-full bg-gray-100 dark:bg-slate-800 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
-                <Phone className="w-4 h-4" /> 0800-GNET
+            <div className="flex flex-col gap-3 mt-2">
+              <button className="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-white shadow-lg shadow-blue-500/20">
+                Sucursal Virtual
               </button>
-              <div className="flex justify-center bg-gray-100 dark:bg-slate-800 p-2 rounded-xl">
-                <ModeToggle />
+              <div className="flex gap-3">
+                <button className="flex-1 bg-gray-100 dark:bg-slate-800 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
+                  <Phone className="w-4 h-4" /> Contactanos
+                </button>
+                <div className="flex justify-center bg-gray-100 dark:bg-slate-800 p-2 rounded-xl">
+                  <ModeToggle />
+                </div>
               </div>
             </div>
           </div>

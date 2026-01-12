@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Store, Building2, Home, BadgeCheck } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -44,9 +45,9 @@ export function SolutionsTabs() {
   return (
     <>
       {/* Tabs Navigation */}
-      <section className="w-full max-w-[960px] mx-auto px-4 md:px-10">
-        <div className="border-b border-slate-200 dark:border-slate-800">
-          <div className="flex gap-8">
+      <section className="w-full max-w-[960px] mx-auto px-4 md:px-10 mb-8">
+        <div className="flex justify-center">
+          <div className="inline-flex flex-wrap items-center justify-center rounded-full bg-slate-100 dark:bg-slate-900 p-1.5 shadow-inner gap-1">
             {(
               Object.entries(solutions) as [TabKey, typeof ActiveContent][]
             ).map(([key, data]) => {
@@ -57,24 +58,34 @@ export function SolutionsTabs() {
                   key={key}
                   onClick={() => setActiveTab(key)}
                   className={cn(
-                    "group flex flex-col items-center justify-center border-b-[3px] pb-3 pt-4 transition-colors cursor-pointer",
+                    "relative flex items-center justify-center rounded-full px-4 sm:px-6 py-2.5 text-sm font-bold transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]",
                     isActive
-                      ? "border-b-[var(--color-primary)] text-[var(--color-primary)]"
-                      : "border-b-transparent text-slate-500 hover:text-slate-900"
+                      ? "text-[var(--color-primary)] dark:text-white"
+                      : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
                   )}
                 >
-                  <div className="flex items-center gap-2">
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeTabSecurity"
+                      className="absolute inset-0 rounded-full bg-white dark:bg-slate-800 shadow-md ring-1 ring-slate-200 dark:ring-slate-700"
+                      initial={false}
+                      transition={{
+                        type: "spring",
+                        stiffness: 500,
+                        damping: 30,
+                      }}
+                    />
+                  )}
+                  <div className="relative z-10 flex items-center gap-2">
                     <Icon
                       className={cn(
-                        "w-5 h-5",
+                        "w-4 h-4",
                         isActive
-                          ? "text-[var(--color-primary)]"
-                          : "text-slate-400 group-hover:text-slate-900"
+                          ? "text-[var(--color-primary)] dark:text-white"
+                          : "text-slate-400 dark:text-slate-500"
                       )}
                     />
-                    <p className="text-sm font-bold leading-normal tracking-[0.015em]">
-                      {data.label}
-                    </p>
+                    <span>{data.label}</span>
                   </div>
                 </button>
               );
@@ -102,16 +113,16 @@ export function SolutionsTabs() {
                   {ActiveContent.description}
                 </p>
               </div>
-              <div className="flex items-center gap-4 pt-2">
+              <div className="flex items-center justify-center gap-4 pt-2">
                 <button className="flex h-9 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-4 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer">
                   Ver planes
                 </button>
-                <a
+                {/* <a
                   href="#"
                   className="text-sm font-medium text-[var(--color-primary)] hover:underline"
                 >
                   Descargar brochure PDF
-                </a>
+                </a> */}
               </div>
             </div>
             <div

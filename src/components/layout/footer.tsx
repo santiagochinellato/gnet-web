@@ -8,10 +8,10 @@ export function Footer() {
       className="bg-[#0b1116] text-slate-400 py-12 border-t border-slate-800"
       id="contacto"
     >
-      <div className="container mx-auto px-4 md:px-10 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-        <div className="col-span-1 md:col-span-1">
+      <div className="container mx-auto px-4 md:px-10 grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8 text-center lg:text-left">
+        <div className="col-span-1 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
           <Link href="/" className="inline-block mb-4">
-            <BrandLogo color="white" className="w-32 h-10" />
+            <BrandLogo color="white" className="w-32 h-10 justify-center" />
           </Link>
           <p className="text-sm">
             Conectando Bariloche con el mundo a través de la mejor tecnología de
@@ -61,21 +61,21 @@ export function Footer() {
         <div>
           <h4 className="text-white font-bold mb-4">Contacto</h4>
           <ul className="space-y-2 text-sm">
-            <li className="flex items-center gap-2">
-              <Phone className="w-4 h-4" /> 0800-GNET (4638)
+            <li className="flex items-center justify-center lg:justify-start gap-2">
+              <Phone className="w-4 h-4" /> +54 9 294-4335435
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-center justify-center lg:justify-start gap-2">
               <Mail className="w-4 h-4" /> hola@gnet.com.ar
             </li>
-            <li className="flex items-center gap-2">
+            <li className="flex items-center justify-center lg:justify-start gap-2">
               <MapPin className="w-4 h-4" /> Mitre 123, Bariloche
             </li>
           </ul>
         </div>
       </div>
-      <div className="container mx-auto px-4 md:px-10 border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs">
+      <div className="container mx-auto px-4 md:px-10 border-t border-slate-800 pt-8 flex flex-col lg:flex-row justify-between items-center text-xs text-center lg:text-left">
         <p>© 2024 Gnet Telecomunicaciones. Todos los derechos reservados.</p>
-        <div className="flex gap-4 mt-4 md:mt-0">
+        <div className="flex gap-4 mt-4 lg:mt-0">
           <Link className="hover:text-white" href="#">
             Términos y Condiciones
           </Link>

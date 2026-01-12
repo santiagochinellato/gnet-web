@@ -34,9 +34,9 @@ export function HeroISP({
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent h-32 bottom-0 top-auto opacity-50"></div>
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          <div className="flex-1 space-y-8">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20">
+        <div className="flex flex-col lg:flex-row items-center gap-12 text-center lg:text-left">
+          <div className="flex-1 space-y-8 flex flex-col items-center lg:items-start">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -69,7 +69,7 @@ export function HeroISP({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex flex-wrap gap-4 pt-4"
+              className="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start"
             >
               <Link
                 href="/contacto"

@@ -53,7 +53,7 @@ export function SearchControl({ onSelectAddress }: SearchControlProps) {
   };
 
   return (
-    <div className="absolute top-4 left-4 right-4 z-[100] max-w-md mx-auto md:left-8 md:right-auto w-full md:w-[400px]">
+    <div className="absolute top-4 lg:left-4 lg:right-4 z-[100] max-w-md mx-auto md:left-8 md:right-auto w-full px-4 md:px-0 md:w-[400px]">
       <div className="relative shadow-xl">
         <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">
           {isLoading ? (

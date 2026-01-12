@@ -10,10 +10,10 @@ export function CaseStudiesISP() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-12 flex items-end justify-between">
           <div>
-            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h2 className="text-3xl font-bold tracking-tight text-slate-900 dark:text-white text-center md:text-left">
               Casos de Éxito
             </h2>
-            <p className="mt-2 text-lg text-slate-600 dark:text-slate-400">
+            <p className="mt-2 text-lg text-slate-600 dark:text-slate-400 text-center md:text-left">
               Descubrí cómo potenciamos a otros proveedores de internet.
             </p>
           </div>
@@ -24,7 +24,7 @@ export function CaseStudiesISP() {
             Ver todos los proyectos <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-1 lg:grid-cols-3">
           {/* Case Study 1 */}
           <div className="group cursor-pointer">
             <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">

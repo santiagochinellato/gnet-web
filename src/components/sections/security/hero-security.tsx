@@ -10,25 +10,25 @@ export function HeroSecurity() {
           {/* Hero Content */}
           <div className="flex flex-col gap-6 md:w-1/2 md:pr-8">
             <div className="flex flex-col gap-2">
-              <span className="text-[var(--color-primary)] text-sm font-bold uppercase tracking-wide">
+              <span className="text-[var(--color-primary)] text-sm font-bold uppercase tracking-wide text-center md:text-left">
                 Seguridad Electrónica
               </span>
-              <h1 className="text-4xl font-black leading-tight tracking-tighter md:text-5xl text-slate-900 dark:text-white">
+              <h1 className="text-4xl font-black leading-tight tracking-tighter md:text-5xl text-slate-900 dark:text-white text-center md:text-left">
                 Cámaras de Seguridad
               </h1>
-              <h2 className="text-slate-500 dark:text-slate-300 text-base md:text-lg leading-relaxed">
+              <h2 className="text-slate-500 dark:text-slate-300 text-base md:text-lg leading-relaxed text-center md:text-left">
                 Vigilancia en Alta Definición. Protegé lo que más importa con
                 tecnología Dahua y Hikvision. Monitoreo remoto 4K desde tu
                 celular.
               </h2>
             </div>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 justify-center">
               <button className="flex h-12 items-center justify-center rounded-lg bg-[var(--color-primary)] px-6 text-white text-base font-bold shadow-lg hover:bg-blue-600 transition-colors cursor-pointer">
                 Solicitar Cotización
               </button>
-              <button className="flex h-12 items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-6 text-slate-900 dark:text-white text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer">
+              {/* <button className="flex h-12 items-center justify-center rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-6 text-slate-900 dark:text-white text-base font-medium hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors cursor-pointer">
                 Ver Catálogo
-              </button>
+              </button> */}
             </div>
           </div>
           {/* Hero Image */}

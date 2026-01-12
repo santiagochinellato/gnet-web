@@ -11,12 +11,7 @@ export function BrandLogo({
   color?: "black" | "white";
 }) {
   return (
-    <div
-      className={cn(
-        "relative w-32 h-10 flex items-center justify-center",
-        className
-      )}
-    >
+    <div className={cn("relative w-32 h-10 flex items-center", className)}>
       {/* Fallback to standard img to rule out Next.js Image issues */}
       <img
         key={color}

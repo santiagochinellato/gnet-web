@@ -26,12 +26,12 @@ export function HeroSection() {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-start justify-center h-full pt-16">
         {/* LEFT ALIGNED CONTENT */}
-        <div className="max-w-2xl flex flex-col items-start text-left">
+        <div className="max-w-2xl flex flex-col items-center lg:items-start text-center lg:text-left justify-center lg:justify-start">
           <div className="mb-8">
             <HeroBadge />
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-[1.05]">
+          <h1 className="text-5xl md:text-7xl font-bold text-center lg:text-left tracking-tight mb-6 leading-[1.05]">
             Internet de Alta <br />
             Velocidad que{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-200">
@@ -39,7 +39,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-slate-200 text-lg md:text-xl mb-10  leading-relaxed max-w-xl drop-shadow-md font-bold">
+          <p className="text-slate-200 text-lg md:text-xl mb-10 leading-relaxed max-w-xl drop-shadow-md font-bold text-center lg:text-left">
             Conexión estable de fibra óptica y seguridad electrónica para tu
             hogar o empresa, sin cortes por el clima.
           </p>
@@ -47,13 +47,13 @@ export function HeroSection() {
           {/* INPUT FORM */}
           <HeroForm />
 
-          <div className="mt-12">
+          <div className="mt-12 w-full flex justify-center lg:justify-start">
             <a
               href="/planes"
-              className="text-sm font-bold text-white/80 hover:text-white flex items-center gap-2 group transition-colors"
+              className="text-sm font-bold text-white/80 hover:text-white flex items-center justify-center lg:justify-start gap-2 group transition-colors"
             >
               Ver nuestros planes
-              <span className="group-hover:translate-x-1 transition-transform">
+              <span className="group-hover:translate-x-1 transition-transform ">
                 →
               </span>
             </a>
