@@ -11,12 +11,14 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
     <section className="relative bg-slate-900 py-20 lg:py-32 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url("/racks.jpg")',
-          }}
-        ></div>
+        <Image
+          src="/racks.jpg"
+          alt="Datacenter Racks"
+          fill
+          className="object-cover"
+          priority
+          quality={80}
+        />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent h-32 bottom-0 top-auto opacity-50"></div>
       </div>

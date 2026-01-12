@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { CheckCircle, Plus, Minus, ChevronDown, Check } from "lucide-react";
+import { ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -130,7 +130,7 @@ function TabButton({
         "relative flex items-center justify-center rounded-full px-8 py-2.5 text-sm font-bold transition-all duration-300 outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)]",
         isActive
           ? "text-[var(--color-primary)] dark:text-white"
-          : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
+          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200"
       )}
     >
       {isActive && (
@@ -154,6 +154,7 @@ function PlansCategoryContent({ content }: { content: PlanesCategoryContent }) {
       exit={{ opacity: 0, y: -10 }}
       className="grid grid-cols-1 gap-8 lg:grid-cols-3"
     >
+      <h2 className="sr-only">Planes Disponibles</h2>
       {/* Cards Section */}
       <div className="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
         {content.plans.map((plan, idx) => (
@@ -182,6 +183,7 @@ function ComerciosCategoryContent({
       exit={{ opacity: 0, y: -10 }}
       className="grid grid-cols-1 gap-8 lg:grid-cols-3"
     >
+      <h2 className="sr-only">Soluciones para Comercios</h2>
       <div className="lg:col-span-2 flex flex-col justify-center items-center bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-12 text-center">
         {content.ctaBox && (
           <>

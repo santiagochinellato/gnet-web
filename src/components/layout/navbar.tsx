@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
-import { Menu, X, Phone, UserCircle } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NavLink } from "@/types/content";
@@ -90,6 +90,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
                 : "text-white"
             )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X /> : <Menu />}
           </button>

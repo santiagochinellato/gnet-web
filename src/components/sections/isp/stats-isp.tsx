@@ -13,7 +13,7 @@ export function StatsISP({ content }: { content: StatsItem[] }) {
   return (
     <section className="border-y border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 transition-colors duration-300">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 divide-y divide-slate-200 dark:divide-slate-800 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:divide-slate-200 dark:sm:divide-slate-800">
+        <dl className="grid grid-cols-1 divide-y divide-slate-200 dark:divide-slate-800 sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:divide-slate-200 dark:sm:divide-slate-800">
           {content.map((stat, index) => {
             const Icon =
               iconMap[stat.iconName as keyof typeof iconMap] || BadgeCheck;
@@ -34,7 +34,7 @@ export function StatsISP({ content }: { content: StatsItem[] }) {
               </div>
             );
           })}
-        </div>
+        </dl>
       </div>
     </section>
   );
