@@ -6,6 +6,7 @@ import { Navbar } from "@/components/layout/navbar"; // Keeping existing Navbar 
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "sonner";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
                 },
               }}
             />
+            <SpeedInsights />
           </SmoothScroll>
         </ThemeProvider>
       </body>
