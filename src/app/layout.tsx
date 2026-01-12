@@ -15,10 +15,21 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+  ),
   title: "Gnet | Internet de Alta Velocidad en Bariloche",
   description: "Conexión estable y rápida diseñada para la Patagonia.",
   icons: {
     icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Gnet Telecomunicaciones",
+    description: "Conexión estable y rápida diseñada para la Patagonia.",
+    url: "/",
+    siteName: "Gnet",
+    locale: "es_AR",
+    type: "website",
   },
 };
 
