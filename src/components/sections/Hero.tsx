@@ -21,7 +21,7 @@ export function HeroSection() {
         {/* <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent z-20" /> */}
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-start justify-center h-full">
+      <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col items-start justify-center h-full pt-16">
         {/* LEFT ALIGNED CONTENT */}
         <div className="max-w-2xl flex flex-col items-start text-left">
           <div className="mb-8">
@@ -36,7 +36,7 @@ export function HeroSection() {
             </span>
           </h1>
 
-          <p className="text-slate-200 text-lg md:text-xl mb-10 font-light leading-relaxed max-w-xl drop-shadow-md">
+          <p className="text-slate-200 text-lg md:text-xl mb-10  leading-relaxed max-w-xl drop-shadow-md font-bold">
             Conexión estable de fibra óptica y seguridad electrónica para tu
             hogar o empresa, sin cortes por el clima.
           </p>

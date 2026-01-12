@@ -49,7 +49,7 @@ export function CaseStudiesISP() {
           <div className="group cursor-pointer">
             <div className="mb-4 overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 h-56 relative w-full">
               <Image
-                src="https://images.unsplash.com/photo-1565514020176-db765b148043?q=80&w=800&auto=format&fit=crop"
+                src="/redwisp.jpg"
                 alt="Torre de antena inalámbrica en la montaña"
                 fill
                 className="object-cover transition-transform duration-300 group-hover:scale-105"

@@ -47,8 +47,8 @@ export function Navbar() {
           <BrandLogo
             className={
               showScrolledStyle
-                ? "dark:invert dark:brightness-0" // Scrolled: Invert only in Dark Mode (to make it white)
-                : "invert brightness-0" // Top: Always invert (to make it white on transparent bg)
+                ? "dark:invert dark:brightness-0 w-44 h-14" // Scrolled: Invert only in Dark Mode (to make it white)
+                : "invert brightness-0 w-44 h-14" // Top: Always invert (to make it white on transparent bg)
             }
             color="black"
           />
@@ -64,7 +64,7 @@ export function Navbar() {
                 "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
                 showScrolledStyle
                   ? "text-slate-700 dark:text-slate-200"
-                  : "text-white"
+                  : "text-white drop-shadow-md"
               )}
             >
               {link.name}
