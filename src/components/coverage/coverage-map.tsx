@@ -74,7 +74,6 @@ const CoverageMap = ({ className }: { className?: string }) => {
     // Check against all features in the collection
     for (const feature of COVERAGE_GEOJSON.features) {
       if (feature.geometry.type === "Polygon") {
-        // @ts-expect-error - Turf types can be strict, but GeoJSON is standard
         if (booleanPointInPolygon(pt, feature)) {
           isInside = true;
           break;
