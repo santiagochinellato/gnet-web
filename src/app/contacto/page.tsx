@@ -9,7 +9,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-white dark:bg-slate-950 flex flex-col font-display transition-colors duration-300">
       <Navbar />
 
-      <section className="flex-1 bg-slate-50 dark:bg-slate-950/50">
+      <section className="flex-1 bg-slate-50 dark:bg-slate-950/50 pt-16">
         <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
           {/* Page Heading */}
           <div className="mb-10 text-center md:text-left">
