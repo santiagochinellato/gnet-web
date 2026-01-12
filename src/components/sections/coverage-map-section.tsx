@@ -2,13 +2,11 @@
 
 import { MapPin } from "lucide-react";
 import dynamic from "next/dynamic";
-import { useState, useEffect, useRef } from "react";
 import { CoverageSection } from "@/types/content";
 
-// Dynamic import remains for chunking, but we will conditionally render it
+// Dynamic import for map component to avoid SSR issues and improve TBT
 const CoverageMap = dynamic(
-  () =>
-    import("@/components/coverage/coverage-map").then((mod) => mod.CoverageMap),
+  () => import("@/components/coverage/coverage-map"),
   {
     loading: () => (
       <div className="w-full h-full bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
@@ -20,30 +18,8 @@ const CoverageMap = dynamic(
 );
 
 export function CoverageMapSection({ content }: { content: CoverageSection }) {
-  const [shouldLoad, setShouldLoad] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setShouldLoad(true);
-          observer.disconnect();
-        }
-      },
-      { rootMargin: "200px" } // Load 200px before it comes into view
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       className="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300"
       id="cobertura"
     >
@@ -61,13 +37,7 @@ export function CoverageMapSection({ content }: { content: CoverageSection }) {
         </div>
 
         <div className="bg-white dark:bg-slate-900 p-2 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 mb-10 overflow-hidden relative z-0 h-[500px] md:h-[600px]">
-          {shouldLoad ? (
-            <CoverageMap className="h-full rounded-2xl" />
-          ) : (
-            <div className="w-full h-full bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-center">
-              <span className="text-slate-400">Iniciando mapa...</span>
-            </div>
-          )}
+          <CoverageMap className="h-full rounded-2xl" />
         </div>
 
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">

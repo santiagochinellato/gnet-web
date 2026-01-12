@@ -106,9 +106,9 @@ export const getSiteContent = async (): Promise<SiteContent> => {
     testimonials: home?.testimonials ? {
       title: home.testimonials.title,
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      reviews: (home.testimonials.reviews || []).map((r: any) => ({
+      reviews: (home.testimonials.reviews || []).map((r: any, i: number) => ({
         ...r,
-        img: r.img || "" 
+        img: r.imgUrl || defaults.testimonials.reviews[i]?.img || "" 
       }))
     } : defaults.testimonials,
 

@@ -1,4 +1,4 @@
-import { CoverageMap } from "@/components/coverage/coverage-map";
+import CoverageMap from "@/components/coverage/coverage-map";
 
 export default function CoveragePage() {
   return (

@@ -1,4 +1,6 @@
 import { Inter, Poppins } from "next/font/google";
+import "./globals.css";
+import "maplibre-gl/dist/maplibre-gl.css";
 import { Metadata } from "next";
 
 const inter = Inter({

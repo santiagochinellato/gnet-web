@@ -114,7 +114,7 @@ export default defineType({
                         defineField({ name: 'text', type: 'text' }),
                         defineField({ name: 'name', type: 'string' }),
                         defineField({ name: 'zone', type: 'string' }),
-                        defineField({ name: 'img', type: 'string' }) // Keeping as string for now to match json, ideally image
+                        defineField({ name: 'img', type: 'image', options: { hotspot: true } })
                     ]
                 }]
             })

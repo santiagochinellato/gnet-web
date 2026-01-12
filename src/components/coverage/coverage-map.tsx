@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef } from "react";
 import Map, {
   Source,
   Layer,
   Marker,
   NavigationControl,
   MapRef,
+  type LayerProps,
 } from "react-map-gl/maplibre";
 import { point } from "@turf/helpers";
 import booleanPointInPolygon from "@turf/boolean-point-in-polygon";
@@ -14,13 +15,12 @@ import { COVERAGE_GEOJSON, INITIAL_VIEW_STATE } from "@/lib/coverage-data";
 import { SearchControl } from "./search-control";
 import { LeadModal } from "./lead-modal";
 import { MapPin } from "lucide-react";
-import "maplibre-gl/dist/maplibre-gl.css";
 
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 
 // Style for the fill coverage (Dynamic color from feature property)
-const fillLayer: any = {
+const fillLayer: LayerProps = {
   id: "coverage-fill",
   type: "fill",
   paint: {
@@ -30,7 +30,7 @@ const fillLayer: any = {
 };
 
 // Style for the border of coverage
-const lineLayer: any = {
+const lineLayer: LayerProps = {
   id: "coverage-line",
   type: "line",
   paint: {
@@ -40,7 +40,7 @@ const lineLayer: any = {
   },
 };
 
-export function CoverageMap({ className }: { className?: string }) {
+const CoverageMap = ({ className }: { className?: string }) => {
   const { theme, resolvedTheme } = useTheme();
   const isDark = theme === "dark" || resolvedTheme === "dark";
   const mapStyle = isDark
@@ -74,7 +74,7 @@ export function CoverageMap({ className }: { className?: string }) {
     // Check against all features in the collection
     for (const feature of COVERAGE_GEOJSON.features) {
       if (feature.geometry.type === "Polygon") {
-        // @ts-ignore - Turf types can be strict, but GeoJSON is standard
+        // @ts-expect-error - Turf types can be strict, but GeoJSON is standard
         if (booleanPointInPolygon(pt, feature)) {
           isInside = true;
           break;
@@ -133,4 +133,6 @@ export function CoverageMap({ className }: { className?: string }) {
       />
     </div>
   );
-}
+};
+
+export default CoverageMap;
