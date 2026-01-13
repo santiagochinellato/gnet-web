@@ -15,7 +15,7 @@ export function HeroSection({ content }: { content: HeroContent }) {
           className="object-cover"
           priority
           sizes="100vw"
-          quality={90}
+          quality={75}
           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-slate-900/60" />

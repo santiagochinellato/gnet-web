@@ -54,6 +54,8 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://basemaps.cartocdn.com" />
         <link rel="dns-prefetch" href="https://basemaps.cartocdn.com" />
+        <link rel="preconnect" href="https://tiles.basemaps.cartocdn.com" />
+        <link rel="preconnect" href="https://www.transparenttextures.com" />
       </head>
       <body
         suppressHydrationWarning

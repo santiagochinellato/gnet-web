@@ -55,7 +55,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
               className={cn(
                 "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
                 showScrolledStyle
-                  ? "text-slate-700 dark:text-slate-200"
+                  ? "text-slate-900 dark:text-slate-200"
                   : "text-white drop-shadow-md"
               )}
             >

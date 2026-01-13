@@ -1,9 +1,19 @@
 "use client";
 
 import { AtSign, ArrowRight, MapPin, Clock } from "lucide-react";
-import { ContactMap } from "./contact-map";
+import dynamic from "next/dynamic";
 import { ContactContent } from "@/types/content";
 import React from "react";
+
+const ContactMap = dynamic(
+  () => import("./contact-map").then((mod) => mod.ContactMap),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="w-full h-full bg-slate-100 dark:bg-slate-800 animate-pulse" />
+    ),
+  }
+);
 
 export function ContactSidebar({
   content,

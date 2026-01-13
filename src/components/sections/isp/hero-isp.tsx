@@ -18,6 +18,7 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
           className="object-cover"
           priority
           quality={80}
+          sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 to-transparent h-32 bottom-0 top-auto opacity-50"></div>
@@ -86,6 +87,7 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
                   alt="Ubiquiti Networks"
                   fill
                   className="object-contain brightness-0 invert"
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
             </div>

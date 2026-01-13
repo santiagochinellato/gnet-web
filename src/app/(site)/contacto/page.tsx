@@ -28,7 +28,11 @@ export default async function ContactPage() {
             </p>
           </div>
 
-          <ContactCards content={content.contact.cards} />
+          {/* Contact Cards Section */}
+          <section>
+            <h2 className="sr-only">Medios de Contacto</h2>
+            <ContactCards content={content.contact.cards} />
+          </section>
 
           {/* Main Grid Layout (Form + Info Sidebar) */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

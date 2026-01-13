@@ -63,7 +63,9 @@ export function FeaturesBento({ content }: { content: FeaturesContent }) {
                       {(() => {
                         const Icon =
                           iconMap[item.iconName as keyof typeof iconMap];
-                        return Icon ? <Icon className="w-8 h-8" /> : null;
+                        return Icon ? (
+                          <Icon className="w-8 h-8" aria-hidden="true" />
+                        ) : null;
                       })()}
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white">
