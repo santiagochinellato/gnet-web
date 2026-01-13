@@ -3,6 +3,7 @@
 import { MapPin } from "lucide-react";
 import dynamic from "next/dynamic";
 import { CoverageSection } from "@/types/content";
+import React from "react";
 
 // Dynamic import for map component to avoid SSR issues and improve TBT
 const CoverageMap = dynamic(
@@ -18,6 +19,27 @@ const CoverageMap = dynamic(
 );
 
 export function CoverageMapSection({ content }: { content: CoverageSection }) {
+  const [shouldLoadMap, setShouldLoadMap] = React.useState(false);
+  const mapContainerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" }
+    );
+
+    if (mapContainerRef.current) {
+      observer.observe(mapContainerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       className="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300"
@@ -36,8 +58,19 @@ export function CoverageMapSection({ content }: { content: CoverageSection }) {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-slate-900 p-2 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 mb-10 overflow-hidden relative z-0 h-[500px] md:h-[600px]">
-          <CoverageMap className="h-full rounded-2xl" />
+        <div
+          ref={mapContainerRef}
+          className="bg-white dark:bg-slate-900 p-2 rounded-3xl shadow-lg border border-slate-200 dark:border-slate-800 mb-10 overflow-hidden relative z-0 h-[500px] md:h-[600px]"
+        >
+          {shouldLoadMap ? (
+            <CoverageMap className="h-full rounded-2xl" />
+          ) : (
+            <div className="w-full h-full bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
+              <span className="text-slate-400 font-medium">
+                Cargando mapa...
+              </span>
+            </div>
+          )}
         </div>
 
         <div className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-100 dark:border-slate-800">

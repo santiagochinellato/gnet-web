@@ -14,8 +14,10 @@ export function HeroSection({ content }: { content: HeroContent }) {
           fill
           className="object-cover"
           priority
-          sizes="100vw"
-          quality={75}
+          loading="eager"
+          decoding="async"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
+          quality={80}
           fetchPriority="high"
         />
         <div className="absolute inset-0 bg-slate-900/60" />
@@ -29,14 +31,14 @@ export function HeroSection({ content }: { content: HeroContent }) {
             <HeroBadge />
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold text-center lg:text-left tracking-tight mb-6 leading-[1.05]">
+          <h1 className="text-5xl md:text-7xl font-bold text-center lg:text-left tracking-tight mb-6 leading-[1.05] text-balance">
             <span dangerouslySetInnerHTML={{ __html: content.title }} />{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-200">
               {content.highlight}
             </span>
           </h1>
 
-          <p className="text-slate-200 text-lg md:text-xl mb-10 leading-relaxed max-w-xl drop-shadow-md font-bold text-center lg:text-left">
+          <p className="text-slate-200 text-lg md:text-xl mb-10 leading-relaxed max-w-xl drop-shadow-md font-bold text-center lg:text-left text-balance">
             {content.description}
           </p>
 

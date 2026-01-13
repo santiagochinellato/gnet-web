@@ -1,12 +1,13 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
-import "maplibre-gl/dist/maplibre-gl.css";
 import { Metadata, Viewport } from "next";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 const poppins = Poppins({
@@ -14,6 +15,8 @@ const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {
@@ -40,6 +43,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
+  themeColor: "#1565c0",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -53,9 +57,18 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://basemaps.cartocdn.com" />
-        <link rel="dns-prefetch" href="https://basemaps.cartocdn.com" />
-        <link rel="preconnect" href="https://tiles.basemaps.cartocdn.com" />
+        <link
+          rel="preconnect"
+          href="https://cdn.sanity.io"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preconnect"
+          href="https://tiles.basemaps.cartocdn.com"
+          crossOrigin="anonymous"
+        />
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="dns-prefetch" href="https://tiles.basemaps.cartocdn.com" />
         <link rel="preconnect" href="https://www.transparenttextures.com" />
       </head>
       <body
