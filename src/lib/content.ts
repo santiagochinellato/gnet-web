@@ -71,12 +71,9 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   // Safe fetch with try/catch fallback
   let data;
   try {
-    // DEBUG: Disable cache and log data
-    console.warn("Fetching site content from Sanity...");
-    data = await client.fetch(query, {}, { next: { revalidate: 0 } });
-    console.warn("Sanity Data - ISP Hero:", data?.isp?.hero);
+    data = await client.fetch(query, {}, { next: { revalidate: 60 } });
   } catch (error) {
-    console.warn("Sanity fetch failed, using default content:", error);
+    console.error("Sanity fetch failed, using default content:", error);
     data = {};
   }
 

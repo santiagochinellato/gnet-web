@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  MapPin,
-  Phone,
-  MessageCircle,
-  ArrowRight,
-  Loader2,
-} from "lucide-react";
+import { MapPin, MessageCircle, Loader2 } from "lucide-react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
@@ -24,13 +18,18 @@ export function CoverageInput() {
     // Simulation delay
     await new Promise((resolve) => setTimeout(resolve, 800));
 
-    const phone = "5492944583942"; // Gnet default contact
+    const phone = "5492944824423"; // Gnet company contact
     const text = encodeURIComponent(
       `Hola Gnet! 👋 Quería consultar factibilidad técnica para:\n\n📍 Dirección: ${formData.address}\n📱 Mi WhatsApp: ${formData.phone}\n\nEspero su respuesta, gracias!`
     );
 
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const baseUrl = isMobile
+      ? "https://api.whatsapp.com/send"
+      : "https://web.whatsapp.com/send";
+
     // Open WhatsApp
-    window.open(`https://wa.me/${phone}?text=${text}`, "_blank");
+    window.open(`${baseUrl}?phone=${phone}&text=${text}`, "_blank");
     setLoading(false);
   };
 

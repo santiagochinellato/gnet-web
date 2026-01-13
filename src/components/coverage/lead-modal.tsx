@@ -1,36 +1,8 @@
 "use client";
 
-import { useActionState } from "react";
-import { useFormStatus } from "react-dom";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle, MapPinOff, X, Loader2 } from "lucide-react";
-import { submitLead } from "@/app/actions/submit-lead";
-import { toast } from "sonner";
-import { useEffect } from "react";
-
-/**
- * Submit Button with Loading State
- */
-function SubmitButton() {
-  const { pending } = useFormStatus();
-
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="w-full h-12 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
-    >
-      {pending ? (
-        <>
-          <Loader2 className="w-5 h-5 animate-spin" />
-          Enviando...
-        </>
-      ) : (
-        "Enviar mis datos"
-      )}
-    </button>
-  );
-}
+import { CheckCircle, MapPinOff, Loader2 } from "lucide-react";
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -39,34 +11,53 @@ interface LeadModalProps {
   address: string;
 }
 
-const initialState = {
-  success: false,
-  message: "",
-};
-
 export function LeadModal({
   isOpen,
   onClose,
   status,
   address,
 }: LeadModalProps) {
-  // Replace useActionState with React 19 hook when available or standard state for now if types conflict
-  // Assuming React 19 is fully set up as per prompt context
-  const [state, formAction] = useActionState(submitLead, initialState);
+  const [loading, setLoading] = useState(false);
 
   // Close modal on outside click
   const handleBackdropClick = (e: React.MouseEvent) => {
     if (e.target === e.currentTarget) onClose();
   };
 
-  // Show toast on success
-  useEffect(() => {
-    if (state.success) {
-      toast.success(state.message);
-      // Optional: Close modal after success or keep it open to show success state
-      setTimeout(onClose, 2500);
-    }
-  }, [state.success, state.message, onClose]);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get("name") as string;
+    const whatsapp = formData.get("whatsapp") as string;
+    const email = formData.get("email") as string;
+
+    const message = `Hola Gnet! 👋
+Nombre: ${name}
+WhatsApp: ${whatsapp}
+Email: ${email}
+Dirección consultada: ${address}
+Estado de cobertura: ${status === "covered" ? "Con Cobertura" : "Sin Cobertura"}
+
+Quisiera más información. Gracias!`;
+
+    const phone = "5492944824423";
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const baseUrl = isMobile
+      ? "https://api.whatsapp.com/send"
+      : "https://web.whatsapp.com/send";
+    const whatsappUrl = `${baseUrl}?phone=${phone}&text=${encodeURIComponent(
+      message
+    )}`;
+
+    // Simulate small delay for UX
+    await new Promise((resolve) => setTimeout(resolve, 500));
+
+    window.open(whatsappUrl, "_blank");
+    setLoading(false);
+    onClose();
+  };
 
   return (
     <AnimatePresence>
@@ -119,7 +110,7 @@ export function LeadModal({
 
             {/* Form */}
             <div className="p-6">
-              <form action={formAction} className="flex flex-col gap-4">
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
                 <input type="hidden" name="address" value={address} />
                 <input type="hidden" name="type" value={status} />
 
@@ -161,7 +152,20 @@ export function LeadModal({
                 </div>
 
                 <div className="mt-2">
-                  <SubmitButton />
+                  <button
+                    type="submit"
+                    disabled={loading}
+                    className="w-full h-12 bg-slate-900 text-white font-bold rounded-lg hover:bg-slate-800 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 transition-all dark:bg-white dark:text-slate-900 dark:hover:bg-slate-200"
+                  >
+                    {loading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Abriendo WhatsApp...
+                      </>
+                    ) : (
+                      "Consultar por WhatsApp"
+                    )}
+                  </button>
                 </div>
               </form>
               <button
