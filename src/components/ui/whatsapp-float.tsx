@@ -45,13 +45,24 @@ export function WhatsAppFloat() {
   const [isHovered, setIsHovered] = useState(false);
   const show = isVisible && !isOverFooter;
 
+  const handleWhatsAppClick = () => {
+    const phone = "5492944824423";
+    const message = "Hola, quisiera hacer una consulta.";
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const baseUrl = isMobile
+      ? "https://api.whatsapp.com/send"
+      : "https://web.whatsapp.com/send";
+    const whatsappUrl = `${baseUrl}?phone=${phone}&text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
+  };
+
   return (
     <AnimatePresence>
       {show && (
-        <motion.a
-          href="https://wa.me/5492944335435"
-          target="_blank"
-          rel="noopener noreferrer"
+        <motion.button
+          onClick={handleWhatsAppClick}
           initial={{ opacity: 0, scale: 0.5, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.5, y: 20 }}
