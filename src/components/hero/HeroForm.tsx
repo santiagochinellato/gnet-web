@@ -1,14 +1,14 @@
 "use client";
 
 import { MapPin, Smartphone } from "lucide-react";
-import { toast } from "sonner";
 
 export function HeroForm() {
   return (
     <form
       className="flex flex-col gap-3 w-full max-w-xl"
-      onSubmit={(e) => {
+      onSubmit={async (e) => {
         e.preventDefault();
+        const { toast } = await import("sonner");
         toast.success(
           "Gracias por tu interés. Nos comunicaremos de inmediato."
         );

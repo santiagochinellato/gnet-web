@@ -20,6 +20,27 @@ export function ContactSidebar({
 }: {
   content: ContactContent["sidebar"];
 }) {
+  const [shouldLoadMap, setShouldLoadMap] = React.useState(false);
+  const mapContainerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setShouldLoadMap(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px" } // Preload when 200px away
+    );
+
+    if (mapContainerRef.current) {
+      observer.observe(mapContainerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="flex flex-col gap-6 lg:col-span-1">
       {/* Department Emails */}
@@ -55,8 +76,11 @@ export function ContactSidebar({
 
       {/* Location Map */}
       <div className="flex flex-col overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shadow-sm">
-        <div className="relative h-48 w-full bg-slate-100 dark:bg-slate-800">
-          <ContactMap />
+        <div
+          ref={mapContainerRef}
+          className="relative h-48 w-full bg-slate-100 dark:bg-slate-800"
+        >
+          {shouldLoadMap && <ContactMap />}
           <div
             className="absolute bottom-3 right-3 rounded-md bg-white dark:bg-slate-900 px-2 py-1 text-xs font-bold shadow-sm text-slate-900 dark:text-white cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-800 z-10 pointer-events-auto"
             onClick={() =>

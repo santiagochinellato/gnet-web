@@ -9,6 +9,7 @@ import Map, {
   MapRef,
   type LayerProps,
 } from "react-map-gl/maplibre";
+import "maplibre-gl/dist/maplibre-gl.css";
 import { point } from "@turf/helpers";
 import booleanPointInPolygon from "@turf/boolean-point-in-polygon";
 import { COVERAGE_GEOJSON, INITIAL_VIEW_STATE } from "@/lib/coverage-data";

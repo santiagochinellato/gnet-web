@@ -18,7 +18,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+    process.env.NEXT_PUBLIC_BASE_URL || "https://gnet-web.vercel.app"
   ),
   title: "Gnet | Internet de Alta Velocidad en Bariloche",
   description: "Conexión estable y rápida diseñada para la Patagonia.",
