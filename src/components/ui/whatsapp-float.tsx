@@ -88,7 +88,7 @@ export function WhatsAppFloat() {
             )}
           </AnimatePresence>
           <MessageCircle className="h-6 w-6 fill-white shrink-0" />
-        </motion.a>
+        </motion.button>
       )}
     </AnimatePresence>
   );
