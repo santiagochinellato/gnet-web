@@ -102,16 +102,29 @@ export function SolutionsTabs({
                   {activeContent.description}
                 </p>
               </div>
-              <div className="flex items-center justify-center gap-4 pt-2">
-                <button className="flex h-9 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-4 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer">
+              <div className="flex items-center justify-center md:justify-end gap-4 pt-2">
+                <button
+                  onClick={() => {
+                    const message = `Hola, quisiera ver los planes para: ${activeContent.title}`;
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(
+                      navigator.userAgent
+                    );
+                    const baseUrl = isMobile
+                      ? "https://api.whatsapp.com/send"
+                      : "https://web.whatsapp.com/send";
+                    const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+                    window.open(whatsappUrl, "_blank");
+                  }}
+                  className="flex h-9 items-center justify-center rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white px-4 text-sm font-bold hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                >
                   Ver planes
                 </button>
               </div>
             </div>
-            <div
+            {/* <div
               className="w-full md:w-1/3 aspect-video md:aspect-auto rounded-lg bg-cover bg-center"
               style={{ backgroundImage: `url('${activeContent.image}')` }}
-            ></div>
+            ></div> */}
           </div>
         </motion.div>
       </section>

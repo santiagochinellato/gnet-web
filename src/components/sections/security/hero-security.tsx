@@ -26,7 +26,21 @@ export function HeroSecurity({
               </h2>
             </div>
             <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-              <button className="flex h-12 items-center justify-center rounded-lg bg-[var(--color-primary)] px-6 text-white text-base font-bold shadow-lg hover:bg-blue-600 transition-colors cursor-pointer">
+              <button
+                onClick={() => {
+                  const message =
+                    "Hola, quisiera consultar por servicios de seguridad.";
+                  const isMobile = /iPhone|iPad|iPod|Android/i.test(
+                    navigator.userAgent
+                  );
+                  const baseUrl = isMobile
+                    ? "https://api.whatsapp.com/send"
+                    : "https://web.whatsapp.com/send";
+                  const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+                  window.open(whatsappUrl, "_blank");
+                }}
+                className="flex h-12 items-center justify-center rounded-lg bg-[var(--color-primary)] px-6 text-white text-base font-bold shadow-lg hover:bg-blue-600 transition-colors cursor-pointer"
+              >
                 {content.ctaText}
               </button>
             </div>

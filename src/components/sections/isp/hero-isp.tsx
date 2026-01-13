@@ -67,12 +67,12 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
               >
                 {content.ctaPrimary.text}
               </Link>
-              <Link
+              {/* <Link
                 href={content.ctaSecondary.link}
                 className="inline-flex items-center justify-center rounded-lg border border-white/10 bg-white/5 px-8 py-4 text-base font-bold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:-translate-y-1"
               >
                 {content.ctaSecondary.text}
-              </Link>
+              </Link> */}
             </motion.div>
           </div>
 
@@ -80,14 +80,23 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
             <p className="text-white/60 text-base font-mono mb-6 tracking-widest uppercase">
               Technology Partners
             </p>
-            <div className="flex items-center justify-center gap-8 text-white/80 font-bold text-2xl tracking-tighter">
-              <div className="relative h-20 w-80 opacity-90 transition-opacity hover:opacity-100">
+            <div className="flex flex-col items-center justify-center gap-8 text-white/80 font-bold text-2xl tracking-tighter">
+              <div className="relative h-12 w-40 opacity-90 transition-opacity hover:opacity-100">
                 <Image
                   src="/ubiquiti.png"
                   alt="Ubiquiti Networks"
                   fill
                   className="object-contain brightness-0 invert"
-                  sizes="(max-width: 768px) 100vw, 320px"
+                  sizes="(max-width: 768px) 100vw, 160px"
+                />
+              </div>
+              <div className="relative h-12 w-40 opacity-90 transition-opacity hover:opacity-100">
+                <Image
+                  src="/mikrotik.png"
+                  alt="Mikrotik"
+                  fill
+                  className="object-contain brightness-0 invert"
+                  sizes="(max-width: 768px) 100vw, 160px"
                 />
               </div>
             </div>

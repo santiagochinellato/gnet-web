@@ -8,6 +8,7 @@ import {
   Mail,
   MapPin,
 } from "lucide-react";
+import Link from "next/link";
 import { FeaturesContent } from "@/types/content";
 
 const iconMap = {
@@ -43,10 +44,13 @@ export function FeaturesBento({ content }: { content: FeaturesContent }) {
             <p className="text-slate-600 dark:text-slate-300 text-lg mb-8 leading-relaxed text-center md:text-left">
               {content.description}
             </p>
-            <button className="group flex items-center gap-2 text-[var(--color-primary)] font-bold hover:text-[var(--color-secondary)] transition-colors text-center md:text-left">
+            <Link
+              href="/planes"
+              className="group flex items-center gap-2 text-[var(--color-primary)] font-bold hover:text-[var(--color-secondary)] transition-colors text-center md:text-left"
+            >
               {content.ctaText}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
           </div>
 
           {/* Grid Column */}

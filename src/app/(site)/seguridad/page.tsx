@@ -21,7 +21,7 @@ export default async function SecurityPage() {
       <HeroSecurity content={content.security.hero} />
       <SolutionsTabs content={content.security.solutions} />
       <ServicesGridSecurity content={content.security.services} />
-      <GallerySecurity content={content.security.gallery} />
+      {/* <GallerySecurity content={content.security.gallery} /> */}
       <ComparisonTableSecurity content={content.security.comparison} />
       <Footer content={content.footer} />
     </main>

@@ -6,12 +6,22 @@ export function HeroForm() {
   return (
     <form
       className="flex flex-col gap-3 w-full max-w-xl"
-      onSubmit={async (e) => {
+      onSubmit={(e) => {
         e.preventDefault();
-        const { toast } = await import("sonner");
-        toast.success(
-          "Gracias por tu interés. Nos comunicaremos de inmediato."
-        );
+        const formData = new FormData(e.currentTarget);
+        const address = formData.get("address") as string;
+        const phone = formData.get("phone") as string;
+
+        const message = `Hola, quisiera consultar cobertura para la dirección: ${address}. Mi número de contacto es: ${phone}`;
+
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        const baseUrl = isMobile
+          ? "https://api.whatsapp.com/send"
+          : "https://web.whatsapp.com/send";
+
+        const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+
+        window.open(whatsappUrl, "_blank");
       }}
     >
       <div className="relative w-full">
@@ -19,6 +29,7 @@ export function HeroForm() {
           <MapPin className="w-5 h-5" />
         </div>
         <input
+          name="address"
           className="w-full h-12 pl-10 pr-4 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-400 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all"
           placeholder="Ingresá tu dirección..."
           type="text"
@@ -31,6 +42,7 @@ export function HeroForm() {
             <Smartphone className="w-5 h-5" />
           </div>
           <input
+            name="phone"
             className="w-full h-12 pl-10 pr-4 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-400 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all"
             placeholder="Tu WhatsApp"
             type="tel"

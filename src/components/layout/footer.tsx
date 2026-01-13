@@ -23,7 +23,7 @@ export function Footer({ content }: { content: FooterContent }) {
           </p>
         </div>
 
-        <div className="md:grid md:grid-cols-2 md:gap-8 min-[1281px]:pl-14">
+        <div className="col-span-1 lg:col-span-2 md:grid md:grid-cols-2 md:gap-8 min-[1281px]:pl-14">
           <div>
             <h3 className="text-sm font-semibold leading-6 text-white uppercase tracking-wider">
               {content.servicesTitle}

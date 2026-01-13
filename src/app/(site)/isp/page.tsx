@@ -21,7 +21,7 @@ export default async function ISPPage() {
       <HeroISP content={content.isp.hero} />
       <StatsISP content={content.isp.stats} />
       <ServicesGridISP content={content.isp.services} />
-      <CaseStudiesISP content={content.isp.caseStudies} />
+      {/* <CaseStudiesISP content={content.isp.caseStudies} /> */}
       <CTAISP content={content.isp.cta} />
       <Footer content={content.footer} />
     </main>

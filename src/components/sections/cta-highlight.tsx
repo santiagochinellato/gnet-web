@@ -1,4 +1,5 @@
-import Link from "next/link";
+"use client";
+
 import { CTAHighlight as CTAHighlightType } from "@/types/content";
 
 export function CTAHighlight({ content }: { content: CTAHighlightType }) {
@@ -19,18 +20,38 @@ export function CTAHighlight({ content }: { content: CTAHighlightType }) {
           {content.text}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link
-            href={content.ctaPrimary.link}
-            className="bg-white text-[var(--color-primary)] text-lg font-bold py-4 px-10 rounded-xl hover:bg-slate-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 inline-block"
+          <button
+            onClick={() => {
+              const message = "hola, ¡Quiero contratar un plan!";
+              const isMobile = /iPhone|iPad|iPod|Android/i.test(
+                navigator.userAgent
+              );
+              const baseUrl = isMobile
+                ? "https://api.whatsapp.com/send"
+                : "https://web.whatsapp.com/send";
+              const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, "_blank");
+            }}
+            className="bg-white text-[var(--color-primary)] text-lg font-bold py-4 px-10 rounded-xl hover:bg-slate-50 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 inline-block cursor-pointer"
           >
             {content.ctaPrimary.text}
-          </Link>
-          <Link
-            href={content.ctaSecondary.link}
-            className="bg-transparent border-2 border-white/30 text-white text-lg font-bold py-4 px-10 rounded-xl hover:bg-white/10 transition-all duration-300 inline-block"
+          </button>
+          <button
+            onClick={() => {
+              const message = "Hola, quisiera contactar con ventas.";
+              const isMobile = /iPhone|iPad|iPod|Android/i.test(
+                navigator.userAgent
+              );
+              const baseUrl = isMobile
+                ? "https://api.whatsapp.com/send"
+                : "https://web.whatsapp.com/send";
+              const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+              window.open(whatsappUrl, "_blank");
+            }}
+            className="bg-transparent border-2 border-white/30 text-white text-lg font-bold py-4 px-10 rounded-xl hover:bg-white/10 transition-all duration-300 inline-block cursor-pointer"
           >
             {content.ctaSecondary.text}
-          </Link>
+          </button>
         </div>
       </div>
     </section>

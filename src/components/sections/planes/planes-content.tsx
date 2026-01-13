@@ -253,8 +253,34 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
         </span>
       </div>
       <button
+        onClick={(e) => {
+          e.preventDefault();
+
+          let message = "";
+          const titleLower = plan.title.toLowerCase();
+
+          if (titleLower.includes("empresas")) {
+            message = "Hola, quisiera mas información sobre el plan Empresas";
+          } else if (titleLower.includes("turismo")) {
+            message =
+              "Hola, quisiera contratar el plan Turismo, ¿Me puedes brindar detalles?";
+          } else {
+            message = `Hola, quisiera contratar el plan ${plan.title}, ¿Me puedes brindar detalles?`;
+          }
+
+          const isMobile = /iPhone|iPad|iPod|Android/i.test(
+            navigator.userAgent
+          );
+          const baseUrl = isMobile
+            ? "https://api.whatsapp.com/send"
+            : "https://web.whatsapp.com/send";
+
+          const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+
+          window.open(whatsappUrl, "_blank");
+        }}
         className={cn(
-          "mb-8 w-full rounded-lg px-4 py-2.5 text-sm font-bold transition-colors",
+          "mb-8 w-full rounded-lg px-4 py-2.5 text-sm font-bold transition-colors cursor-pointer",
           plan.recommended
             ? `${bgColor} text-white ${btnHover} shadow-lg shadow-blue-500/20`
             : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
@@ -273,6 +299,9 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           </div>
         ))}
       </div>
+      <span className="text-[10px] font text-gray-500 dark:text-slate-400 mt-1 text-center pt-2">
+        *Sujeto a disponibilidad tecnica y geografica*
+      </span>
     </div>
   );
 }
@@ -371,7 +400,22 @@ function CTASection({
             {content.text}
           </p>
           <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button className="flex w-full min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-bold text-[var(--color-primary)] transition-colors hover:bg-blue-50 sm:w-auto">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                const message = "Hola, quisiera contactar con un asesor.";
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(
+                  navigator.userAgent
+                );
+                const baseUrl = isMobile
+                  ? "https://api.whatsapp.com/send"
+                  : "https://web.whatsapp.com/send";
+
+                const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, "_blank");
+              }}
+              className="flex w-full min-w-[160px] cursor-pointer items-center justify-center gap-2 rounded-lg bg-white px-6 py-3.5 text-sm font-bold text-[var(--color-primary)] transition-colors hover:bg-blue-50 sm:w-auto"
+            >
               {content.whatsappText}
             </button>
           </div>

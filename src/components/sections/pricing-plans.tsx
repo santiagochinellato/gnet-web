@@ -1,5 +1,5 @@
+"use client";
 import { CheckCircle } from "lucide-react";
-import Link from "next/link";
 import { PricingSection } from "@/types/content";
 import { cn } from "@/lib/utils";
 
@@ -103,15 +103,49 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href={plan.ctaLink}
+
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    let message = "";
+                    const titleLower = plan.title.toLowerCase();
+
+                    if (titleLower.includes("empresas")) {
+                      message =
+                        "Hola, quisiera mas información sobre el plan Empresas";
+                    } else if (titleLower.includes("turismo")) {
+                      message =
+                        "Hola, quisiera contratar el plan Turismo, ¿Me puedes brindar detalles?";
+                    } else {
+                      // Default to Hogar or generic
+                      message = `Hola, quisiera contratar el plan ${plan.title}, ¿Me puedes brindar detalles?`;
+                    }
+
+                    const isMobile = /iPhone|iPad|iPod|Android/i.test(
+                      navigator.userAgent
+                    );
+                    const baseUrl = isMobile
+                      ? "https://api.whatsapp.com/send"
+                      : "https://web.whatsapp.com/send";
+
+                    const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+
+                    window.open(whatsappUrl, "_blank");
+                  }}
                   className={cn(
                     "w-full block text-center py-3 px-4 font-bold rounded-lg transition-all cursor-pointer",
                     btnClass
                   )}
                 >
                   {plan.ctaText}
-                </Link>
+                </button>
+                {!plan.title.toLowerCase().includes("pymes") &&
+                  !plan.title.toLowerCase().includes("empresas") && (
+                    <span className="text-[10px] font text-gray-500 dark:text-slate-400 mt-1 text-center pt-2">
+                      *Sujeto a disponibilidad tecnica y geografica*
+                    </span>
+                  )}
               </div>
             );
           })}
