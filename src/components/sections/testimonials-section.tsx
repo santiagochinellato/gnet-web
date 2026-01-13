@@ -31,14 +31,14 @@ export function TestimonialsSection({
                 &quot;{review.text}&quot;
               </p>
               <div className="flex items-center gap-3">
-                <div className="size-10 rounded-full bg-slate-200 overflow-hidden relative">
+                {/* <div className="size-10 rounded-full bg-slate-200 overflow-hidden relative">
                   <Image
                     src={review.img}
                     alt={review.name}
                     fill
                     className="object-cover"
                   />
-                </div>
+                </div> */}
                 <div>
                   <div className="font-bold text-sm text-gray-900 dark:text-white">
                     {review.name}
