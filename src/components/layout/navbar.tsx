@@ -50,20 +50,27 @@ export function Navbar({ links }: { links: NavLink[] }) {
 
         {/* DESKTOP LINKS */}
         <nav className="hidden xl:flex items-center gap-6">
-          {links.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className={cn(
-                "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
-                showScrolledStyle
-                  ? "text-slate-900 dark:text-slate-200"
-                  : "text-white drop-shadow-md"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const isWifi6 =
+              link.href === "/wifi-6" ||
+              link.label?.toLowerCase().includes("wifi 6");
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
+                  isWifi6
+                    ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
+                    : showScrolledStyle
+                      ? "text-slate-900 dark:text-slate-200"
+                      : "text-white drop-shadow-md"
+                )}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* CTA BUTTONS */}
@@ -108,16 +115,26 @@ export function Navbar({ links }: { links: NavLink[] }) {
       {mobileMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-white border-b border-slate-200 p-4 shadow-xl xl:hidden animate-in slide-in-from-top-2">
           <div className="flex flex-col gap-4">
-            {links.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-lg font-semibold text-slate-800 py-3 border-b border-slate-100 last:border-0"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isWifi6 =
+                link.href === "/wifi-6" ||
+                link.label?.toLowerCase().includes("wifi 6");
+              return (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className={cn(
+                    "text-lg font-semibold py-3 border-b border-slate-100 last:border-0",
+                    isWifi6
+                      ? "text-[var(--color-wifi-primary)] font-bold"
+                      : "text-slate-800"
+                  )}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <div className="flex flex-col gap-3 mt-2">
               <Link
                 href="https://gnetbari.wispro.co/"

@@ -154,7 +154,7 @@
     "servicesTitle": "Servicios",
     "servicesLinks": [
       { "label": "Internet Hogar", "href": "/planes" },
-      { "label": "Internet Empresas", "href": "/isp" },
+      { "label": "Internet Empresas", "href": "/planes" },
       { "label": "Turismo / Short-term", "href": "/planes" },
       { "label": "Seguridad Electrónica", "href": "/seguridad" },
       { "label": "Diseño de Redes", "href": "/isp" }

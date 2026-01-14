@@ -2,6 +2,7 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { FooterContent } from "@/types/content";
+import { cn } from "@/lib/utils";
 
 export function Footer({ content }: { content: FooterContent }) {
   return (
@@ -11,10 +12,10 @@ export function Footer({ content }: { content: FooterContent }) {
     >
       <div className="container mx-auto px-4 md:px-10 grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8 text-center lg:text-left">
         <div className="col-span-1 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <Link href="/" className="inline-block mb-4">
+          <Link href="/" className="inline-block mb-4 w-100 flex">
             <BrandLogo
               color="white"
-              className="w-32 h-10 justify-center"
+              className="w-56 h-10 justify-center"
               priority={false}
             />
           </Link>
@@ -29,16 +30,26 @@ export function Footer({ content }: { content: FooterContent }) {
               {content.servicesTitle}
             </h3>
             <ul className="mt-6 space-y-4">
-              {content.servicesLinks.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-sm leading-6 text-slate-400 hover:text-white transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {content.servicesLinks.map((item) => {
+                const isWifi6 =
+                  item.href === "/wifi-6" ||
+                  item.label?.toLowerCase().includes("wifi 6");
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "text-sm leading-6 transition-colors",
+                        isWifi6
+                          ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
+                          : "text-slate-400 hover:text-white"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
           <div className="mt-10 md:mt-0">
@@ -46,16 +57,26 @@ export function Footer({ content }: { content: FooterContent }) {
               {content.companyTitle}
             </h3>
             <ul className="mt-6 space-y-4">
-              {content.companyLinks.map((item) => (
-                <li key={item.label}>
-                  <Link
-                    href={item.href}
-                    className="text-sm leading-6 text-slate-400 hover:text-white transition-colors"
-                  >
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              {content.companyLinks.map((item) => {
+                const isWifi6 =
+                  item.href === "/wifi-6" ||
+                  item.label?.toLowerCase().includes("wifi 6");
+                return (
+                  <li key={item.label}>
+                    <Link
+                      href={item.href}
+                      className={cn(
+                        "text-sm leading-6 transition-colors",
+                        isWifi6
+                          ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
+                          : "text-slate-400 hover:text-white"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

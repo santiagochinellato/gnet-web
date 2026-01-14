@@ -4,6 +4,7 @@ import { groq } from "next-sanity";
 import defaultContent from "@/data/site-content.json";
 
 // Helper to extract URL from Sanity image object if projected correctly
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const imgUrl = (source: any) => source?.asset?.url || "";
 
 export const getSiteContent = async (): Promise<SiteContent> => {
@@ -87,9 +88,9 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   // Type assertion for default content
   const defaults = defaultContent as unknown as SiteContent;
 
-  // Check if "Obtené wifi 6" exists in navigation, if not add it
+  // Check if "Obtené wifi 6" exists in navigation (by href), if not add it
   const navigation: NavLink[] = settings?.navigation || defaults.navigation;
-  const wifiLinkExists = navigation.some(link => link.label === "Obtené wifi 6");
+  const wifiLinkExists = navigation.some(link => link.href === "/wifi-6");
   
   if (!wifiLinkExists) {
       // Insert it before the last item or at the end
@@ -101,9 +102,25 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       }
   }
 
+  const rawFooter = settings?.footer || defaults.footer;
+  const footer = {
+    ...rawFooter,
+    servicesLinks: rawFooter.servicesLinks?.map((link: NavLink) => {
+      // Force these specific links to go to /planes regardless of CMS input
+      if (
+        link.label === "Internet Hogar" ||
+        link.label === "Internet Empresas" ||
+        link.label.includes("Turismo")
+      ) {
+        return { ...link, href: "/planes" };
+      }
+      return link;
+    }) || []
+  };
+
   return {
     navigation,
-    footer: settings?.footer || defaults.footer,
+    footer,
     
     // Home Sections
     hero: home ? {

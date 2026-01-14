@@ -787,6 +787,32 @@ export default function Wifi6Page() {
               </div>
 
               {/* Testimonial 3 */}
+              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4 bg-[var(--color-wifi-primary)]/5 border-[var(--color-wifi-primary)]/20">
+                <div className="flex items-center gap-3">
+                  <div className="h-12 w-12 rounded-full border-2 border-[var(--color-wifi-primary)]/50 bg-slate-800 flex items-center justify-center text-white font-bold">
+                    SM
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-white">
+                      Sofi "HexaQueen" M.
+                    </h4>
+                    <div className="text-xs text-slate-400">
+                      Gamer Competitiva • Centro Cívico
+                    </div>
+                  </div>
+                </div>
+                <p className="text-slate-300 italic text-sm leading-relaxed">
+                  "Juego Valorant a nivel competitivo. Antes tenía 60ms de ping
+                  y perdía duelos que debería ganar. Contraté Gnet WiFi 6 y
+                  ahora estoy en 4-6ms constante. Subí de Platino a Diamante en
+                  2 semanas. La diferencia es BRUTAL."
+                </p>
+                <div className="mt-auto pt-4 flex gap-1 text-[var(--color-wifi-primary)] text-xs">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
