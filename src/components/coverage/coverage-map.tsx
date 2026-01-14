@@ -218,7 +218,7 @@ const CoverageMap = ({ className }: { className?: string }) => {
             <div className="flex items-center gap-2">
               <span className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"></span>
               <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
-                Internet Satelital
+                Internet Aéreo
               </span>
             </div>
           </div>
