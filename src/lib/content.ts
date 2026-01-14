@@ -1,5 +1,5 @@
 import { client } from "@/sanity/lib/client";
-import { SiteContent } from "@/types/content";
+import { SiteContent, NavLink } from "@/types/content";
 import { groq } from "next-sanity";
 import defaultContent from "@/data/site-content.json";
 
@@ -88,16 +88,14 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   const defaults = defaultContent as unknown as SiteContent;
 
   // Check if "Obtené wifi 6" exists in navigation, if not add it
-  const navigation = settings?.navigation || defaults.navigation;
+  const navigation: NavLink[] = settings?.navigation || defaults.navigation;
   const wifiLinkExists = navigation.some(link => link.label === "Obtené wifi 6");
   
   if (!wifiLinkExists) {
       // Insert it before the last item or at the end
       if (navigation.length > 0) {
-          const lastItem = navigation[navigation.length - 1]; // Usually "Contacto" or similar
-          // Insert before the last item for better visibility, or just push
-          // Let's put it as the second to last item
-         navigation.splice(navigation.length - 1, 0, { label: "Obtené wifi 6", href: "/wifi-6" });
+          // Put it as the second to last item
+          navigation.splice(navigation.length - 1, 0, { label: "Obtené wifi 6", href: "/wifi-6" });
       } else {
          navigation.push({ label: "Obtené wifi 6", href: "/wifi-6" });
       }
