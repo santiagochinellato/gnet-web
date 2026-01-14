@@ -17,6 +17,8 @@ export function Navbar({ links }: { links: NavLink[] }) {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
+    // Check initial scroll state immediately
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -67,7 +69,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
         {/* CTA BUTTONS */}
         <div className="flex gap-3 items-center">
           <Link
-            href="https://www.cloud.wispro.co/"
+            href="https://gnetbari.wispro.co/"
             target="_blank"
             rel="noopener noreferrer"
             className="hidden xl:flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all"
@@ -80,7 +82,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
             <ModeToggle
               className={
                 !showScrolledStyle
-                  ? "border-white/20 text-white hover:bg-white/10 dark:hover:bg-white/10"
+                  ? "border-white/40 text-white hover:bg-white/10 dark:hover:bg-white/10"
                   : ""
               }
             />
@@ -118,7 +120,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
             ))}
             <div className="flex flex-col gap-3 mt-2">
               <Link
-                href="https://www.cloud.wispro.co/"
+                href="https://gnetbari.wispro.co/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-white shadow-lg shadow-blue-500/20"

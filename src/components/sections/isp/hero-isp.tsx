@@ -43,7 +43,18 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl font-black leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
-              {content.title}
+              {content.title.split(/(Alto Rendimiento)/g).map((part, i) =>
+                part === "Alto Rendimiento" ? (
+                  <span
+                    key={i}
+                    className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-cyan-200"
+                  >
+                    {part}
+                  </span>
+                ) : (
+                  <span key={i}>{part}</span>
+                )
+              )}
             </motion.h1>
 
             <motion.p
@@ -80,17 +91,17 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
             <p className="text-white/60 text-base font-mono mb-6 tracking-widest uppercase">
               Technology Partners
             </p>
-            <div className="flex flex-col items-center justify-center gap-8 text-white/80 font-bold text-2xl tracking-tighter">
-              <div className="relative h-12 w-40 opacity-90 transition-opacity hover:opacity-100">
+            <div className="flex flex-col items-center justify-center gap-6 text-white/80 font-bold text-2xl tracking-tighter">
+              <div className="relative h-8 w-32 opacity-90 transition-opacity hover:opacity-100">
                 <Image
                   src="/ubiquiti.png"
                   alt="Ubiquiti Networks"
                   fill
                   className="object-contain brightness-0 invert"
-                  sizes="(max-width: 768px) 100vw, 160px"
+                  sizes="(max-width: 768px) 100vw, 128px"
                 />
               </div>
-              <div className="relative h-12 w-40 opacity-90 transition-opacity hover:opacity-100">
+              <div className="relative h-10 w-40 opacity-90 transition-opacity hover:opacity-100">
                 <Image
                   src="/mikrotik.png"
                   alt="Mikrotik"
