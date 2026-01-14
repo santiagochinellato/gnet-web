@@ -183,7 +183,7 @@ export default function Wifi6Page() {
 
       <main className="relative flex flex-col items-center overflow-x-hidden">
         {/* Hero Section */}
-        <section className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden pt-20">
+        <section className="relative flex h-[100dvh] w-full flex-col items-center justify-center overflow-hidden pt-16">
           {/* Background Elements */}
           <div className="absolute inset-0 z-0">
             <div className="absolute inset-0 bg-[#020617]"></div>
@@ -196,7 +196,7 @@ export default function Wifi6Page() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent z-10"></div>
           </div>
 
-          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-8">
+          <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-6">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-4 py-1.5 backdrop-blur-sm">
               <span className="relative flex h-2 w-2">
@@ -209,7 +209,7 @@ export default function Wifi6Page() {
             </div>
 
             {/* Headline */}
-            <h1 className="max-w-4xl text-5xl font-black leading-tight tracking-tight text-white sm:text-7xl glow-text">
+            <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight text-white sm:text-7xl glow-text">
               Internet que funciona <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-wifi-primary)] via-cyan-200 to-[var(--color-wifi-accent)]">
                 para toda la familia
@@ -224,7 +224,7 @@ export default function Wifi6Page() {
             </p>
 
             {/* Speed Counter */}
-            <div className="my-8 flex flex-col items-center justify-center">
+            <div className=" flex flex-col items-center justify-center">
               <div className="relative flex h-32 w-32 items-center justify-center rounded-full border-4 border-slate-800 bg-slate-900/50 backdrop-blur-xl pulse-emerald">
                 <div className="flex flex-col items-center">
                   <span className="text-4xl font-black text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]">
@@ -276,14 +276,13 @@ export default function Wifi6Page() {
               ✓ Sin contrato de permanencia &nbsp; ✓ Router WiFi 6 incluido
               &nbsp; ✓ Instalación en 48hs
             </p>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-20 opacity-80 animate-pulse">
-            <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium">
-              Seguí leyendo
-            </span>
-            <ChevronDown className="w-6 h-6 text-[var(--color-wifi-primary)] animate-bounce" />
+            {/* Scroll Indicator */}
+            <div className=" bottom-0 left-1/2  flex flex-col items-center gap-2 z-20 opacity-80 animate-pulse">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-slate-500 font-medium">
+                Seguí leyendo
+              </span>
+              <ChevronDown className="w-6 h-6 text-[var(--color-wifi-primary)] animate-bounce" />
+            </div>
           </div>
 
           {/* Bottom Gradient */}

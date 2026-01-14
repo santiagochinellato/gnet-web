@@ -252,6 +252,17 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           {plan.period}
         </span>
       </div>
+      <a
+        href="/wifi-6"
+        className="mb-4 block w-full rounded-lg border border-cyan-500/30 bg-cyan-500/10 py-2 text-center transition-all hover:bg-cyan-500/20 group/wifi"
+      >
+        <div className="flex items-center justify-center gap-2 text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
+          <span>¿Qué es WiFi 6?</span>
+          <span className="block transition-transform group-hover/wifi:translate-x-1">
+            →
+          </span>
+        </div>
+      </a>
       <button
         onClick={(e) => {
           e.preventDefault();
