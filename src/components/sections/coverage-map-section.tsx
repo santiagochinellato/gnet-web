@@ -6,14 +6,13 @@ import { CoverageSection } from "@/types/content";
 import React from "react";
 
 // Dynamic import for map component to avoid SSR issues and improve TBT
+import { MapSkeleton } from "@/components/skeletons";
+
+// Dynamic import for map component to avoid SSR issues and improve TBT
 const CoverageMap = dynamic(
   () => import("@/components/coverage/coverage-map"),
   {
-    loading: () => (
-      <div className="w-full h-full bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
-        <span className="text-slate-400 font-medium">Cargando mapa...</span>
-      </div>
-    ),
+    loading: () => <MapSkeleton />,
     ssr: false,
   }
 );
@@ -65,10 +64,8 @@ export function CoverageMapSection({ content }: { content: CoverageSection }) {
           {shouldLoadMap ? (
             <CoverageMap className="h-full rounded-2xl" />
           ) : (
-            <div className="w-full h-full bg-slate-100 dark:bg-slate-800 animate-pulse flex items-center justify-center">
-              <span className="text-slate-400 font-medium">
-                Cargando mapa...
-              </span>
+            <div className="w-full h-full">
+              <MapSkeleton />
             </div>
           )}
         </div>

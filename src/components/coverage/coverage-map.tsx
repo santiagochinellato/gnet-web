@@ -201,6 +201,43 @@ const CoverageMap = ({ className }: { className?: string }) => {
         )}
       </Map>
 
+      {/* LEYENDA DE SERVICIOS */}
+      <div className="absolute bottom-8 left-4 z-10 flex flex-col gap-2">
+        {/* Referencias */}
+        <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800">
+          <h4 className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">
+            Referencias
+          </h4>
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.4)]"></span>
+              <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+                Fibra Óptica
+              </span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-3 h-3 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.4)]"></span>
+              <span className="text-xs font-semibold text-slate-700 dark:text-slate-200">
+                Internet Satelital
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* Guía de Uso (Solo Desktop) */}
+        <div className="hidden md:block bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-3 rounded-2xl shadow-lg border border-slate-200 dark:border-slate-800 max-w-[200px]">
+          <h4 className="text-xs font-bold text-slate-500 mb-2 uppercase tracking-wider">
+            Navegación
+          </h4>
+          <ul className="text-[10px] text-slate-600 dark:text-slate-400 space-y-1 list-disc pl-3">
+            <li>
+              Usa <b>Ctrl + Scroll</b> para hacer zoom en el mapa.
+            </li>
+            <li>Arrastrá para moverte.</li>
+          </ul>
+        </div>
+      </div>
+
       <SearchControl onSelectAddress={handleSelectAddress} />
 
       <LeadModal
