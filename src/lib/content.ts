@@ -87,8 +87,24 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   // Type assertion for default content
   const defaults = defaultContent as unknown as SiteContent;
 
+  // Check if "Obtené wifi 6" exists in navigation, if not add it
+  const navigation = settings?.navigation || defaults.navigation;
+  const wifiLinkExists = navigation.some(link => link.label === "Obtené wifi 6");
+  
+  if (!wifiLinkExists) {
+      // Insert it before the last item or at the end
+      if (navigation.length > 0) {
+          const lastItem = navigation[navigation.length - 1]; // Usually "Contacto" or similar
+          // Insert before the last item for better visibility, or just push
+          // Let's put it as the second to last item
+         navigation.splice(navigation.length - 1, 0, { label: "Obtené wifi 6", href: "/wifi-6" });
+      } else {
+         navigation.push({ label: "Obtené wifi 6", href: "/wifi-6" });
+      }
+  }
+
   return {
-    navigation: settings?.navigation || defaults.navigation,
+    navigation,
     footer: settings?.footer || defaults.footer,
     
     // Home Sections
