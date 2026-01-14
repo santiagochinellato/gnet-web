@@ -11,11 +11,11 @@ export function Footer({ content }: { content: FooterContent }) {
       id="contacto"
     >
       <div className="container mx-auto px-4 md:px-10 grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8 text-center lg:text-left">
-        <div className="col-span-1 lg:col-span-1 flex flex-col items-center lg:items-start text-center lg:text-left">
-          <Link href="/" className="inline-block mb-4 w-100 flex">
+        <div className="col-span-1 lg:col-span-1 flex flex-col items-center lg:items-center text-center lg:text-center">
+          <Link href="/" className="mb-4 w-80 flex justify-center">
             <BrandLogo
               color="white"
-              className="w-56 h-10 justify-center"
+              className="w-30 h-32 justify-center"
               priority={false}
             />
           </Link>
