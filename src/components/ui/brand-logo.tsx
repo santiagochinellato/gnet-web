@@ -21,7 +21,7 @@ export function BrandLogo({
         alt="Gnet Logo"
         fill
         sizes="(max-width: 768px) 128px, 176px"
-        className={cn("object-contain w-fit")}
+        className={cn("w-fit object-contain")}
         priority={priority}
       />
     </div>

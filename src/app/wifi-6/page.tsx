@@ -293,7 +293,7 @@ export default function Wifi6Page() {
         <section id="problemas" className="w-full bg-[#020617] py-24 relative">
           <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
           <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-            <div className="mb-12 flex flex-col gap-4 md:items-center md:text-center">
+            <div className="mb-12 flex flex-col gap-4 items-center text-center">
               <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl text-center">
                 ¿Te pasa esto en casa?
               </h2>
@@ -304,7 +304,7 @@ export default function Wifi6Page() {
 
             <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
               {/* Card 1 */}
-              <div className="glass-card group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300">
+              <div className="glass-card group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-8 hover:border-red-500/50 transition-colors duration-300 items-center text-center md:items-start md:text-left">
                 <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-red-500/10 blur-xl transition-all group-hover:bg-red-500/20"></div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-red-500/10 text-red-500">
                   <AlertCircle className="w-8 h-8" />
@@ -330,7 +330,7 @@ export default function Wifi6Page() {
               </div>
 
               {/* Card 2 */}
-              <div className="glass-card group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-8 hover:border-amber-500/50 transition-colors duration-300">
+              <div className="glass-card group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-8 hover:border-amber-500/50 transition-colors duration-300 items-center text-center md:items-start md:text-left">
                 <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-amber-500/10 blur-xl transition-all group-hover:bg-amber-500/20"></div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
                   <Download className="w-8 h-8" />
@@ -355,7 +355,7 @@ export default function Wifi6Page() {
               </div>
 
               {/* Card 3 */}
-              <div className="glass-card group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-8 hover:border-orange-500/50 transition-colors duration-300">
+              <div className="glass-card group relative flex flex-col gap-4 overflow-hidden rounded-2xl p-8 hover:border-orange-500/50 transition-colors duration-300 items-center text-center md:items-start md:text-left">
                 <div className="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-orange-500/10 blur-xl transition-all group-hover:bg-orange-500/20"></div>
                 <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-orange-500/10 text-orange-500">
                   <WifiOff className="w-8 h-8" />
@@ -392,8 +392,8 @@ export default function Wifi6Page() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[500px] bg-[var(--color-wifi-primary)]/5 rounded-full blur-[120px]"></div>
 
           <div className="relative z-10 container mx-auto px-4 md:px-6 max-w-6xl">
-            <div className="mb-20 flex flex-col gap-6">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-wifi-primary)]/30 bg-[var(--color-wifi-primary)]/10 px-4 py-1.5 backdrop-blur-sm self-start shadow-[0_0_15px_rgba(7,182,213,0.2)]">
+            <div className="mb-20 flex flex-col gap-6 items-center text-center md:items-start md:text-left">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-wifi-primary)]/30 bg-[var(--color-wifi-primary)]/10 px-4 py-1.5 backdrop-blur-sm self-center md:self-start shadow-[0_0_15px_rgba(7,182,213,0.2)]">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--color-wifi-primary)] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--color-wifi-primary)]"></span>
@@ -403,17 +403,17 @@ export default function Wifi6Page() {
                 </span>
               </div>
 
-              <h2 className="text-4xl font-black tracking-tight text-white md:text-6xl max-w-4xl leading-tight">
+              <h2 className="text-3xl font-black tracking-tight text-white md:text-6xl max-w-4xl leading-tight text-center md:text-left">
                 Por qué WiFi 6 <br className="hidden md:block" />
-                <span className="text-slate-500">no es solo</span> "internet más
+                <span className="text-slate-400">no es solo</span> "internet más
                 rápido"
-                <span className="block mt-4 text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-wifi-primary)] via-cyan-200 to-blue-500 drop-shadow-[0_0_10px_rgba(7,182,213,0.3)]">
+                <span className="block mt-2 md:mt-4 text-2xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-wifi-primary)] via-cyan-200 to-blue-500 drop-shadow-[0_0_10px_rgba(7,182,213,0.3)]">
                   (Es mucho mejor que eso)
                 </span>
               </h2>
 
-              <div className="flex items-center gap-4 mt-2">
-                <div className="h-px w-12 bg-[var(--color-wifi-primary)]"></div>
+              <div className="flex flex-col md:flex-row items-center gap-4 mt-2 justify-center md:justify-start">
+                <div className="h-1 w-12 md:h-px md:w-12 bg-[var(--color-wifi-primary)] rounded-full"></div>
                 <p className="text-xl text-slate-300 font-medium italic">
                   Te lo explico como si estuviéramos tomando un mate:
                 </p>
@@ -424,7 +424,7 @@ export default function Wifi6Page() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* OFDMA - Grande */}
               <div className="glass-card md:col-span-2 rounded-3xl p-8 flex flex-col md:flex-row gap-8 items-center group overflow-hidden neon-border transition-all duration-300">
-                <div className="flex-1">
+                <div className="flex-1 flex flex-col items-center text-center md:items-start md:text-left">
                   <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-[var(--color-wifi-primary)] to-blue-600 shadow-lg text-white">
                     <Cpu className="w-8 h-8" />
                   </div>
@@ -453,7 +453,7 @@ export default function Wifi6Page() {
 
               {/* MU-MIMO - Grande */}
               <div className="glass-card md:col-span-2 rounded-3xl p-8 flex flex-col md:flex-row-reverse gap-8 items-center group overflow-hidden neon-border transition-all duration-300">
-                <div className="flex-1 md:text-right">
+                <div className="flex-1 md:text-right flex flex-col items-center text-center md:items-end">
                   <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 shadow-lg text-white md:ml-auto">
                     <Router className="w-8 h-8" />
                   </div>
@@ -482,9 +482,9 @@ export default function Wifi6Page() {
               </div>
 
               {/* Canales 160MHz */}
-              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02]">
+              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02] items-center text-center md:items-start md:text-left">
                 <div>
-                  <div className="flex items-center gap-3 mb-4 text-emerald-400">
+                  <div className="flex items-center gap-3 mb-4 text-emerald-400 justify-center md:justify-start">
                     <Wifi className="w-6 h-6" />
                     <span className="text-sm font-bold uppercase tracking-wider">
                       2x más ancho
@@ -501,9 +501,9 @@ export default function Wifi6Page() {
               </div>
 
               {/* Beamforming */}
-              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02]">
+              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02] items-center text-center md:items-start md:text-left">
                 <div>
-                  <div className="flex items-center gap-3 mb-4 text-amber-400">
+                  <div className="flex items-center gap-3 mb-4 text-amber-400 justify-center md:justify-start">
                     <Zap className="w-6 h-6" />
                     <span className="text-sm font-bold uppercase tracking-wider">
                       +40% señal
@@ -521,9 +521,9 @@ export default function Wifi6Page() {
               </div>
 
               {/* TWT */}
-              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02]">
+              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02] items-center text-center md:items-start md:text-left">
                 <div>
-                  <div className="flex items-center gap-3 mb-4 text-green-400">
+                  <div className="flex items-center gap-3 mb-4 text-green-400 justify-center md:justify-start">
                     <BatteryCharging className="w-6 h-6" />
                     <span className="text-sm font-bold uppercase tracking-wider">
                       7x menos batería
@@ -540,9 +540,9 @@ export default function Wifi6Page() {
               </div>
 
               {/* WPA3 */}
-              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02]">
+              <div className="glass-card rounded-3xl p-8 flex flex-col justify-between group neon-border transition-all duration-300 hover:bg-white/[0.02] items-center text-center md:items-start md:text-left">
                 <div>
-                  <div className="flex items-center gap-3 mb-4 text-slate-300">
+                  <div className="flex items-center gap-3 mb-4 text-slate-300 justify-center md:justify-start">
                     <ShieldCheck className="w-6 h-6" />
                     <span className="text-sm font-bold uppercase tracking-wider">
                       Inquebrantable
@@ -716,8 +716,8 @@ export default function Wifi6Page() {
         {/* Social Proof */}
         <section className="w-full py-24 relative bg-slate-900/30">
           <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-            <div className="flex items-center justify-between mb-10">
-              <h2 className="text-2xl font-bold text-white">
+            <div className="flex flex-col md:flex-row items-center justify-between mb-10 gap-6">
+              <h2 className="text-2xl font-bold text-white text-center md:text-left">
                 Lo que dicen los que ya tienen WiFi 6 en Bariloche
               </h2>
               <div className="flex gap-2">
@@ -732,8 +732,8 @@ export default function Wifi6Page() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Testimonial 1 */}
-              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4">
-                <div className="flex items-center gap-3">
+              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4 items-center text-center md:items-start md:text-left">
+                <div className="flex flex-col md:flex-row items-center gap-3">
                   <div className="h-12 w-12 rounded-full border-2 border-[var(--color-wifi-primary)]/50 bg-slate-800 flex items-center justify-center text-white font-bold">
                     MR
                   </div>
@@ -758,8 +758,8 @@ export default function Wifi6Page() {
               </div>
 
               {/* Testimonial 2 */}
-              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4 bg-[var(--color-wifi-primary)]/5 border-[var(--color-wifi-primary)]/20">
-                <div className="flex items-center gap-3">
+              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4 bg-[var(--color-wifi-primary)]/5 border-[var(--color-wifi-primary)]/20 items-center text-center md:items-start md:text-left">
+                <div className="flex flex-col md:flex-row items-center gap-3">
                   <div className="h-12 w-12 rounded-full border-2 border-[var(--color-wifi-primary)]/50 bg-slate-800 flex items-center justify-center text-white font-bold">
                     SM
                   </div>
@@ -786,8 +786,8 @@ export default function Wifi6Page() {
               </div>
 
               {/* Testimonial 3 */}
-              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4 bg-[var(--color-wifi-primary)]/5 border-[var(--color-wifi-primary)]/20">
-                <div className="flex items-center gap-3">
+              <div className="glass-card p-6 rounded-2xl flex flex-col gap-4 bg-[var(--color-wifi-primary)]/5 border-[var(--color-wifi-primary)]/20 items-center text-center md:items-start md:text-left">
+                <div className="flex flex-col md:flex-row items-center gap-3">
                   <div className="h-12 w-12 rounded-full border-2 border-[var(--color-wifi-primary)]/50 bg-slate-800 flex items-center justify-center text-white font-bold">
                     SM
                   </div>
@@ -823,7 +823,7 @@ export default function Wifi6Page() {
               Preguntas Frecuentes
             </h2>
             <div className="grid gap-6">
-              <div className="glass-card p-6 rounded-2xl">
+              <div className="glass-card p-6 rounded-2xl text-center md:text-left">
                 <h3 className="font-bold text-white text-lg mb-2">
                   ¿Mi hijo realmente necesita WiFi 6 para jugar?
                 </h3>
@@ -834,7 +834,7 @@ export default function Wifi6Page() {
                   un tiroteo, eso es vida o muerte digital.
                 </p>
               </div>
-              <div className="glass-card p-6 rounded-2xl">
+              <div className="glass-card p-6 rounded-2xl text-center md:text-left">
                 <h3 className="font-bold text-white text-lg mb-2">
                   Trabajo para INVAP remoto. ¿WiFi 6 mejora las videollamadas?
                 </h3>
@@ -846,7 +846,7 @@ export default function Wifi6Page() {
                   se pixela.
                 </p>
               </div>
-              <div className="glass-card p-6 rounded-2xl">
+              <div className="glass-card p-6 rounded-2xl text-center md:text-left">
                 <h3 className="font-bold text-white text-lg mb-2">
                   ¿Funciona con mis dispositivos viejos?
                 </h3>
@@ -857,7 +857,7 @@ export default function Wifi6Page() {
                   vuelan.
                 </p>
               </div>
-              <div className="glass-card p-6 rounded-2xl">
+              <div className="glass-card p-6 rounded-2xl text-center md:text-left">
                 <h3 className="font-bold text-white text-lg mb-2">
                   ¿Por qué Gnet y no otra empresa?
                 </h3>
