@@ -11,6 +11,7 @@ import {
   PricingPlan,
   FAQSection as FAQSectionType,
 } from "@/types/content";
+import { Wifi6Banner } from "@/components/sections/wifi6-banner";
 
 type TabType = "hogar" | "turista" | "comercios";
 
@@ -53,7 +54,6 @@ export function PlanesContent({ content }: { content: PlanesContentType }) {
           </p>
         </div>
       </section>
-
       {/* Tabs Section */}
       <div className="sticky top-16 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md transition-all duration-300">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -78,7 +78,6 @@ export function PlanesContent({ content }: { content: PlanesContentType }) {
           </div>
         </div>
       </div>
-
       {/* Content Section */}
       <div className="bg-slate-50 dark:bg-slate-950 py-12 min-h-[600px]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -104,10 +103,10 @@ export function PlanesContent({ content }: { content: PlanesContentType }) {
           </AnimatePresence>
         </div>
       </div>
-
+      {/* Wifi 6 Banner */}
+      <Wifi6Banner />
       {/* FAQ Section */}
       <FAQSection content={content.faq} />
-
       {/* CTA Section */}
       <CTASection content={content.cta} />
     </div>

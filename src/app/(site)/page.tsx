@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/sections/Hero";
 import { FeaturesBento } from "@/components/sections/features-bento";
 import { PricingPlans } from "@/components/sections/pricing-plans";
+import { Wifi6Banner } from "@/components/sections/wifi6-banner";
 import { CoverageMapSection } from "@/components/sections/coverage-map-section";
 import { FAQSection } from "@/components/sections/faq-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
@@ -29,6 +30,9 @@ export default async function Home() {
 
       {/* 3. Pricing Plans */}
       <PricingPlans content={content.pricing} />
+
+      {/* 3.5. Wifi 6 Banner */}
+      <Wifi6Banner />
 
       {/* 4. Coverage Map */}
       <CoverageMapSection content={content.coverage} />

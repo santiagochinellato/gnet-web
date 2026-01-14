@@ -110,9 +110,6 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                 >
                   <div className="flex items-center justify-center gap-2 text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
                     <span>¿Qué es WiFi 6?</span>
-                    <span className="block transition-transform group-hover/wifi:translate-x-1">
-                      →
-                    </span>
                   </div>
                 </a>
 
