@@ -50,7 +50,7 @@ export const wifi6Page = defineType({
           title: "Problem Cards",
           type: "array",
           of: [
-            defineField({
+            {
               type: "object",
               fields: [
                 defineField({
@@ -70,7 +70,7 @@ export const wifi6Page = defineType({
                 defineField({ name: "statValue", title: "Stat Value (Big)", type: "string" }),
                 defineField({ name: "statLabel", title: "Stat Label (Small)", type: "string" }),
               ],
-            }),
+            },
           ],
         }),
       ],
@@ -93,7 +93,7 @@ export const wifi6Page = defineType({
           title: "Technology Cards",
           type: "array",
           of: [
-            defineField({
+            {
               type: "object",
               fields: [
                 defineField({
@@ -124,7 +124,7 @@ export const wifi6Page = defineType({
                     ]
                 }),
               ],
-            }),
+            },
           ],
         }),
       ],
@@ -146,14 +146,14 @@ export const wifi6Page = defineType({
             title: "Features List",
             type: "array",
             of: [
-              defineField({
+              {
                 type: "object",
                 fields: [
                   defineField({ name: "name", title: "Feature Name", type: "string" }),
                   defineField({ name: "wifi5", title: "WiFi 5 Value", type: "string" }),
                   defineField({ name: "wifi6", title: "WiFi 6 Value", type: "string" }),
                 ]
-              })
+              }
             ]
           })
         ]
@@ -174,7 +174,7 @@ export const wifi6Page = defineType({
                 title: "Reviews",
                 type: "array",
                 of: [
-                    defineField({
+                    {
                         type: "object",
                         fields: [
                            defineField({ name: "name", title: "Name", type: "string" }), 
@@ -182,7 +182,7 @@ export const wifi6Page = defineType({
                            defineField({ name: "text", title: "Review Text", type: "text" }), 
                            defineField({ name: "stars", title: "Stars", type: "number", initialValue: 5 }), 
                         ]
-                    })
+                    }
                 ]
             })
         ]
@@ -203,13 +203,13 @@ export const wifi6Page = defineType({
                 title: "Questions",
                 type: "array",
                 of: [
-                    defineField({
+                    {
                         type: "object",
                         fields: [
                             defineField({ name: "question", title: "Question", type: "string" }),
                             defineField({ name: "answer", title: "Answer", type: "text" }),
                         ]
-                    })
+                    }
                 ]
             })
         ]

@@ -2,7 +2,16 @@
 
 import { Rocket, ChevronDown } from "lucide-react";
 
-export function HeroSection() {
+interface HeroProps {
+  data?: {
+    badge?: string;
+    headline?: string;
+    subheadline?: string;
+    microcopy?: string;
+  };
+}
+
+export function HeroSection({ data }: HeroProps) {
   return (
     <section className="relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-hidden pt-32 md:pt-24 pb-12">
       {/* Background Elements */}

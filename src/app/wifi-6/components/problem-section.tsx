@@ -2,7 +2,21 @@
 
 import { AlertCircle, Download, WifiOff } from "lucide-react";
 
-export function ProblemSection() {
+interface ProblemProps {
+  data?: {
+    title?: string;
+    subtitle?: string;
+    cards?: {
+      icon: string;
+      title: string;
+      description: string;
+      stat: string;
+      statLabel: string;
+    }[];
+  };
+}
+
+export function ProblemSection({ data }: ProblemProps) {
   return (
     <section id="problemas" className="w-full bg-[#020617] py-24 relative">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-slate-800 to-transparent"></div>
