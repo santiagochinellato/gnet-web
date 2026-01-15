@@ -116,10 +116,35 @@ export function HeroSection({ data }: HeroProps) {
           </a>
         </div>
 
-        {/* Microcopy */}
-        <p className="text-[10px] sm:text-lg text-slate-100 font-medium text-center px-4">
-          {microcopy}
-        </p>
+        {/* Microcopy - Benefits */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 px-4 max-w-3xl">
+          {microcopy
+            .split("✓")
+            .filter((item) => item.trim())
+            .map((item, index) => (
+              <div
+                key={index}
+                className="flex items-center gap-2 bg-slate-800/50 border border-slate-700/50 rounded-full px-4 py-2 backdrop-blur-sm hover:border-emerald-500/50 hover:bg-slate-800/70 transition-all"
+              >
+                <svg
+                  className="w-4 h-4 text-emerald-400 flex-shrink-0"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span className="text-xs sm:text-sm text-slate-100 font-medium whitespace-nowrap">
+                  {item.trim()}
+                </span>
+              </div>
+            ))}
+        </div>
 
         {/* Scroll Indicator */}
         <div className="mt-4 sm:mt-8 flex flex-col items-center gap-2 z-20 opacity-80 animate-pulse">
