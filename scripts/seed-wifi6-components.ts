@@ -135,7 +135,8 @@ async function main() {
           features: ["50 Mbps", "Sin Contrato Fijo", "Activación Inmediata"],
           ctaText: "Contratar Pack",
           ctaLink: "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20contratar%20el%20plan%20Turismo%20WiFi%206",
-          isPopular: true
+          isPopular: true,
+          badge: "TURISMO"
         },
         {
           _key: 'pl3',
@@ -167,9 +168,9 @@ async function main() {
     testimonials: {
         title: "Lo que dicen los que ya tienen WiFi 6 en Bariloche",
         reviews: [
-            { _key: 'r1', name: "Martín R.", role: "Ingeniero en INVAP • B. Jardín Botánico", text: "Trabajo con simulaciones 3D que pesan gigas. Antes tardaba 40 minutos en subir un archivo al servidor de INVAP. Con WiFi 6 de Gnet son 8 minutos. Mi hijo juega Fortnite en la pieza de al lado y yo ni me entero. Cero interferencia.", stars: 5 },
-            { _key: 'r2', name: 'Sofi "HexaQueen" M.', role: "Gamer Competitiva • Centro Cívico", text: "Juego Valorant a nivel competitivo. Antes tenía 60ms de ping y perdía duelos que debería ganar. Contraté Gnet WiFi 6 y ahora estoy en 4-6ms constante. Subí de Platino a Diamante en 2 semanas. La diferencia es BRUTAL.", stars: 5 },
-            { _key: 'r3', name: "Carlos D.", role: "Dueño de Cabañas • Km 5", text: "Mis huéspedes siempre se quejaban de que el WiFi se cortaba cuando todos se conectaban a la noche. Cambié al plan Turismo WiFi 6 y santo remedio. Ahora me dejan reseñas de 5 estrellas destacando la velocidad de internet.", stars: 5 },
+            { _key: 'r1', name: "Martín R.", role: "Ingeniero en INVAP • B. Jardín Botánico", text: "Trabajo con simulaciones 3D que pesan gigas. Antes tardaba 40 minutos en subir un archivo al servidor de INVAP. Con WiFi 6 de Gnet son 8 minutos. Mi hijo juega Fortnite en la pieza de al lado y yo ni me entero. Cero interferencia.", stars: 5, initials: "MR" },
+            { _key: 'r2', name: 'Sofi "HexaQueen" M.', role: "Gamer Competitiva • Centro Cívico", text: "Juego Valorant a nivel competitivo. Antes tenía 60ms de ping y perdía duelos que debería ganar. Contraté Gnet WiFi 6 y ahora estoy en 4-6ms constante. Subí de Platino a Diamante en 2 semanas. La diferencia es BRUTAL.", stars: 5, initials: "SM" },
+            { _key: 'r3', name: "Carlos D.", role: "Dueño de Cabañas • Km 5", text: "Mis huéspedes siempre se quejaban de que el WiFi se cortaba cuando todos se conectaban a la noche. Cambié al plan Turismo WiFi 6 y santo remedio. Ahora me dejan reseñas de 5 estrellas destacando la velocidad de internet.", stars: 5, initials: "CD" },
         ]
     },
     faqs: {

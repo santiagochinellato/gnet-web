@@ -15,6 +15,7 @@ interface PlansProps {
       ctaText: string;
       ctaLink: string;
       isPopular?: boolean;
+      badge?: string;
     }[];
   };
 }
@@ -48,6 +49,7 @@ export function PlansSection({ data }: PlansProps) {
         ctaLink:
           "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20contratar%20el%20plan%20Turismo%20WiFi%206",
         isPopular: true,
+        badge: "TURISMO",
       },
       {
         name: "Empresas",
@@ -79,9 +81,9 @@ export function PlansSection({ data }: PlansProps) {
             key={index}
             className={`relative group flex flex-col rounded-2xl border ${plan.isPopular ? "border-[var(--color-wifi-primary)]/30 bg-[var(--color-wifi-primary)]/5" : "border-white/10 bg-white/5"} p-8 backdrop-blur-sm hover:border-[var(--color-wifi-primary)]${plan.isPopular ? "" : "/50"} transition-all hover:shadow-2xl hover:shadow-[var(--color-wifi-primary)]/10`}
           >
-            {plan.isPopular && (
+            {plan.badge && (
               <div className="absolute top-0 right-0 bg-[var(--color-wifi-primary)] text-[#020617] text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl">
-                TURISMO
+                {plan.badge}
               </div>
             )}
             <h3 className="text-xl font-bold text-white mb-2">{plan.name}</h3>

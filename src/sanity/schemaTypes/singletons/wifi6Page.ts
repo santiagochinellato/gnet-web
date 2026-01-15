@@ -164,6 +164,7 @@ export const wifi6Page = defineType({
                 defineField({ name: "ctaText", title: "CTA Button Text", type: "string" }),
                 defineField({ name: "ctaLink", title: "CTA Link", type: "url" }),
                 defineField({ name: "isPopular", title: "Is Popular", type: "boolean" }),
+                defineField({ name: "badge", title: "Badge Text", type: "string", description: "Badge text (e.g., TURISMO, HOGAR, PYME). Shows in top-right corner." }),
               ],
             },
           ],
@@ -222,6 +223,7 @@ export const wifi6Page = defineType({
                            defineField({ name: "role", title: "Role/Location", type: "string" }), 
                            defineField({ name: "text", title: "Review Text", type: "text" }), 
                            defineField({ name: "stars", title: "Stars", type: "number", initialValue: 5 }), 
+                           defineField({ name: "initials", title: "Initials", type: "string", description: "Initials to show in the avatar (e.g. MR). If empty, auto-generated from name." }), 
                         ]
                     }
                 ]
