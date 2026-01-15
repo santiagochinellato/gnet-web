@@ -25,6 +25,7 @@ interface Wifi6PageClientProps {
       subtitle?: string;
       pingValue?: string;
       ctaText?: string;
+      microcopy?: string;
     };
     problems?: {
       title?: string;
@@ -191,7 +192,20 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
       <FloatingPingBadge />
 
       <main className="relative flex flex-col items-center overflow-x-hidden">
-        <HeroSection data={hero} />
+        <HeroSection
+          data={
+            hero
+              ? {
+                  badge: hero.badge,
+                  headline: hero.title,
+                  subheadline: hero.subtitle,
+                  pingValue: hero.pingValue,
+                  ctaText: hero.ctaText,
+                  microcopy: hero.microcopy,
+                }
+              : undefined
+          }
+        />
         <ProblemSection data={problems} />
         <TechnologySection data={technology} />
         <PlansSection data={plans} />

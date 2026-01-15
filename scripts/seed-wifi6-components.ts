@@ -17,10 +17,11 @@ async function main() {
     _type: 'wifi6Page',
     hero: {
       badge: "WIFI 6 EARLY ADOPTER",
-      title: "Internet que funciona para toda la familia",
+      title: "Internet que funciona\npara toda la familia",
       subtitle: "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo.",
-      pingValue: "4ms",
-      ctaText: "Verificar si llega a mi casa"
+      pingValue: "4",
+      ctaText: "Verificar si llega a mi casa",
+      microcopy: "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs"
     },
     problems: {
       title: "¿Te pasa esto en casa?",

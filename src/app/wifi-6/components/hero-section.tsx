@@ -7,11 +7,23 @@ interface HeroProps {
     badge?: string;
     headline?: string;
     subheadline?: string;
+    pingValue?: string;
+    ctaText?: string;
     microcopy?: string;
   };
 }
 
 export function HeroSection({ data }: HeroProps) {
+  // Extract data with fallbacks
+  const {
+    badge = "WIFI 6 EARLY ADOPTER",
+    headline = "Internet que funciona para toda la familia",
+    subheadline = "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo.",
+    pingValue = "4",
+    ctaText = "Verificar si llega a mi casa",
+    microcopy = "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs",
+  } = data || {};
+
   return (
     <section className="relative flex min-h-[100dvh] w-full flex-col items-center justify-center overflow-hidden pt-32 md:pt-24 pb-12">
       {/* Background Elements */}
@@ -25,30 +37,32 @@ export function HeroSection({ data }: HeroProps) {
       </div>
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-4 sm:gap-6">
-        {/* Badge */}
-        {/* <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 sm:px-4 sm:py-1.5 backdrop-blur-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400">
-            WIFI 6 EARLY ADOPTER
-          </span>
-        </div> */}
+        {/* Badge - Optional */}
+        {badge && (
+          <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 sm:px-4 sm:py-1.5 backdrop-blur-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400">
+              {badge}
+            </span>
+          </div>
+        )}
 
         {/* Headline */}
         <h1 className="max-w-4xl text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight text-white glow-text">
-          Internet que funciona <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--color-wifi-primary)] via-cyan-200 to-[var(--color-wifi-accent)]">
-            para toda la familia
-          </span>
+          {headline.split("\n").map((line, i, arr) => (
+            <span key={i}>
+              {line}
+              {i < arr.length - 1 && <br />}
+            </span>
+          ))}
         </h1>
 
         {/* Subhead */}
         <p className="max-w-2xl text-base sm:text-lg md:text-xl text-slate-400">
-          Tu hijo juega sin lag. Vos trabajás sin cortes.{" "}
-          <br className="hidden sm:block" />
-          Todo al mismo tiempo.
+          {subheadline}
         </p>
 
         {/* Speed Counter */}
@@ -56,7 +70,7 @@ export function HeroSection({ data }: HeroProps) {
           <div className="relative flex h-24 w-24 sm:h-32 sm:w-32 items-center justify-center rounded-full border-4 border-slate-800 bg-slate-900/50 backdrop-blur-xl pulse-emerald">
             <div className="flex flex-col items-center">
               <span className="text-2xl sm:text-4xl font-black text-emerald-400 drop-shadow-[0_0_10px_rgba(52,211,153,0.8)]">
-                4
+                {pingValue}
                 <span className="text-lg sm:text-xl text-emerald-500/80">
                   ms
                 </span>
@@ -97,15 +111,14 @@ export function HeroSection({ data }: HeroProps) {
             className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl bg-[var(--color-wifi-primary)] px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold text-[var(--color-wifi-bg)] transition-all hover:scale-105 hover:shadow-[0_0_30px_rgba(7,182,213,0.5)]"
           >
             <Rocket className="w-5 h-5 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
-            Verificar si llega a mi casa
+            {ctaText}
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:animate-shine group-hover:opacity-100"></div>
           </a>
         </div>
 
         {/* Microcopy */}
         <p className="text-[10px] sm:text-xs text-slate-500 font-medium text-center px-4">
-          ✓ Sin contrato de permanencia &nbsp; ✓ Router WiFi 6 incluido &nbsp; ✓
-          Instalación en 48hs
+          {microcopy}
         </p>
 
         {/* Scroll Indicator */}

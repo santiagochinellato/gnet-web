@@ -27,10 +27,11 @@ export const wifi6Page = defineType({
       group: "hero",
       fields: [
         defineField({ name: "badge", title: "Badge Text", type: "string", initialValue: "WIFI 6 EARLY ADOPTER" }),
-        defineField({ name: "title", title: "Main Title", type: "string", initialValue: "Internet que funciona para toda la familia" }),
+        defineField({ name: "title", title: "Main Title", type: "text", initialValue: "Internet que funciona\npara toda la familia" }),
         defineField({ name: "subtitle", title: "Subtitle", type: "text", initialValue: "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo." }),
-        defineField({ name: "pingValue", title: "Ping Value", type: "string", initialValue: "4ms" }),
+        defineField({ name: "pingValue", title: "Ping Value", type: "string", initialValue: "4" }),
         defineField({ name: "ctaText", title: "CTA Button Text", type: "string", initialValue: "Verificar si llega a mi casa" }),
+        defineField({ name: "microcopy", title: "Microcopy (Benefits)", type: "text", initialValue: "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs" }),
       ],
     }),
 
