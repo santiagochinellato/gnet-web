@@ -4,8 +4,20 @@ import { useEffect, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-export function StickyCta() {
+interface StickyCtaProps {
+  data?: {
+    topLabel?: string;
+    buttonText?: string;
+  };
+}
+
+export function StickyCta({ data }: StickyCtaProps) {
   const [ctaVisible, setCtaVisible] = useState(false);
+
+  const {
+    topLabel = "¿Listo para eliminar el lag?",
+    buttonText = "Verificar Cobertura",
+  } = data || {};
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,9 +46,9 @@ export function StickyCta() {
       >
         <div className="flex flex-col leading-none">
           <span className="text-[10px] uppercase tracking-wider opacity-80">
-            ¿Listo para eliminar el lag?
+            {topLabel}
           </span>
-          <span className="text-sm">Verificar Cobertura</span>
+          <span className="text-sm">{buttonText}</span>
         </div>
         <ArrowRight className="w-5 h-5" />
       </a>

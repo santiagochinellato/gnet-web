@@ -30,6 +30,7 @@ export const wifi6Page = defineType({
         defineField({ name: "title", title: "Main Title", type: "text", initialValue: "Internet que funciona\npara toda la familia" }),
         defineField({ name: "subtitle", title: "Subtitle", type: "text", initialValue: "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo." }),
         defineField({ name: "pingValue", title: "Ping Value", type: "string", initialValue: "4" }),
+        defineField({ name: "pingDescription", title: "Ping Description", type: "text", initialValue: "WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa." }),
         defineField({ name: "ctaText", title: "CTA Button Text", type: "string", initialValue: "Verificar si llega a mi casa" }),
         defineField({ name: "microcopy", title: "Microcopy (Benefits)", type: "text", initialValue: "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs" }),
       ],
@@ -229,6 +230,20 @@ export const wifi6Page = defineType({
            defineField({ name: "title", title: "Title", type: "text" }),
            defineField({ name: "description", title: "Description", type: "text" }),
         ]
+    }),
+
+    /* -------------------------------------------------------------------------- */
+    /*                              STICKY CTA                                    */
+    /* -------------------------------------------------------------------------- */
+    defineField({
+      name: "stickyCta",
+      title: "Sticky CTA Button",
+      type: "object",
+      group: "cta",
+      fields: [
+        defineField({ name: "topLabel", title: "Top Label", type: "string", initialValue: "¿Listo para eliminar el lag?" }),
+        defineField({ name: "buttonText", title: "Button Text", type: "string", initialValue: "Verificar Cobertura" }),
+      ],
     }),
 
     /* -------------------------------------------------------------------------- */

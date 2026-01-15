@@ -20,6 +20,7 @@ async function main() {
       title: "Internet que funciona\npara toda la familia",
       subtitle: "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo.",
       pingValue: "4",
+      pingDescription: "WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa.",
       ctaText: "Verificar si llega a mi casa",
       microcopy: "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs"
     },
@@ -184,6 +185,10 @@ async function main() {
         badge: "⚡ ÚLTIMA DECISIÓN INTELIGENTE DEL AÑO",
         title: "¿Tu hijo te pidió WiFi 6? \nTiene razón.",
         description: "No es un capricho. Es la diferencia entre trabajar bien o estar disculpándote en Zoom. Verificá si Gnet con WiFi 6 llega a tu dirección. Si llega, activás en 48 horas.",
+    },
+    stickyCta: {
+        topLabel: "¿Listo para eliminar el lag?",
+        buttonText: "Verificar Cobertura"
     },
     seo: {
         metaTitle: "WiFi 6 en Bariloche - Gnet Fibra Óptica",

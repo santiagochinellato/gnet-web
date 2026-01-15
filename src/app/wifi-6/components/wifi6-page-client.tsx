@@ -24,6 +24,7 @@ interface Wifi6PageClientProps {
       title?: string;
       subtitle?: string;
       pingValue?: string;
+      pingDescription?: string;
       ctaText?: string;
       microcopy?: string;
     };
@@ -97,6 +98,10 @@ interface Wifi6PageClientProps {
         ctaLink: string;
         isPopular?: boolean;
       }>;
+    };
+    stickyCta?: {
+      topLabel?: string;
+      buttonText?: string;
     };
   } | null;
 }
@@ -182,6 +187,7 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
     faqs,
     cta,
     plans,
+    stickyCta,
   } = data || {};
 
   return (
@@ -200,6 +206,7 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
                   headline: hero.title,
                   subheadline: hero.subtitle,
                   pingValue: hero.pingValue,
+                  pingDescription: hero.pingDescription,
                   ctaText: hero.ctaText,
                   microcopy: hero.microcopy,
                 }
@@ -219,7 +226,7 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
           setAddressInput={setAddressInput}
           data={cta}
         />
-        <StickyCta />
+        <StickyCta data={stickyCta} />
       </main>
 
       <CoverageCheckModal

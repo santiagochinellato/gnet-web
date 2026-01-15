@@ -8,6 +8,7 @@ interface HeroProps {
     headline?: string;
     subheadline?: string;
     pingValue?: string;
+    pingDescription?: string;
     ctaText?: string;
     microcopy?: string;
   };
@@ -20,6 +21,7 @@ export function HeroSection({ data }: HeroProps) {
     headline = "Internet que funciona para toda la familia",
     subheadline = "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo.",
     pingValue = "4",
+    pingDescription = "WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa.",
     ctaText = "Verificar si llega a mi casa",
     microcopy = "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs",
   } = data || {};
@@ -98,9 +100,7 @@ export function HeroSection({ data }: HeroProps) {
             </svg>
           </div>
           <span className="mt-4 text-xs sm:text-sm font-medium text-emerald-400 max-w-xs sm:max-w-md">
-            WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech
-            de Bariloche usan para trabajar en proyectos críticos. Ahora en tu
-            casa.
+            {pingDescription}
           </span>
         </div>
 
