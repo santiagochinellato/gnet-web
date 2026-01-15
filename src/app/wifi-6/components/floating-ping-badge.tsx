@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { Activity } from "lucide-react";
+import { SpeedTestModal } from "./speed-test-modal";
 
 export function FloatingPingBadge() {
   const [ping, setPing] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [showComparison, setShowComparison] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Function to measure real ping/latency
@@ -78,27 +80,33 @@ export function FloatingPingBadge() {
       {/* Desktop - Floating Badge on Right Side */}
       <div className="fixed right-6 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col items-center gap-3">
         {/* Ping Badge */}
-        <div className="relative flex flex-col items-center justify-center rounded-xl border border-slate-700/50 bg-slate-900/80 backdrop-blur-sm p-3 shadow-lg min-w-[90px]">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          title="Comprobar mi conexión"
+          className="relative flex flex-col items-center justify-center rounded-xl border border-slate-700/50 bg-slate-900/80 backdrop-blur-sm p-3 shadow-lg min-w-[90px] transition-all hover:border-cyan-500/50 hover:shadow-cyan-500/20 hover:scale-105 cursor-pointer group"
+        >
           {/* Content */}
           <div className="flex flex-col items-center gap-1">
             <Activity
-              className={`w-4 h-4 ${isLoading || isUpdating ? "animate-spin" : "animate-pulse"} ${pingColor}`}
+              className={`w-4 h-4 ${isLoading || isUpdating ? "animate-spin" : "animate-pulse"} ${pingColor} group-hover:text-cyan-400 transition-colors`}
             />
             <div className="flex items-baseline gap-0.5 min-w-[60px] justify-center">
-              <span className={`text-2xl font-bold ${pingColor} tabular-nums`}>
+              <span
+                className={`text-2xl font-bold ${pingColor} tabular-nums group-hover:text-cyan-400 transition-colors`}
+              >
                 {isLoading ? "--" : ping}
               </span>
               <span
-                className={`text-xs font-medium ${pingColor.replace("text-", "text-").replace("-400", "-500/70")}`}
+                className={`text-xs font-medium ${pingColor.replace("text-", "text-").replace("-400", "-500/70")} group-hover:text-cyan-500/70 transition-colors`}
               >
                 ms
               </span>
             </div>
-            <span className="text-[8px] font-medium uppercase tracking-wide text-slate-500">
+            <span className="text-[8px] font-medium uppercase tracking-wide text-slate-500 group-hover:text-cyan-500 transition-colors">
               {isLoading ? "Midiendo" : "Ping Real"}
             </span>
           </div>
-        </div>
+        </button>
 
         {/* Comparison Badge - Shows when scrolled past hero */}
         <div
@@ -135,7 +143,10 @@ export function FloatingPingBadge() {
 
       {/* Mobile - Snackbar at Bottom */}
       <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
-        <div className="flex items-center justify-between gap-3 rounded-lg border border-slate-700/50 bg-slate-900/90 backdrop-blur-sm px-4 py-2.5 shadow-lg">
+        <button
+          onClick={() => setIsModalOpen(true)}
+          className="w-full flex items-center justify-between gap-3 rounded-lg border border-slate-700/50 bg-slate-900/90 backdrop-blur-sm px-4 py-2.5 shadow-lg transition-all hover:border-cyan-500/50 hover:shadow-cyan-500/20 active:scale-95"
+        >
           {/* Current Ping */}
           <div className="flex items-center gap-2">
             <Activity
@@ -177,8 +188,14 @@ export function FloatingPingBadge() {
               </span>
             </div>
           </div>
-        </div>
+        </button>
       </div>
+
+      {/* Speed Test Modal */}
+      <SpeedTestModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 }
