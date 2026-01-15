@@ -2,9 +2,11 @@ import { client } from "@/sanity/lib/client";
 import { Wifi6PageClient } from "./components/wifi6-page-client";
 import { Metadata } from "next";
 
-// Revalidate on every request (0 = no cache) or set to a number of seconds
-// For production, consider using 60 (1 minute) or setup webhooks for on-demand revalidation
+// Force dynamic rendering to ensure fresh data from Sanity on every request
+// This bypasses Next.js caching and guarantees content updates appear immediately
+export const dynamic = 'force-dynamic';
 export const revalidate = 0; // This ensures fresh data from Sanity
+
 
 // GROQ Query
 const WIFI6_PAGE_QUERY = `*[_type == "wifi6Page"][0] {
