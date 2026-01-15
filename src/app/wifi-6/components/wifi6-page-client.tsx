@@ -19,14 +19,84 @@ import { FloatingPingBadge } from "./floating-ping-badge";
 
 interface Wifi6PageClientProps {
   data: {
-    hero?: any;
-    problems?: any;
-    technology?: any;
-    comparison?: any;
-    testimonials?: any;
-    faqs?: any;
-    cta?: any;
-    plans?: any;
+    hero?: {
+      badge?: string;
+      title?: string;
+      subtitle?: string;
+      pingValue?: string;
+      ctaText?: string;
+    };
+    problems?: {
+      title?: string;
+      subtitle?: string;
+      cards?: Array<{
+        icon: string;
+        title: string;
+        description: string;
+        statValue: string;
+        statLabel: string;
+      }>;
+    };
+    technology?: {
+      badge?: string;
+      title?: string;
+      intro?: string;
+      cards?: Array<{
+        icon: string;
+        title: string;
+        subtitle?: string;
+        description: string;
+        stat?: {
+          value: string;
+          label: string;
+        };
+      }>;
+    };
+    comparison?: {
+      title?: string;
+      badge?: string;
+      features?: Array<{
+        name: string;
+        wifi5: string;
+        wifi6: string;
+      }>;
+    };
+    testimonials?: {
+      title?: string;
+      reviews?: Array<{
+        name: string;
+        role: string;
+        text: string;
+        stars: number;
+        initials?: string;
+      }>;
+    };
+    faqs?: {
+      title?: string;
+      items?: Array<{
+        question: string;
+        answer: string;
+      }>;
+    };
+    cta?: {
+      badge?: string;
+      title?: string;
+      description?: string;
+    };
+    plans?: {
+      title?: string;
+      subtitle?: string;
+      plans?: Array<{
+        name: string;
+        description: string;
+        price: string;
+        period: string;
+        features: string[];
+        ctaText: string;
+        ctaLink: string;
+        isPopular?: boolean;
+      }>;
+    };
   } | null;
 }
 

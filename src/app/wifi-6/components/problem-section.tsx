@@ -10,7 +10,7 @@ interface ProblemProps {
       icon: string;
       title: string;
       description: string;
-      stat: string;
+      statValue: string;
       statLabel: string;
     }[];
   };

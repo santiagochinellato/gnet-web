@@ -27,7 +27,7 @@ interface TechnologyProps {
   };
 }
 
-const iconMap: Record<string, React.ComponentType<any>> = {
+const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
   Cpu,
   Router,
   Wifi,

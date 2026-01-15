@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { X, Download, Upload, Activity, CheckCircle2 } from "lucide-react";
 
 interface SpeedTestModalProps {
@@ -26,15 +26,6 @@ export function SpeedTestModal({ isOpen, onClose }: SpeedTestModalProps) {
     download: null,
     upload: null,
   });
-
-  // Reset when modal opens
-  useEffect(() => {
-    if (isOpen) {
-      setStatus("idle");
-      setCurrentTest(null);
-      setResults({ ping: null, download: null, upload: null });
-    }
-  }, [isOpen]);
 
   const runSpeedTest = async () => {
     setStatus("testing");
