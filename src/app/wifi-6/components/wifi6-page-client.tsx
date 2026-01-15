@@ -97,6 +97,7 @@ interface Wifi6PageClientProps {
         ctaText: string;
         ctaLink: string;
         isPopular?: boolean;
+        badge?: string;
       }>;
     };
     stickyCta?: {
