@@ -1,5 +1,7 @@
 
 const { createClient } = require('@sanity/client');
+require('dotenv').config({ path: '.env.local' });
+require('dotenv').config(); // Fallback to .env
 
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'tu_project_id',
@@ -193,7 +195,7 @@ async function main() {
   try {
     const res = await client.createOrReplace(doc);
     console.log('Success! Document created:', res._id);
-  } catch (err) {
+  } catch (err: any) {
     console.error('Seed failed:', err.message);
   }
 }
