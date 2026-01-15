@@ -13,16 +13,21 @@ export function BrandLogo({
   priority?: boolean;
 }) {
   return (
-    <div className={cn("relative w-32 h-10 flex items-center", className)}>
-      {/* Use next/image for automatic optimization (WebP, resizing) */}
+    <div
+      className={cn(
+        "relative h-10 w-fit flex items-center justify-center",
+        className
+      )}
+    >
+      {/* Use next/image with intrinsic dimensions to allow w-fit/w-auto containers */}
       <Image
         key={color}
         src={color === "black" ? "/Gnet-black.png" : "/Gnet-white.png"}
         alt="Gnet Logo"
-        fill
-        sizes="(max-width: 768px) 128px, 176px"
-        className={cn("w-fit object-contain")}
+        width={200}
+        height={100}
         priority={priority}
+        className="h-full w-auto max-w-full object-contain"
       />
     </div>
   );

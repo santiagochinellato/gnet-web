@@ -41,8 +41,8 @@ export function Navbar({ links }: { links: NavLink[] }) {
           <BrandLogo
             className={
               showScrolledStyle
-                ? "dark:invert dark:brightness-0 w-44 h-14" // Scrolled: Invert only in Dark Mode (to make it white)
-                : "invert brightness-0 w-44 h-14" // Top: Always invert (to make it white on transparent bg)
+                ? "dark:invert dark:brightness-0 w-44 h-14 justify-start lg:justify-center" // Scrolled: Invert only in Dark Mode (to make it white)
+                : "invert brightness-0 w-44 h-14 justify-start lg:justify-center" // Top: Always invert (to make it white on transparent bg)
             }
             color="black"
           />

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { ChevronDown, Check } from "lucide-react";
+import { ChevronDown, Check, Rocket } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -251,53 +251,56 @@ function PlanCard({ plan }: { plan: PricingPlan }) {
           {plan.period}
         </span>
       </div>
-      <a
-        href="/wifi-6"
-        className="mb-4 block w-full rounded-lg border border-cyan-500/30 bg-cyan-500/10 py-2 text-center transition-all hover:bg-cyan-500/20 group/wifi"
-      >
-        <div className="flex items-center justify-center gap-2 text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
-          <span>¿Qué es WiFi 6?</span>
-          <span className="block transition-transform group-hover/wifi:translate-x-1">
-            →
-          </span>
-        </div>
-      </a>
-      <button
-        onClick={(e) => {
-          e.preventDefault();
+      <div className="mt-auto">
+        {/* <a
+          href="/wifi-6"
+          className="mb-4 block w-full group/wifi relative overflow-hidden rounded-xl bg-slate-900 p-[1px] transition-all hover:scale-[1.02]"
+        >
+          <div className="absolute inset-0 animate-spin-slow bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-70 group-hover/wifi:opacity-100 transition-opacity" />
+          <div className="relative flex items-center justify-center gap-2 rounded-xl bg-[#020617] py-2.5 px-4 transition-all group-hover/wifi:bg-slate-900/90">
+            <Rocket className="w-4 h-4 text-cyan-400 animate-pulse" />
+            <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase tracking-widest group-hover/wifi:from-cyan-300 group-hover/wifi:to-blue-400">
+              ¿Qué es WiFi 6?
+            </span>
+          </div>
+        </a> */}
+        <button
+          onClick={(e) => {
+            e.preventDefault();
 
-          let message = "";
-          const titleLower = plan.title.toLowerCase();
+            let message = "";
+            const titleLower = plan.title.toLowerCase();
 
-          if (titleLower.includes("empresas")) {
-            message = "Hola, quisiera mas información sobre el plan Empresas";
-          } else if (titleLower.includes("turismo")) {
-            message =
-              "Hola, quisiera contratar el plan Turismo, ¿Me puedes brindar detalles?";
-          } else {
-            message = `Hola, quisiera contratar el plan ${plan.title}, ¿Me puedes brindar detalles?`;
-          }
+            if (titleLower.includes("empresas")) {
+              message = "Hola, quisiera mas información sobre el plan Empresas";
+            } else if (titleLower.includes("turismo")) {
+              message =
+                "Hola, quisiera contratar el plan Turismo, ¿Me puedes brindar detalles?";
+            } else {
+              message = `Hola, quisiera contratar el plan ${plan.title}, ¿Me puedes brindar detalles?`;
+            }
 
-          const isMobile = /iPhone|iPad|iPod|Android/i.test(
-            navigator.userAgent
-          );
-          const baseUrl = isMobile
-            ? "https://api.whatsapp.com/send"
-            : "https://web.whatsapp.com/send";
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(
+              navigator.userAgent
+            );
+            const baseUrl = isMobile
+              ? "https://api.whatsapp.com/send"
+              : "https://web.whatsapp.com/send";
 
-          const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
+            const whatsappUrl = `${baseUrl}?phone=5492944824423&text=${encodeURIComponent(message)}`;
 
-          window.open(whatsappUrl, "_blank");
-        }}
-        className={cn(
-          "mb-8 w-full rounded-lg px-4 py-2.5 text-sm font-bold transition-colors cursor-pointer",
-          plan.recommended
-            ? `${bgColor} text-white ${btnHover} shadow-lg shadow-blue-500/20`
-            : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
-        )}
-      >
-        {plan.ctaText}
-      </button>
+            window.open(whatsappUrl, "_blank");
+          }}
+          className={cn(
+            "mb-8 w-full rounded-lg px-4 py-2.5 text-sm font-bold transition-colors cursor-pointer",
+            plan.recommended
+              ? `${bgColor} text-white ${btnHover} shadow-lg shadow-blue-500/20`
+              : "bg-slate-100 dark:bg-slate-700 text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-600"
+          )}
+        >
+          {plan.ctaText}
+        </button>
+      </div>
       <div className="space-y-4">
         {plan.features.map((feature, i) => (
           <div

@@ -85,11 +85,11 @@ export function Footer({ content }: { content: FooterContent }) {
             {content.contactTitle}
           </h3>
           <ul className="mt-6 space-y-4">
-            <li className="flex items-start gap-3 text-sm leading-6 text-slate-400">
+            <li className="flex items-start justify-center md:justify-start gap-3 text-sm leading-6 text-slate-400">
               <MapPin className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
               <span>{content.contactInfo.address}</span>
             </li>
-            <li className="flex items-center gap-3 text-sm leading-6 text-slate-400">
+            <li className="flex items-center justify-center md:justify-start gap-3 text-sm leading-6 text-slate-400">
               <Phone className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
               <a
                 href={`tel:${content.contactInfo.phone.replace(
@@ -101,7 +101,7 @@ export function Footer({ content }: { content: FooterContent }) {
                 {content.contactInfo.phone}
               </a>
             </li>
-            <li className="flex items-center gap-3 text-sm leading-6 text-slate-400">
+            <li className="flex items-center justify-center md:justify-start gap-3 text-sm leading-6 text-slate-400">
               <Mail className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
               <a
                 href={`mailto:${content.contactInfo.email}`}

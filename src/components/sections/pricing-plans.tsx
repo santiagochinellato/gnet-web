@@ -1,5 +1,5 @@
 "use client";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Rocket } from "lucide-react";
 import { PricingSection } from "@/types/content";
 import { cn } from "@/lib/utils";
 
@@ -22,7 +22,7 @@ export function PricingPlans({ content }: { content: PricingSection }) {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
           {content.plans.map((plan, index) => {
             const isSecondary = plan.color === "secondary";
             const borderColor = isSecondary
@@ -104,14 +104,18 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                   ))}
                 </ul>
 
-                <a
+                {/* <a
                   href="/wifi-6"
-                  className="mb-4 block w-full rounded-lg border border-cyan-500/30 bg-cyan-500/10 py-2 text-center transition-all hover:bg-cyan-500/20 group/wifi"
+                  className="mb-6 block w-full group/wifi relative overflow-hidden rounded-xl bg-slate-900 p-[1px] transition-all hover:scale-[1.02]"
                 >
-                  <div className="flex items-center justify-center gap-2 text-xs font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-widest">
-                    <span>¿Qué es WiFi 6?</span>
+                  <div className="absolute inset-0 animate-spin-slow bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 opacity-70 group-hover/wifi:opacity-100 transition-opacity" />
+                  <div className="relative flex items-center justify-center gap-2 rounded-xl bg-[#020617] py-2.5 px-4 transition-all group-hover/wifi:bg-slate-900/90">
+                    <Rocket className="w-4 h-4 text-cyan-400 animate-pulse" />
+                    <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 uppercase tracking-widest group-hover/wifi:from-cyan-300 group-hover/wifi:to-blue-400">
+                      ¿Qué es WiFi 6?
+                    </span>
                   </div>
-                </a>
+                </a> */}
 
                 <button
                   onClick={(e) => {
