@@ -107,6 +107,45 @@ async function main() {
         }
       ]
     },
+    plans: {
+      title: "WiFi 6 para todos",
+      subtitle: "Nuestros Planes",
+      plans: [
+        {
+          _key: 'pl1',
+          name: "Familiar",
+          description: "Para familias y home office.",
+          price: "$15.000",
+          period: "/mes",
+          features: ["100 Mbps Simétricos", "Router WiFi 6 Incluido", "Instalación Bonificada"],
+          ctaText: "Contratar",
+          ctaLink: "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20contratar%20el%20plan%20Familiar%20WiFi%206",
+          isPopular: false
+        },
+        {
+          _key: 'pl2',
+          name: "Turismo",
+          description: "Ideal alquileres temporarios.",
+          price: "$10.000",
+          period: "/semana",
+          features: ["50 Mbps", "Sin Contrato Fijo", "Activación Inmediata"],
+          ctaText: "Contratar Pack",
+          ctaLink: "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20contratar%20el%20plan%20Turismo%20WiFi%206",
+          isPopular: true
+        },
+        {
+          _key: 'pl3',
+          name: "Empresas",
+          description: "Soluciones corporativas.",
+          price: "Consultar",
+          period: "",
+          features: ["Hasta 1 Gbps", "IP Fija Disponible", "SLA Garantizado"],
+          ctaText: "Contactar Asesor",
+          ctaLink: "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20asesoramiento%20para%20Empresas%20WiFi%206",
+          isPopular: false
+        }
+      ]
+    },
     comparison: {
         title: "WiFi 5 VS WiFi 6",
         badge: "Comparación honesta sin marketing",
