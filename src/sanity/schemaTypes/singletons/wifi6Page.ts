@@ -133,6 +133,45 @@ export const wifi6Page = defineType({
     }),
 
     /* -------------------------------------------------------------------------- */
+    /*                               PLANS SECTION                                */
+    /* -------------------------------------------------------------------------- */
+    defineField({
+      name: "plans",
+      title: "Plans Section",
+      type: "object",
+      group: "plans",
+      fields: [
+        defineField({ name: "title", title: "Section Title", type: "string", initialValue: "WiFi 6 para todos" }),
+        defineField({ name: "subtitle", title: "Section Subtitle", type: "string", initialValue: "Nuestros Planes" }),
+        defineField({
+          name: "plans",
+          title: "Plans List",
+          type: "array",
+          of: [
+            {
+              type: "object",
+              fields: [
+                defineField({ name: "name", title: "Plan Name", type: "string" }),
+                defineField({ name: "description", title: "Description", type: "text" }),
+                defineField({ name: "price", title: "Price", type: "string" }),
+                defineField({ name: "period", title: "Period", type: "string" }),
+                defineField({
+                  name: "features",
+                  title: "Features",
+                  type: "array",
+                  of: [{ type: "string" }]
+                }),
+                defineField({ name: "ctaText", title: "CTA Button Text", type: "string" }),
+                defineField({ name: "ctaLink", title: "CTA Link", type: "url" }),
+                defineField({ name: "isPopular", title: "Is Popular", type: "boolean" }),
+              ],
+            },
+          ],
+        }),
+      ],
+    }),
+
+    /* -------------------------------------------------------------------------- */
     /*                             COMPARISON SECTION                             */
     /* -------------------------------------------------------------------------- */
     defineField({
