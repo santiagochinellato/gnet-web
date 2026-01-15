@@ -117,7 +117,7 @@ export function HeroSection({ data }: HeroProps) {
         </div>
 
         {/* Microcopy */}
-        <p className="text-[10px] sm:text-xs text-slate-500 font-medium text-center px-4">
+        <p className="text-[10px] sm:text-lg text-slate-100 font-medium text-center px-4">
           {microcopy}
         </p>
 
