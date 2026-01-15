@@ -17,7 +17,7 @@ export function HeroSection() {
 
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center gap-4 sm:gap-6">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 sm:px-4 sm:py-1.5 backdrop-blur-sm">
+        {/* <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 sm:px-4 sm:py-1.5 backdrop-blur-sm">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -25,7 +25,7 @@ export function HeroSection() {
           <span className="text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-emerald-400">
             WIFI 6 EARLY ADOPTER
           </span>
-        </div>
+        </div> */}
 
         {/* Headline */}
         <h1 className="max-w-4xl text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight text-white glow-text">

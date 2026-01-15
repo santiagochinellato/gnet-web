@@ -12,6 +12,7 @@ import ispPage from './schemaTypes/singletons/ispPage'
 import securityPage from './schemaTypes/singletons/securityPage'
 import planesPage from './schemaTypes/singletons/planesPage'
 import contactPage from './schemaTypes/singletons/contactPage'
+import { wifi6Page } from './schemaTypes/singletons/wifi6Page'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
   types: [
@@ -25,6 +26,7 @@ export const schema: { types: SchemaTypeDefinition[] } = {
     ispPage,
     securityPage,
     planesPage,
-    contactPage
+    contactPage,
+    wifi6Page
   ],
 }

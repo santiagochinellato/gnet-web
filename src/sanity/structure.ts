@@ -47,8 +47,15 @@ export const structure = (S: StructureBuilder) =>
             .schemaType('contactPage')
             .documentId('contactPage')
         ),
+      S.listItem()
+        .title('WiFi 6 Page')
+        .child(
+          S.document()
+            .schemaType('wifi6Page')
+            .documentId('wifi6Page')
+        ),
       S.divider(),
       ...S.documentTypeListItems().filter(
-        (item) => !['homePage', 'siteSettings', 'ispPage', 'securityPage', 'planesPage', 'contactPage', 'media.tag'].includes(item.getId() as string)
+        (item) => !['homePage', 'siteSettings', 'ispPage', 'securityPage', 'planesPage', 'contactPage', 'wifi6Page', 'media.tag'].includes(item.getId() as string)
       ),
     ])

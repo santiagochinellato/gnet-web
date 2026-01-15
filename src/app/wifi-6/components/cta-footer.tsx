@@ -7,6 +7,11 @@ interface CtaFooterProps {
   isVerifying: boolean;
   addressInput: string;
   setAddressInput: (value: string) => void;
+  data?: {
+    badge?: string;
+    title?: string;
+    description?: string;
+  };
 }
 
 export function CtaFooter({
@@ -14,7 +19,14 @@ export function CtaFooter({
   isVerifying,
   addressInput,
   setAddressInput,
+  data,
 }: CtaFooterProps) {
+  const {
+    badge = "⚡ ÚLTIMA DECISIÓN INTELIGENTE DEL AÑO",
+    title = "¿Tu hijo te pidió WiFi 6? \nTiene razón.",
+    description = "No es un capricho. Es la diferencia entre trabajar bien o estar disculpándote en Zoom. Verificá si Gnet con WiFi 6 llega a tu dirección. Si llega, activás en 48 horas.",
+  } = data || {};
+
   return (
     <section
       id="cobertura"
@@ -24,18 +36,13 @@ export function CtaFooter({
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-slate-900 to-slate-950 p-8 md:p-12 border border-white/10 shadow-2xl shadow-[var(--color-wifi-primary)]/10 text-center">
           <span className="inline-block rounded-lg bg-[var(--color-wifi-primary)]/10 p-2 text-[var(--color-wifi-primary)] mb-6 text-xs font-bold uppercase tracking-wider border border-[var(--color-wifi-primary)]/20">
-            ⚡ ÚLTIMA DECISIÓN INTELIGENTE DEL AÑO
+            {badge}
           </span>
-          <h2 className="text-3xl font-black text-white md:text-5xl mb-4">
-            ¿Tu hijo te pidió WiFi 6? <br />
-            <span className="text-[var(--color-wifi-primary)]">
-              Tiene razón.
-            </span>
+          <h2 className="text-3xl font-black text-white md:text-5xl mb-4 whitespace-pre-line">
+            {title}
           </h2>
           <p className="text-slate-400 mb-8 max-w-lg mx-auto text-lg leading-relaxed">
-            No es un capricho. Es la diferencia entre trabajar bien o estar
-            disculpándote en Zoom. Verificá si Gnet con WiFi 6 llega a tu
-            dirección. Si llega, activás en 48 horas.
+            {description}
           </p>
 
           <form
