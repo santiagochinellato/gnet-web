@@ -15,6 +15,7 @@ import { TestimonialsSection } from "./testimonials-section";
 import { FaqSection } from "./faq-section";
 import { CtaFooter } from "./cta-footer";
 import { StickyCta } from "./sticky-cta";
+import { FloatingPingBadge } from "./floating-ping-badge";
 
 interface Wifi6PageClientProps {
   data: {
@@ -115,6 +116,9 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
   return (
     <div className="min-h-screen bg-[var(--color-wifi-bg)] text-white font-body selection:bg-[var(--color-wifi-primary)] selection:text-[var(--color-wifi-bg)]">
       <Wifi6Navbar />
+
+      {/* Floating Ping Badge */}
+      <FloatingPingBadge />
 
       <main className="relative flex flex-col items-center overflow-x-hidden">
         <HeroSection data={hero} />
