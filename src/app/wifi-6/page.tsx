@@ -2,11 +2,8 @@ import { client } from "@/sanity/lib/client";
 import { Wifi6PageClient } from "./components/wifi6-page-client";
 import { Metadata } from "next";
 
-// Force dynamic rendering to ensure fresh data from Sanity on every request
-// This bypasses Next.js caching and guarantees content updates appear immediately
-export const dynamic = 'force-dynamic';
-export const revalidate = 0; // This ensures fresh data from Sanity
-
+// Use Incremental Static Regeneration (ISR) to balance performance and freshness
+export const revalidate = 60; // Revalidate every 60 seconds
 
 // GROQ Query
 const WIFI6_PAGE_QUERY = `*[_type == "wifi6Page"][0] {
