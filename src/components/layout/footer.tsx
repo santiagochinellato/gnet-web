@@ -42,7 +42,7 @@ export function Footer({ content }: { content: FooterContent }) {
                         "text-sm leading-6 transition-colors",
                         isWifi6
                           ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
-                          : "text-slate-400 hover:text-white"
+                          : "text-slate-400 hover:text-white",
                       )}
                     >
                       {item.label}
@@ -69,7 +69,7 @@ export function Footer({ content }: { content: FooterContent }) {
                         "text-sm leading-6 transition-colors",
                         isWifi6
                           ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
-                          : "text-slate-400 hover:text-white"
+                          : "text-slate-400 hover:text-white",
                       )}
                     >
                       {item.label}
@@ -94,7 +94,7 @@ export function Footer({ content }: { content: FooterContent }) {
               <a
                 href={`tel:${content.contactInfo.phone.replace(
                   /[^0-9+]/g,
-                  ""
+                  "",
                 )}`}
                 className="hover:text-white transition-colors"
               >
@@ -126,6 +126,19 @@ export function Footer({ content }: { content: FooterContent }) {
             </Link>
           ))}
         </div>
+      </div>
+      <div className="container mx-auto px-4 md:px-10 mt-4 text-center text-xs text-slate-500">
+        <p>
+          Web diseñada y creada por{" "}
+          <a
+            href="https://portfolio-santiago-chinellato.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[var(--color-primary)] hover:text-white transition-colors"
+          >
+            Santiago Chinellato
+          </a>
+        </p>
       </div>
     </footer>
   );
