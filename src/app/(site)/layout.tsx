@@ -24,7 +24,10 @@ export default async function SiteLayout({
       disableTransitionOnChange
     >
       <SmoothScroll>
-        <Navbar links={content.navigation} />
+        <Navbar
+          links={content.navigation}
+          ctaLink={content.sucursalVirtualLink}
+        />
         {children}
         <Toaster
           position="top-right"

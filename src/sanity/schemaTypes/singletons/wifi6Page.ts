@@ -270,6 +270,18 @@ export const wifi6Page = defineType({
            defineField({ name: "badge", title: "Badge", type: "string" }),
            defineField({ name: "title", title: "Title", type: "text" }),
            defineField({ name: "description", title: "Description", type: "text" }),
+           defineField({ 
+               name: "features", 
+               title: "Features", 
+               type: "array", 
+               of: [{ type: "string" }],
+               initialValue: [
+                   "Router WiFi 6 sin costo adicional (valor: $80.000)",
+                   "Instalación bonificada si contratás hoy",
+                   "Soporte técnico local (hablás con gente de acá)",
+                   "Primera empresa en traer WiFi 6 real a la Patagonia"
+               ]
+            }),
         ]
     }),
 

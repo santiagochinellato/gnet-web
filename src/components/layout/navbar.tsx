@@ -9,7 +9,13 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NavLink } from "@/types/content";
 
-export function Navbar({ links }: { links: NavLink[] }) {
+export function Navbar({
+  links,
+  ctaLink,
+}: {
+  links: NavLink[];
+  ctaLink?: NavLink;
+}) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -80,14 +86,16 @@ export function Navbar({ links }: { links: NavLink[] }) {
 
         {/* CTA BUTTONS */}
         <div className="flex gap-3 items-center">
-          <Link
-            href="https://gnetbari.wispro.co/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden xl:flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all"
-          >
-            <span className="truncate">Sucursal Virtual</span>
-          </Link>
+          {ctaLink && (
+            <Link
+              href={ctaLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden xl:flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all"
+            >
+              <span className="truncate">{ctaLink.label}</span>
+            </Link>
+          )}
 
           {/* THEME TOGGLE */}
           <div className="hidden md:block">
@@ -141,14 +149,16 @@ export function Navbar({ links }: { links: NavLink[] }) {
               );
             })}
             <div className="flex flex-col gap-3 mt-2">
-              <Link
-                href="https://gnetbari.wispro.co/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-white shadow-lg shadow-blue-500/20"
-              >
-                Sucursal Virtual
-              </Link>
+              {ctaLink && (
+                <Link
+                  href={ctaLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-white shadow-lg shadow-blue-500/20"
+                >
+                  {ctaLink.label}
+                </Link>
+              )}
               <div className="flex gap-3">
                 <button className="flex-1 bg-gray-100 dark:bg-slate-800 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">
                   <Phone className="w-4 h-4" /> Contactanos

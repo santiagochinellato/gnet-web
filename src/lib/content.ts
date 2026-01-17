@@ -21,6 +21,7 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       ctaHighlight { ... }
     },
     "settings": *[_type == "siteSettings"][0]{
+      header { sucursalVirtualLink { label, href } },
       navigation[] { label, href },
       footer { 
         ..., 
@@ -146,6 +147,11 @@ export const getSiteContent = async (): Promise<SiteContent> => {
     ctaHighlight: home?.ctaHighlight || defaults.ctaHighlight,
     
     homeSeo: home?.seo,
+
+    sucursalVirtualLink: settings?.header?.sucursalVirtualLink || {
+      label: "Sucursal Virtual",
+      href: "https://gnetbari.wispro.co/portal/sign_in?locale=es"
+    },
 
     // Pages
     isp: isp ? {

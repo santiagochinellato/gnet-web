@@ -6,6 +6,19 @@ export default defineType({
   type: 'document',
   fields: [
     defineField({
+      name: 'header',
+      title: 'Header / Navbar',
+      type: 'object',
+      fields: [
+        defineField({
+          name: 'sucursalVirtualLink',
+          title: 'Sucursal Virtual Link',
+          type: 'link',
+          description: 'Link for the "Sucursal Virtual" button in the navbar'
+        })
+      ]
+    }),
+    defineField({
       name: 'navigation',
       title: 'Navigation Links',
       type: 'array',

@@ -11,6 +11,7 @@ interface CtaFooterProps {
     badge?: string;
     title?: string;
     description?: string;
+    features?: string[];
   };
 }
 
@@ -25,6 +26,12 @@ export function CtaFooter({
     badge = "⚡ ÚLTIMA DECISIÓN INTELIGENTE DEL AÑO",
     title = "¿Tu hijo te pidió WiFi 6? \nTiene razón.",
     description = "No es un capricho. Es la diferencia entre trabajar bien o estar disculpándote en Zoom. Verificá si Gnet con WiFi 6 llega a tu dirección. Si llega, activás en 48 horas.",
+    features = [
+      "Router WiFi 6 sin costo adicional (valor: $80.000)",
+      "Instalación bonificada si contratás hoy",
+      "Soporte técnico local (hablás con gente de acá)",
+      "Primera empresa en traer WiFi 6 real a la Patagonia",
+    ],
   } = data || {};
 
   return (
@@ -79,22 +86,12 @@ export function CtaFooter({
           </form>
 
           <div className="flex flex-col gap-2 items-start max-w-sm mx-auto text-xs text-slate-400">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Router WiFi 6 sin costo adicional (valor: $80.000)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Instalación bonificada si contratás hoy</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Soporte técnico local (hablás con gente de acá)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-              <span>Primera empresa en traer WiFi 6 real a la Patagonia</span>
-            </div>
+            {features.map((feature, i) => (
+              <div key={i} className="flex items-center gap-2 text-left">
+                <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                <span>{feature}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>
