@@ -1,6 +1,7 @@
 "use client";
 
 import { BadgeCheck } from "lucide-react";
+import Image from "next/image";
 import { SecurityContent } from "@/types/content";
 
 export function HeroSecurity({
@@ -31,7 +32,7 @@ export function HeroSecurity({
                   const message =
                     "Hola, quisiera consultar por servicios de seguridad.";
                   const isMobile = /iPhone|iPad|iPod|Android/i.test(
-                    navigator.userAgent
+                    navigator.userAgent,
                   );
                   const baseUrl = isMobile
                     ? "https://api.whatsapp.com/send"
@@ -48,14 +49,16 @@ export function HeroSecurity({
           {/* Hero Image */}
           <div className="md:w-1/2">
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 shadow-xl">
-              <div
-                className="absolute inset-0 bg-center bg-cover"
-                style={{
-                  backgroundImage: `url('${content.backgroundImage}')`,
-                }}
-              ></div>
+              <Image
+                src={content.backgroundImage}
+                alt={content.title}
+                fill
+                className="object-cover"
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
               {/* Badge Overlay */}
-              <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-md flex items-center gap-2 shadow-sm">
+              <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-md flex items-center gap-2 shadow-sm z-10">
                 <BadgeCheck className="text-green-600 w-[18px] h-[18px]" />
                 <span className="text-xs font-bold text-slate-900">
                   Distribuidor Oficial

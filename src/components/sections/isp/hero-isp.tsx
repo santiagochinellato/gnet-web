@@ -17,7 +17,7 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
           fill
           className="object-cover"
           priority
-          quality={80}
+          quality={60}
           sizes="100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-slate-900/30"></div>
@@ -53,7 +53,7 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
                   </span>
                 ) : (
                   <span key={i}>{part}</span>
-                )
+                ),
               )}
             </motion.h1>
 
@@ -98,7 +98,7 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
                   alt="Ubiquiti Networks"
                   fill
                   className="object-contain brightness-0 invert"
-                  sizes="(max-width: 768px) 100vw, 128px"
+                  sizes="128px"
                 />
               </div>
               <div className="relative h-10 w-40 opacity-90 transition-opacity hover:opacity-100">
@@ -107,7 +107,7 @@ export function HeroISP({ content }: { content: ISPContent["hero"] }) {
                   alt="Mikrotik"
                   fill
                   className="object-contain brightness-0 invert"
-                  sizes="(max-width: 768px) 100vw, 160px"
+                  sizes="160px"
                 />
               </div>
             </div>

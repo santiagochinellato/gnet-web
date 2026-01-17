@@ -93,7 +93,7 @@ export function ProblemSection({ data }: ProblemProps) {
                   <span className={`text-xl font-black ${colors.text}`}>
                     {card.statValue}
                   </span>
-                  <span className="text-xs uppercase text-slate-500 ml-2">
+                  <span className="text-xs uppercase text-slate-400 ml-2">
                     {card.statLabel}
                   </span>
                 </div>

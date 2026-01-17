@@ -31,7 +31,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
         "fixed top-0 z-50 w-full transition-all duration-300",
         showScrolledStyle
           ? "bg-white/90 backdrop-blur-md border-b border-gray-100 shadow-sm py-2 dark:bg-slate-950/90 dark:border-slate-800"
-          : "bg-transparent py-4"
+          : "bg-transparent py-4",
       )}
     >
       <div className="px-2 lg:px-8 flex items-center justify-between max-w-[1400px] mx-auto">
@@ -61,10 +61,15 @@ export function Navbar({ links }: { links: NavLink[] }) {
                 className={cn(
                   "text-sm font-medium transition-colors hover:text-[var(--color-primary)]",
                   isWifi6
-                    ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
+                    ? cn(
+                        "font-bold hover:brightness-110",
+                        showScrolledStyle
+                          ? "text-cyan-600 dark:text-[var(--color-wifi-primary)]"
+                          : "text-[var(--color-wifi-primary)]",
+                      )
                     : showScrolledStyle
                       ? "text-slate-900 dark:text-slate-200"
-                      : "text-white drop-shadow-md"
+                      : "text-white drop-shadow-md",
                 )}
               >
                 {link.label}
@@ -101,7 +106,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
               "xl:hidden p-2 transition-colors",
               showScrolledStyle
                 ? "text-slate-900 dark:text-white"
-                : "text-white"
+                : "text-white",
             )}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle mobile menu"
@@ -127,7 +132,7 @@ export function Navbar({ links }: { links: NavLink[] }) {
                     "text-lg font-semibold py-3 border-b border-slate-100 last:border-0",
                     isWifi6
                       ? "text-[var(--color-wifi-primary)] font-bold"
-                      : "text-slate-800"
+                      : "text-slate-800",
                   )}
                   onClick={() => setMobileMenuOpen(false)}
                 >

@@ -14,11 +14,8 @@ export function HeroSection({ content }: { content: HeroContent }) {
           fill
           className="object-cover"
           priority
-          loading="eager"
-          decoding="async"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-          quality={80}
-          fetchPriority="high"
+          quality={60}
         />
         <div className="absolute inset-0 bg-slate-900/60" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-slate-900/40" />

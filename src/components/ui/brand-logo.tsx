@@ -16,7 +16,7 @@ export function BrandLogo({
     <div
       className={cn(
         "relative h-10 w-fit flex items-center justify-center",
-        className
+        className,
       )}
     >
       {/* Use next/image with intrinsic dimensions to allow w-fit/w-auto containers */}
@@ -28,6 +28,7 @@ export function BrandLogo({
         height={100}
         priority={priority}
         className="h-full w-auto max-w-full object-contain"
+        sizes="(max-width: 768px) 150px, 150px"
       />
     </div>
   );

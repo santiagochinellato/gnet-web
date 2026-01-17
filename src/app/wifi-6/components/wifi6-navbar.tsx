@@ -25,7 +25,7 @@ export function Wifi6Navbar() {
           "fixed top-0 z-50 w-full border-b border-white/10 transition-all duration-300",
           scrolled
             ? "bg-[#020617]/80 backdrop-blur-md shadow-lg shadow-[var(--color-wifi-primary)]/5"
-            : "bg-transparent"
+            : "bg-transparent",
         )}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-8">
@@ -99,7 +99,7 @@ export function Wifi6Navbar() {
             "fixed inset-0 bg-[#020617] bg-opacity-95 backdrop-blur-xl z-40 transition-all duration-300 flex flex-col items-center justify-center gap-8 md:hidden",
             isMenuOpen
               ? "opacity-100 translate-y-0"
-              : "opacity-0 -translate-y-full pointer-events-none"
+              : "opacity-0 -translate-y-full pointer-events-none",
           )}
         >
           <nav className="flex flex-col items-center gap-8 text-xl font-bold">

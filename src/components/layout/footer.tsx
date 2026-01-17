@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 export function Footer({ content }: { content: FooterContent }) {
   return (
     <footer
-      className="bg-[#0b1116] text-slate-400 py-12 border-t border-slate-800"
+      className="bg-[#0b1116] text-slate-300 py-12 border-t border-slate-800"
       id="contacto"
     >
       <div className="container mx-auto px-4 md:px-10 grid grid-cols-1 lg:grid-cols-4 gap-8 mb-8 text-center lg:text-left">
@@ -19,7 +19,7 @@ export function Footer({ content }: { content: FooterContent }) {
               priority={false}
             />
           </Link>
-          <p className="mt-4 text-base text-slate-400 max-w-sm">
+          <p className="mt-4 text-base text-slate-300 max-w-sm">
             {content.brandDescription}
           </p>
         </div>
@@ -39,10 +39,10 @@ export function Footer({ content }: { content: FooterContent }) {
                     <Link
                       href={item.href}
                       className={cn(
-                        "text-sm leading-6 transition-colors",
+                        "text-sm leading-6 transition-colors hover:underline",
                         isWifi6
                           ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
-                          : "text-slate-400 hover:text-white",
+                          : "text-slate-300 hover:text-white",
                       )}
                     >
                       {item.label}
@@ -66,10 +66,10 @@ export function Footer({ content }: { content: FooterContent }) {
                     <Link
                       href={item.href}
                       className={cn(
-                        "text-sm leading-6 transition-colors",
+                        "text-sm leading-6 transition-colors hover:underline",
                         isWifi6
                           ? "text-[var(--color-wifi-primary)] font-bold hover:text-[var(--color-wifi-primary)] hover:brightness-110"
-                          : "text-slate-400 hover:text-white",
+                          : "text-slate-300 hover:text-white",
                       )}
                     >
                       {item.label}
@@ -85,27 +85,27 @@ export function Footer({ content }: { content: FooterContent }) {
             {content.contactTitle}
           </h3>
           <ul className="mt-6 space-y-4">
-            <li className="flex items-start justify-center md:justify-start gap-3 text-sm leading-6 text-slate-400">
+            <li className="flex items-start justify-center md:justify-start gap-3 text-sm leading-6 text-slate-300">
               <MapPin className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
               <span>{content.contactInfo.address}</span>
             </li>
-            <li className="flex items-center justify-center md:justify-start gap-3 text-sm leading-6 text-slate-400">
+            <li className="flex items-center justify-center md:justify-start gap-3 text-sm leading-6 text-slate-300">
               <Phone className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
               <a
                 href={`tel:${content.contactInfo.phone.replace(
                   /[^0-9+]/g,
                   "",
                 )}`}
-                className="hover:text-white transition-colors"
+                className="hover:text-white hover:underline transition-colors"
               >
                 {content.contactInfo.phone}
               </a>
             </li>
-            <li className="flex items-center justify-center md:justify-start gap-3 text-sm leading-6 text-slate-400">
+            <li className="flex items-center justify-center md:justify-start gap-3 text-sm leading-6 text-slate-300">
               <Mail className="w-5 h-5 text-[var(--color-primary)] shrink-0" />
               <a
                 href={`mailto:${content.contactInfo.email}`}
-                className="hover:text-white transition-colors"
+                className="hover:text-white hover:underline transition-colors"
               >
                 {content.contactInfo.email}
               </a>
@@ -119,7 +119,7 @@ export function Footer({ content }: { content: FooterContent }) {
           {content.legalLinks.map((link) => (
             <Link
               key={link.label}
-              className="hover:text-white"
+              className="hover:text-white hover:underline"
               href={link.href}
             >
               {link.label}
@@ -127,14 +127,14 @@ export function Footer({ content }: { content: FooterContent }) {
           ))}
         </div>
       </div>
-      <div className="container mx-auto px-4 md:px-10 mt-4 text-center text-xs text-slate-500">
+      <div className="container mx-auto px-4 md:px-10 mt-4 text-center text-xs text-slate-400">
         <p>
           Web diseñada y creada por{" "}
           <a
             href="https://portfolio-santiago-chinellato.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[var(--color-primary)] hover:text-white transition-colors"
+            className="text-slate-200 hover:text-white hover:underline transition-colors"
           >
             Santiago Chinellato
           </a>

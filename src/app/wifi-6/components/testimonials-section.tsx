@@ -67,12 +67,14 @@ export function TestimonialsSection({ data }: TestimonialsProps) {
           <div className="flex gap-2">
             <button
               onClick={prevTestimonial}
+              aria-label="Testimonio anterior"
               className="h-10 w-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-[var(--color-wifi-primary)] hover:text-black transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
             </button>
             <button
               onClick={nextTestimonial}
+              aria-label="Siguiente testimonio"
               className="h-10 w-10 rounded-full border border-white/10 bg-white/5 flex items-center justify-center hover:bg-[var(--color-wifi-primary)] hover:text-black transition-colors"
             >
               <ArrowRight className="w-5 h-5" />
@@ -106,11 +108,12 @@ export function TestimonialsSection({ data }: TestimonialsProps) {
             <button
               key={i}
               onClick={() => setCurrentIndex(i)}
+              aria-label={`Ir al testimonio ${i + 1}`}
               className={cn(
-                "h-2 w-2 rounded-full transition-all",
+                "h-3 w-3 rounded-full transition-all",
                 currentindex === i
-                  ? "bg-[var(--color-wifi-primary)] w-6"
-                  : "bg-slate-600"
+                  ? "bg-[var(--color-wifi-primary)] w-8"
+                  : "bg-slate-600",
               )}
             />
           ))}
@@ -136,7 +139,7 @@ function TestimonialCard({ testimonial }: { testimonial: TestimonialItem }) {
           {testimonial.initials || testimonial.name.slice(0, 2).toUpperCase()}
         </div>
         <div>
-          <h4 className="font-bold text-white">{testimonial.name}</h4>
+          <h3 className="font-bold text-white">{testimonial.name}</h3>
           <div className="text-xs text-slate-400">{testimonial.role}</div>
         </div>
       </div>
