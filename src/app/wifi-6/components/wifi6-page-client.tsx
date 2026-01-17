@@ -26,6 +26,8 @@ interface Wifi6PageClientProps {
       pingValue?: string;
       pingDescription?: string;
       ctaText?: string;
+      ctaSecondaryText?: string;
+      ctaSecondaryLink?: string;
       microcopy?: string;
     };
     problems?: {
@@ -133,10 +135,10 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
       // 1. Geocode address (using Nominatim for demo purposes)
       // Restricting to Bariloche, Argentina
       const query = encodeURIComponent(
-        `${addressInput}, San Carlos de Bariloche, Argentina`
+        `${addressInput}, San Carlos de Bariloche, Argentina`,
       );
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${query}&limit=1`
+        `https://nominatim.openstreetmap.org/search?format=json&q=${query}&limit=1`,
       );
       const geoData = await response.json();
 
@@ -168,7 +170,7 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
       } else {
         // Fallback for not found
         alert(
-          "No pudimos encontrar esa dirección exacta. Intenta agregar más detalles (calle y altura)."
+          "No pudimos encontrar esa dirección exacta. Intenta agregar más detalles (calle y altura).",
         );
       }
     } catch (error) {
@@ -209,6 +211,8 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
                   pingValue: hero.pingValue,
                   pingDescription: hero.pingDescription,
                   ctaText: hero.ctaText,
+                  ctaSecondaryText: hero.ctaSecondaryText,
+                  ctaSecondaryLink: hero.ctaSecondaryLink,
                   microcopy: hero.microcopy,
                 }
               : undefined

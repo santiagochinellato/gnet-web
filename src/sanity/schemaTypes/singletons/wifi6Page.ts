@@ -32,6 +32,8 @@ export const wifi6Page = defineType({
         defineField({ name: "pingValue", title: "Ping Value", type: "string", initialValue: "4" }),
         defineField({ name: "pingDescription", title: "Ping Description", type: "text", initialValue: "WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa." }),
         defineField({ name: "ctaText", title: "CTA Button Text", type: "string", initialValue: "Verificar si llega a mi casa" }),
+        defineField({ name: "ctaSecondaryText", title: "Secondary CTA Text", type: "string", description: "Optional. Leave empty to hide." }),
+        defineField({ name: "ctaSecondaryLink", title: "Secondary CTA Link", type: "url", description: "URL for the secondary button (e.g., https://wa.me/...)" }),
         defineField({ name: "microcopy", title: "Microcopy (Benefits)", type: "text", initialValue: "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs" }),
       ],
     }),
