@@ -10,8 +10,10 @@ interface HeroProps {
     pingValue?: string;
     pingDescription?: string;
     ctaText?: string;
-    ctaSecondaryText?: string;
-    ctaSecondaryLink?: string;
+    ctaSecondary?: {
+      text?: string;
+      link?: string;
+    };
     microcopy?: string;
   };
 }
@@ -117,14 +119,14 @@ export function HeroSection({ data }: HeroProps) {
             <div className="absolute inset-0 -z-10 bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 transition-opacity duration-500 group-hover:animate-shine group-hover:opacity-100"></div>
           </a>
 
-          {data?.ctaSecondaryText && (
+          {data?.ctaSecondary?.text && (
             <a
-              href={data.ctaSecondaryLink || "#"}
+              href={data.ctaSecondary.link || "#"}
               target="_blank"
               rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-2 overflow-hidden rounded-xl border border-white/20 bg-white/5 px-6 py-3 sm:px-8 sm:py-4 text-sm sm:text-base font-bold text-white transition-all hover:bg-white/10 hover:border-white/40 hover:scale-105"
             >
-              {data.ctaSecondaryText}
+              {data.ctaSecondary.text}
             </a>
           )}
         </div>

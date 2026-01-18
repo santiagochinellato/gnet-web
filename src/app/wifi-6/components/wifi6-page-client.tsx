@@ -26,8 +26,10 @@ interface Wifi6PageClientProps {
       pingValue?: string;
       pingDescription?: string;
       ctaText?: string;
-      ctaSecondaryText?: string;
-      ctaSecondaryLink?: string;
+      ctaSecondary?: {
+        text?: string;
+        link?: string;
+      };
       microcopy?: string;
     };
     problems?: {
@@ -211,8 +213,7 @@ export function Wifi6PageClient({ data }: Wifi6PageClientProps) {
                   pingValue: hero.pingValue,
                   pingDescription: hero.pingDescription,
                   ctaText: hero.ctaText,
-                  ctaSecondaryText: hero.ctaSecondaryText,
-                  ctaSecondaryLink: hero.ctaSecondaryLink,
+                  ctaSecondary: hero.ctaSecondary,
                   microcopy: hero.microcopy,
                 }
               : undefined

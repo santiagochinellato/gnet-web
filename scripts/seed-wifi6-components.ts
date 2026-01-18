@@ -22,6 +22,10 @@ async function main() {
       pingValue: "4",
       pingDescription: "WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa.",
       ctaText: "Verificar si llega a mi casa",
+      ctaSecondary: {
+        text: "Contactar Ventas",
+        link: "https://wa.me/5492944824423"
+      },
       microcopy: "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs"
     },
     problems: {
