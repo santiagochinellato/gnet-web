@@ -190,6 +190,12 @@ async function main() {
         badge: "⚡ ÚLTIMA DECISIÓN INTELIGENTE DEL AÑO",
         title: "¿Tu hijo te pidió WiFi 6? \nTiene razón.",
         description: "No es un capricho. Es la diferencia entre trabajar bien o estar disculpándote en Zoom. Verificá si Gnet con WiFi 6 llega a tu dirección. Si llega, activás en 48 horas.",
+        features: [
+            "Router WiFi 6 sin costo adicional (valor: $80.000)",
+            "Instalación bonificada si contratás hoy",
+            "Soporte técnico local (hablás con gente de acá)",
+            "Primera empresa en traer WiFi 6 real a la Patagonia",
+        ]
     },
     stickyCta: {
         topLabel: "¿Listo para eliminar el lag?",
