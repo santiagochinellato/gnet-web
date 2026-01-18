@@ -27,10 +27,10 @@ export function CtaFooter({
     title = "¿Tu hijo te pidió WiFi 6? \nTiene razón.",
     description = "No es un capricho. Es la diferencia entre trabajar bien o estar disculpándote en Zoom. Verificá si Gnet con WiFi 6 llega a tu dirección. Si llega, activás en 48 horas.",
     features = [
-      "Router WiFi 6 sin costo adicional (valor: $80.000)",
-      "Instalación bonificada si contratás hoy",
-      "Soporte técnico local (hablás con gente de acá)",
-      "Primera empresa en traer WiFi 6 real a la Patagonia",
+      "Router WiFi 6  en Comodato",
+      "Latencias Minímas",
+      "Instalación sin esperas",
+      "Servicio técnico local",
     ],
   } = data || {};
 
