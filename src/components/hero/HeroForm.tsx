@@ -1,11 +1,22 @@
 "use client";
 
 import { useState } from "react";
+import { type Feature, type Polygon } from "geojson";
 import { MapPin, Smartphone, User, Loader2 } from "lucide-react";
 import { point } from "@turf/helpers";
 import booleanPointInPolygon from "@turf/boolean-point-in-polygon";
 import { COVERAGE_GEOJSON } from "@/lib/coverage-data";
 import { LeadModal } from "../coverage/lead-modal";
+
+interface NominatimResult {
+  lat: string;
+  lon: string;
+  display_name: string;
+  address?: {
+    road?: string;
+    house_number?: string;
+  };
+}
 
 export function HeroForm() {
   const [loading, setLoading] = useState(false);
@@ -31,13 +42,22 @@ export function HeroForm() {
 
     for (const feature of COVERAGE_GEOJSON.features) {
       if (feature.geometry.type === "Polygon") {
-        if (booleanPointInPolygon(pt, feature as any)) {
+        if (booleanPointInPolygon(pt, feature as Feature<Polygon>)) {
           isInside = true;
           break;
         }
       }
     }
     return isInside ? "covered" : "uncovered";
+  };
+
+  const getFormattedAddress = (result: NominatimResult) => {
+    if (result.address) {
+      const { road, house_number } = result.address;
+      if (road && house_number) return `${road} ${house_number}`;
+      if (road) return road;
+    }
+    return result.display_name.split(",")[0];
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,7 +72,7 @@ export function HeroForm() {
     try {
       // 1. Geocode the address
       const response = await fetch(
-        `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+        `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(
           address + ", San Carlos de Bariloche, Argentina",
         )}&limit=1`,
       );
@@ -64,6 +84,9 @@ export function HeroForm() {
         const lon = parseFloat(result.lon);
         const coords: [number, number] = [lon, lat];
 
+        // Format the address properly
+        const formattedAddress = getFormattedAddress(result);
+
         // 2. Check coverage
         const status = checkCoverage(lat, lon);
 
@@ -71,7 +94,7 @@ export function HeroForm() {
         setModalState({
           isOpen: true,
           status,
-          address: result.display_name.split(",")[0], // Use formatted name from API if possible, or just input
+          address: formattedAddress,
           coords,
           defaultName: name,
           defaultPhone: phone,
