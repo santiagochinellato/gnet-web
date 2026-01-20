@@ -1,5 +1,5 @@
 "use client";
-import { CheckCircle, Rocket } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 import { PricingSection } from "@/types/content";
 import { cn } from "@/lib/utils";
 
@@ -38,10 +38,9 @@ export function PricingPlans({ content }: { content: PricingSection }) {
               ? "bg-gradient-to-b from-[var(--color-secondary)]/5 to-transparent dark:from-[var(--color-secondary)]/10"
               : "bg-slate-50 dark:bg-slate-900";
 
-            // Button styles
-            const btnClass = isSecondary
-              ? "bg-[var(--color-secondary)] text-white hover:bg-cyan-600 shadow-lg shadow-cyan-500/30"
-              : "bg-white dark:bg-slate-800 text-[var(--color-primary)] dark:text-white border border-gray-200 dark:border-slate-700 hover:bg-[var(--color-primary)] hover:text-white dark:hover:bg-[var(--color-primary)] hover:border-[var(--color-primary)]";
+            // Button styles - ALL buttons now use the secondary (teal) style
+            const btnClass =
+              "bg-[var(--color-secondary)] text-white hover:bg-cyan-600 shadow-lg shadow-cyan-500/30";
 
             return (
               <div
@@ -51,16 +50,13 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                   borderColor,
                   hoverBorder,
                   hoverShadow,
-                  bgClass
+                  bgClass,
                 )}
               >
                 {plan.badge && (
                   <div
                     className={cn(
-                      "absolute top-0 right-0 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl",
-                      isSecondary
-                        ? "bg-[var(--color-secondary)]"
-                        : "bg-[var(--color-primary)]"
+                      "absolute top-0 right-0 text-white text-xs font-bold px-3 py-1 rounded-bl-xl rounded-tr-xl bg-[var(--color-secondary)]",
                     )}
                   >
                     {plan.badge}
@@ -96,7 +92,7 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                           "w-5 h-5 flex-shrink-0",
                           isSecondary
                             ? "text-[var(--color-secondary)]"
-                            : "text-[var(--color-primary)]"
+                            : "text-[var(--color-primary)]",
                         )}
                       />
                       <span>{feature}</span>
@@ -136,7 +132,7 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                     }
 
                     const isMobile = /iPhone|iPad|iPod|Android/i.test(
-                      navigator.userAgent
+                      navigator.userAgent,
                     );
                     const baseUrl = isMobile
                       ? "https://api.whatsapp.com/send"
@@ -148,17 +144,14 @@ export function PricingPlans({ content }: { content: PricingSection }) {
                   }}
                   className={cn(
                     "w-full block text-center py-3 px-4 font-bold rounded-lg transition-all cursor-pointer",
-                    btnClass
+                    btnClass,
                   )}
                 >
-                  {plan.ctaText}
+                  Contratar Ahora
                 </button>
-                {!plan.title.toLowerCase().includes("pymes") &&
-                  !plan.title.toLowerCase().includes("empresas") && (
-                    <span className="text-[10px] font text-gray-500 dark:text-slate-400 mt-1 text-center pt-2">
-                      *Sujeto a disponibilidad tecnica y geografica*
-                    </span>
-                  )}
+                <span className="text-[10px] font text-gray-500 dark:text-slate-400 mt-1 text-center pt-2">
+                  *Sujeto a disponibilidad tecnica y geografica*
+                </span>
               </div>
             );
           })}

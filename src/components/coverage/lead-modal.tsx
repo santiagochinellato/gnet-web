@@ -16,7 +16,6 @@ interface LeadModalProps {
   coords: [number, number];
   defaultName?: string;
   defaultPhone?: string;
-  defaultEmail?: string;
 }
 
 export function LeadModal({
@@ -27,7 +26,6 @@ export function LeadModal({
   coords,
   defaultName = "",
   defaultPhone = "",
-  defaultEmail = "",
 }: LeadModalProps) {
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -55,14 +53,12 @@ export function LeadModal({
     const formData = new FormData(e.currentTarget);
     const name = formData.get("name") as string;
     const whatsapp = formData.get("whatsapp") as string;
-    const email = formData.get("email") as string;
 
     const googleMapsLink = `https://www.google.com/maps/search/?api=1&query=${coords[1]},${coords[0]}`;
 
     const message = `Hola Gnet! 👋
 Nombre: ${name}
 WhatsApp: ${whatsapp}
-Email: ${email}
 Dirección consultada: ${address}
 Ubicación: ${googleMapsLink}
 Estado de cobertura: ${status === "covered" ? "Con Cobertura" : "Sin Cobertura"}
@@ -191,19 +187,6 @@ Quisiera más información. Gracias!`;
                       defaultValue={defaultPhone}
                       className="w-full h-10 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all dark:bg-slate-950 dark:border-slate-800"
                       placeholder="+54 9 294 ..."
-                    />
-                  </div>
-
-                  <div className="space-y-1">
-                    <label className="text-sm font-medium text-slate-700 dark:text-slate-300">
-                      Email
-                    </label>
-                    <input
-                      name="email"
-                      type="email"
-                      defaultValue={defaultEmail}
-                      className="w-full h-10 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all dark:bg-slate-950 dark:border-slate-800"
-                      placeholder="te@ejemplo.com"
                     />
                   </div>
 
