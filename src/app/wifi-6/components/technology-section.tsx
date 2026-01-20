@@ -38,32 +38,32 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 export function TechnologySection({ data }: TechnologyProps) {
   const {
-    badge = "TECNOLOGÍA NASA/INVAP",
+    badge = "TECNOLOGÍA DE VANGUARDIA",
     title = 'Por qué WiFi 6 no es solo "internet más rápido"',
-    intro = "Te lo explico como si estuviéramos tomando un mate:",
+    intro = "Te lo explico con fundamentos",
     cards = [
       {
         icon: "Cpu",
         title: "OFDMA",
         subtitle: 'El "delivery simultáneo"',
         description:
-          "Imaginate que antes tu WiFi era un delivery que va a una casa, entrega, y recién ahí va a la siguiente. Con OFDMA, reparte a 8 casas al mismo tiempo. \n\nTu hijo descarga un juego de 60GB, vos viendo Netflix 4K. Nadie espera. Nadie sufre.",
+          "Imaginate que antes tu WiFi era un delivery que va a una casa, entrega, y recién ahí va a la siguiente. Con OFDMA, reparte a 16 casas al mismo tiempo. \n\nDescargas un juego de 60GB, miras Netflix 4K. Nadie espera. Nadie sufre.",
         stat: { value: "4x", label: "Más eficiente" },
       },
       {
         icon: "Router",
-        title: "MU-MIMO 8x8",
-        subtitle: "8 conversaciones simultáneas",
+        title: "MU-MIMO 16x16",
+        subtitle: "16 conversaciones simultáneas",
         description:
-          "Es como tener 8 bocas. El router WiFi 6 habla con 8 dispositivos a la vez sin perder velocidad. \n\nAntes era 1 a 1 (tu PlayStation esperaba que tu notebook terminara). Ahora todos hablan al mismo tiempo.",
-        stat: { value: "8 dev", label: "= 0 lag" },
+          "Es como tener 16 bocas. El router WiFi 6 habla con 16 dispositivos a la vez sin perder velocidad. \n\nAntes era 1 a 1 (tu PlayStation esperaba que tu notebook terminara). Ahora todos hablan al mismo tiempo.",
+        stat: { value: "16 dev", label: "= 0 lag" },
       },
       {
         icon: "Wifi",
         title: "Autopista de 160 MHz",
-        subtitle: "2x más ancho",
+        subtitle: "4x más ancho",
         description:
-          "WiFi 5 era una calle de 2 carriles. WiFi 6 es la Ruta 40 completa. Más datos viajan sin embotellamientos.",
+          "WiFi 5 era una calle de 4 carriles. WiFi 6 es la Ruta 40 completa. Más datos viajan sin embotellamientos.",
       },
       {
         icon: "Zap",

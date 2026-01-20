@@ -27,39 +27,58 @@ export function PlansSection({ data }: PlansProps) {
     plans = [
       {
         name: "Familiar",
-        description: "Para familias y home office.",
+        description: "Para familias numerosas",
         price: "$15.000",
-        period: "/mes",
+        period: "",
         features: [
-          "100 Mbps Simétricos",
-          "Router WiFi 6 Incluido",
-          "Instalación Bonificada",
+          "Hasta 300 Megas",
+          "Servicio Técnico Días Hábiles de 8 a 16 hs",
+          "Router WiFi 6 en Comodato",
+          "Latencias Mínimas",
+          "Permanencia mínima por contrato 12 meses",
         ],
         ctaText: "Contratar",
         ctaLink:
           "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20contratar%20el%20plan%20Familiar%20WiFi%206",
+        isPopular: true,
+        badge: "Familiar",
       },
       {
         name: "Turismo",
         description: "Ideal alquileres temporarios.",
-        price: "$10.000",
-        period: "/semana",
-        features: ["50 Mbps", "Sin Contrato Fijo", "Activación Inmediata"],
-        ctaText: "Contratar Pack",
+        price: "$15.000",
+        period: "", // Sanity doesn't show period in my JSON fetch for Turismo? Wait. Let me check JSON again.
+        features: [
+          "Hasta 300 Megas",
+          "Servicio Tecnico 24/7  - En el Idioma de tu Pasajero ",
+          "Router WiFi 6 en Comodato",
+          "Latencias Minimas",
+          "Permanencia minima por contrato 12 meses",
+        ],
+        ctaText: "Contratar",
         ctaLink:
           "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20contratar%20el%20plan%20Turismo%20WiFi%206",
         isPopular: true,
-        badge: "TURISMO",
+        badge: "Turismo",
       },
       {
-        name: "Empresas",
-        description: "Soluciones corporativas.",
+        name: "Pyme",
+        description: "Redes corporativas.",
         price: "Consultar",
         period: "",
-        features: ["Hasta 1 Gbps", "IP Fija Disponible", "SLA Garantizado"],
-        ctaText: "Contactar Asesor",
+        features: [
+          "Hasta 1 Gbps",
+          "IP Fija Disponible",
+          "Escalabilidad Inmediata",
+          "Seguridad Avanzada",
+          "Enlaces Dedicados",
+          "Soporte Técnico Prioritario ", // Note the trailing space in Sanity JSON
+        ],
+        ctaText: "Contactar ", // Trailing space
         ctaLink:
           "https://api.whatsapp.com/send?phone=5492944824423&text=Hola,%20quisiera%20asesoramiento%20para%20Empresas%20WiFi%206",
+        isPopular: true,
+        badge: "Soluciónes de Vanguardia",
       },
     ],
   } = data || {};

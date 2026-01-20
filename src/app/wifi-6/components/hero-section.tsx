@@ -21,13 +21,13 @@ interface HeroProps {
 export function HeroSection({ data }: HeroProps) {
   // Extract data with fallbacks
   const {
-    badge = "WIFI 6 EARLY ADOPTER",
-    headline = "Internet que funciona para toda la familia",
-    subheadline = "Tu hijo juega sin lag. Vos trabajás sin cortes. Todo al mismo tiempo.",
+    badge,
+    headline = "Internet que funciona\npara toda la familia",
+    subheadline = "Juegas sin lag.Trabajás sin cortes. Todo al mismo tiempo.",
     pingValue = "4",
-    pingDescription = "WiFi 6 es la tecnología que INVAP, el Balseiro y las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa.",
+    pingDescription = "WiFi 6 es la tecnología que  las empresas tech de Bariloche usan para trabajar en proyectos críticos. Ahora en tu casa.",
     ctaText = "Verificar si llega a mi casa",
-    microcopy = "✓ Sin contrato de permanencia  ✓ Router WiFi 6 incluido  ✓ Instalación en 48hs",
+    microcopy = "✓ con contratos que cuidan tu experiencia.  ✓ Router WiFi 6 incluido  ✓ Sin esperas eternas ni trámites complejos.",
   } = data || {};
 
   return (

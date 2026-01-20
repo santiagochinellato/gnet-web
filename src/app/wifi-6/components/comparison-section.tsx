@@ -28,11 +28,11 @@ export function ComparisonSection({ data }: ComparisonProps) {
     title = "WiFi 5 VS WiFi 6",
     badge = "Comparación honesta sin marketing",
     features = [
-      { name: "Velocidad", wifi5: "3.5 Gbps (nunca llega)", wifi6: "9.6 Gbps" },
-      { name: "Latencia", wifi5: "30-50ms", wifi6: "4ms" },
-      { name: "Dispositivos", wifi5: "3-4", wifi6: "8-12" },
-      { name: "Eficiencia", wifi5: "❌ No tiene", wifi6: "✅ x4" },
-      { name: "Multitasking", wifi5: "Uno sufre", wifi6: "Perfecto" },
+      { name: "Velocidad", wifi5: "3.5 Gbps", wifi6: "9.6 Gbps" },
+      { name: "Latencia", wifi5: "20-40ms", wifi6: "4ms" },
+      { name: "Dispositivos", wifi5: "6-8", wifi6: "10-16" },
+      { name: "Eficiencia", wifi5: "✅ x2", wifi6: "✅ x4" },
+      { name: "Multitasking", wifi5: "Estable", wifi6: "Perfecto" },
       { name: "Descarga 60GB", wifi5: "2 horas", wifi6: "30 mins" },
       {
         name: "Seguridad",

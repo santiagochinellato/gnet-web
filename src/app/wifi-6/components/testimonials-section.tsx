@@ -6,25 +6,25 @@ import { cn } from "@/lib/utils";
 
 const TESTIMONIALS = [
   {
-    name: "Martín R.",
-    role: "Ingeniero en Computación • Belgrano",
-    text: "Trabajo con servidores de EE.UU. Antes se me caía la VPN cada vez que mi hijo ponía Netflix. Con WiFi 6, tengo mi ancho de banda blindado. Es otra cosa.",
+    name: "Alejandro Sanchez",
+    role: "Moreno 100",
+    text: "Yo no entiendo nada de aparatos, pero desde que puse Gnet puedo ver el fútbol sin que se me trabe la imagen justo en el gol. Adrián es un tipazo, me dejó todo andando en un ratito. ¡Por fin internet que no se corta en pleno centro",
     stars: 5,
-    initials: "MR",
+    initials: "AS",
   },
   {
-    name: "Sofía L.",
-    role: "Gamer & Streamer • Melipal",
-    text: "Paso de 60ms a 4ms en Valorant. Es literalmente pagar para ganar (pero legal). Si jugás online y no tenés esto, estás dando ventaja.",
+    name: "Mirta López",
+    role: "Mitre al 400",
+    text: "Antes los videos de mis nietos no bajaban nunca. Las chicas de administración son unas divinas, me explicaron la factura con una paciencia de oro. ¡Muy recomendados",
     stars: 5,
-    initials: "SL",
+    initials: "ML",
   },
   {
-    name: "Carlos B.",
-    role: "Dueño de Cabañas • Km 5",
-    text: "Mis huéspedes siempre se quejaban de que el WiFi se cortaba cuando todos se conectaban a la noche. Cambié al plan Turismo WiFi 6 y santo remedio. Ahora me dejan reseñas de 5 estrellas destacando la velocidad de internet.",
+    name: "Jorge Martínez ",
+    role: "Quaglia al 200",
+    text: "Pasé por todas las empresas de Bariloche y todas me fallaron. Probé con Gnet y es otra cosa. El pibe Luan vino a casa, un laburante de primera, me puso el modem y ahora tengo señal hasta en el fondo. ¡Gracias, locos",
     stars: 5,
-    initials: "CB",
+    initials: "JM",
   },
 ];
 

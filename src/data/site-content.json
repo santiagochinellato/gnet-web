@@ -51,24 +51,24 @@
       {
         "title": "Hogar",
         "description": "Para familias y home office.",
-        "price": "$15.000",
+        "price": "$18.000",
         "period": "/mes",
         "features": ["100 Mbps Simétricos", "Instalación Bonificada", "Router WiFi 6 incluido"],
         "ctaText": "Ver Detalles",
         "ctaLink": "/planes?tab=hogar",
         "badge": "POPULAR",
-        "recommended": false
+        "recommended": true
       },
       {
-        "title": "Short Term",
+        "title": "Turismo",
         "description": "Ideal alquileres temporarios.",
-        "price": "$10.000",
-        "period": "/semana",
-        "features": ["50 Mbps", "Sin Contrato Fijo", "Activación inmediata"],
+        "price": "$25.000",
+        "period": "/mes",
+        "features": ["100 Mbps", "Sin Contrato Fijo", "Activación inmediata"],
         "ctaText": "Contratar Ahora",
         "ctaLink": "/planes?tab=turista",
         "badge": "TURISMO",
-        "recommended": false,
+        "recommended": true,
         "color": "secondary"
       },
       {
@@ -185,11 +185,11 @@
       "keywords": ["isp", "ingenieria", "consultoria", "redes", "proveedores internet"]
     },
     "hero": {
-      "badge": "Certified ISP Solutions Partner",
-      "title": "Scale Your Network Infrastructure",
-      "subtitle": "Premium B2B consulting and engineering for Internet Service Providers.",
-      "ctaPrimary": { "text": "Schedule Consultation", "link": "/contacto" },
-      "ctaSecondary": { "text": "View Case Studies", "link": "#cases" }
+      "badge": "Partner Certificado en Mikrotik",
+      "title": "Ingeniería de Alto Rendimiento para tu ISP",
+      "subtitle": "Ayudamos a ISPs a escalar su infraestructura, eliminar cuellos de botella y maximizar la disponibilidad del servicio mediante soluciones avanzadas en MikroTik, Ubiquiti y gestión de redes",
+      "ctaPrimary": { "text": "Programar consulta ", "link": "/contacto" },
+      "ctaSecondary": { "text": "Ver casos de éxito", "link": "#cases" }
     },
     "stats": [
       { "iconName": "Headset", "value": "500+", "label": "Tickets Resueltos Mensualmente" },

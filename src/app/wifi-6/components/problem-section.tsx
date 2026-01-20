@@ -27,7 +27,32 @@ export function ProblemSection({ data }: ProblemProps) {
   const {
     title = "¿Te pasa esto en casa?",
     subtitle = "Problemas reales que WiFi 6 soluciona de verdad",
-    cards = [],
+    cards = [
+      {
+        icon: "AlertCircle",
+        title: "Partidas perdidas por ping alto",
+        description:
+          "Tenes buenos reflejos, pero el internet no. 150ms de ping en Fortnite, Valorant o CS2 significa estar muerto antes de ver al enemigo.",
+        statValue: "+150ms",
+        statLabel: "= Game Over",
+      },
+      {
+        icon: "Download",
+        title: "Reuniones por Meet o Zoom cortadas",
+        description:
+          "Estás explicando un diseño crítico y el video se congela. Tu jefe te ve en 480p. La cámara se traba. No es profesional.",
+        statValue: "Video lag",
+        statLabel: "= Jornada laboral en off",
+      },
+      {
+        icon: "WifiOff",
+        title: "Solo 3 dispositivos y explota todo",
+        description:
+          "La play al maximo, Netflix en 4k, vos en Zoom. La red WiFi tradicional elige quién sufre. Siempre sos vos.",
+        statValue: "4 dispositivos",
+        statLabel: "= caos",
+      },
+    ],
   } = data || {};
 
   // Color mapping for each card

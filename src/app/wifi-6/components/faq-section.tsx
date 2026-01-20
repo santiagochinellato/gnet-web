@@ -15,15 +15,14 @@ export function FaqSection({ data }: FaqProps) {
     title = "Preguntas Frecuentes",
     items = [
       {
-        question: "¿Mi hijo realmente necesita WiFi 6 para jugar?",
+        question: "garantizamos un ping de menos de 20ms en todos los juegos?",
         answer:
-          "Depende. Si juega Minecraft offline, no. Si juega competitivo (Fortnite, Valorant, CS2, LoL), SÍ. La diferencia entre 50ms y 4ms es literalmente ver al enemigo 46 milisegundos antes. En un tiroteo, eso es vida o muerte digital.",
+          "Nosotros te entregamos la menor latencia posible desde tu casa hasta nuestra salida a internet mediante fibra óptica. Sin embargo, el ping final depende en gran medida de la ubicación y el estado de los servidores del juego (por ejemplo, si el servidor de Valorant está en Brasil o EE.UU.). Gnet elimina el 'cuello de botella' en tu hogar, pero no puede controlar la distancia física hacia servidores externos o la saturacion que estos mismo tienen.",
       },
       {
-        question:
-          "Trabajo para INVAP remoto. ¿WiFi 6 mejora las videollamadas?",
+        question: "Trabajo remoto. WiFi 6 mejora las videollamadas?",
         answer:
-          'Absolutamente. Zoom, Teams y Meet usan entre 2-4 Mbps en HD. Con WiFi tradicional, si tu hijo está descargando un juego, tu ancho de banda colapsa. Con WiFi 6 (OFDMA + MU-MIMO), cada dispositivo tiene su "carril" dedicado. Tu videollamada nunca se pixela.',
+          "Totalmente. El problema de las videollamadas no es solo la velocidad, sino la congestión. WiFi 6 usa tecnologías (OFDMA y MU-MIMO) que crean 'carriles exclusivos' para cada dispositivo. Si alguien está descargando un juego pesado en otra habitación, tu reunión de Zoom o Meet no se pixelará ni se cortará",
       },
       {
         question: "¿Funciona con mis dispositivos viejos?",
@@ -31,9 +30,9 @@ export function FaqSection({ data }: FaqProps) {
           "Sí. WiFi 6 es retrocompatible. Tu notebook vieja con WiFi 5 funciona igual que antes. Pero tus dispositivos nuevos (PlayStation 5, Xbox Series X, iPhone 11+, Samsung S10+) vuelan.",
       },
       {
-        question: "¿Por qué Gnet y no otra empresa?",
+        question: "Por qué elegirnos?",
         answer:
-          "Somos la primera ISP patagónica con WiFi 6 certificado. Fiber to the Home (FTTH) real, no promesas. Y soporte técnico local: llamás y te atiende alguien de Bariloche que entiende cómo es vivir acá.",
+          "Porque somos locales y entendemos la Patagonia. No hablas con un bot ni con alguien que no sabe dónde queda Bariloche. Te ofrecemos WiFi 6 certificado, fibra óptica real (FTTH) y soporte técnico humano que habla tu mismo idioma.",
       },
     ],
   } = data || {};
