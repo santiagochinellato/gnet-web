@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Download, Upload, Activity, CheckCircle2 } from "lucide-react";
 
 interface SpeedTestModalProps {
@@ -26,6 +26,35 @@ export function SpeedTestModal({ isOpen, onClose }: SpeedTestModalProps) {
     download: null,
     upload: null,
   });
+
+  const [isGnetUser, setIsGnetUser] = useState(false);
+
+  const checkISP = async () => {
+    try {
+      const response = await fetch("https://ipwho.is/");
+      const data = await response.json();
+      const isp = (
+        data.connection?.isp ||
+        data.company?.name ||
+        ""
+      ).toLowerCase();
+      // Check for Gnet variations
+      if (isp.includes("gnet") || isp.includes("g-net")) {
+        setIsGnetUser(true);
+      } else {
+        setIsGnetUser(false);
+      }
+    } catch (error) {
+      console.warn("Could not detect ISP:", error);
+      setIsGnetUser(false); // Default to non-client behavior
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      checkISP();
+    }
+  }, [isOpen]);
 
   const runSpeedTest = async () => {
     setStatus("testing");
@@ -55,12 +84,15 @@ export function SpeedTestModal({ isOpen, onClose }: SpeedTestModalProps) {
     const iterations = 5;
     let totalTime = 0;
 
+    // Use fixed IP for Gnet clients, default origin for others
+    const pingUrl = isGnetUser ? "http://186.0.212.49" : window.location.origin;
+    const fetchOptions: RequestInit = isGnetUser
+      ? { method: "HEAD", mode: "no-cors", cache: "no-cache" }
+      : { method: "HEAD", cache: "no-cache" };
+
     for (let i = 0; i < iterations; i++) {
       const start = performance.now();
-      await fetch(window.location.origin, {
-        method: "HEAD",
-        cache: "no-cache",
-      });
+      await fetch(pingUrl, fetchOptions);
       const end = performance.now();
       totalTime += end - start;
     }
@@ -128,7 +160,7 @@ export function SpeedTestModal({ isOpen, onClose }: SpeedTestModalProps) {
 
   const getSpeedColor = (
     speed: number | null,
-    type: "ping" | "download" | "upload"
+    type: "ping" | "download" | "upload",
   ) => {
     if (speed === null) return "text-slate-400";
 
