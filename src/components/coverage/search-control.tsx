@@ -22,9 +22,9 @@ export function SearchControl({ onSelectAddress }: SearchControlProps) {
         try {
           // Constrain search to Bariloche/Argentina for better relevance
           const response = await fetch(
-            `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
-              query + ", San Carlos de Bariloche, Argentina"
-            )}&limit=5`
+            `https://nominatim.openstreetmap.org/search?format=json&addressdetails=1&q=${encodeURIComponent(
+              query + ", San Carlos de Bariloche, Argentina",
+            )}&limit=5`,
           );
           const data = await response.json();
           setResults(data);
@@ -43,13 +43,22 @@ export function SearchControl({ onSelectAddress }: SearchControlProps) {
     return () => clearTimeout(timer);
   }, [query]);
 
+  const getFormattedAddress = (result: any) => {
+    if (result.address) {
+      const { road, house_number } = result.address;
+      if (road && house_number) return `${road} ${house_number}`;
+      if (road) return road;
+    }
+    return result.display_name.split(",")[0];
+  };
+
   const handleSelect = (result: any) => {
     const lat = parseFloat(result.lat);
     const lon = parseFloat(result.lon);
-    // Use display_name or a shorter version
-    onSelectAddress([lon, lat], result.display_name.split(",")[0]);
+    const formattedAddress = getFormattedAddress(result);
+    onSelectAddress([lon, lat], formattedAddress);
     setShowResults(false);
-    setQuery(result.display_name.split(",")[0]); // Set input to selected address
+    setQuery(formattedAddress); // Set input to selected address
   };
 
   return (
@@ -81,7 +90,7 @@ export function SearchControl({ onSelectAddress }: SearchControlProps) {
                 className="w-full text-left p-4 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors flex flex-col"
               >
                 <span className="font-medium text-slate-900 dark:text-white truncate w-full">
-                  {result.display_name.split(",")[0]}
+                  {getFormattedAddress(result)}
                 </span>
                 <span className="text-xs text-slate-500 dark:text-slate-400 truncate w-full">
                   {result.display_name}

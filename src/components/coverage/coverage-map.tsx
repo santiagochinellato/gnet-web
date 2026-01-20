@@ -79,7 +79,7 @@ const CoverageMap = ({ className }: { className?: string }) => {
   } | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [coverageStatus, setCoverageStatus] = useState<"covered" | "uncovered">(
-    "uncovered"
+    "uncovered",
   );
 
   // --- ANIMACIÓN SINCRONIZADA ---
@@ -134,7 +134,7 @@ const CoverageMap = ({ className }: { className?: string }) => {
     <div
       className={cn(
         "relative w-full h-[calc(100vh-64px)] bg-slate-100 dark:bg-slate-900 overflow-hidden",
-        className
+        className,
       )}
     >
       <Map
@@ -245,6 +245,7 @@ const CoverageMap = ({ className }: { className?: string }) => {
         onClose={() => setModalOpen(false)}
         status={coverageStatus}
         address={selectedLocation?.address || ""}
+        coords={selectedLocation?.coords || [0, 0]}
       />
     </div>
   );
