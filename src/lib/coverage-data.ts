@@ -45,26 +45,26 @@ export const COVERAGE_GEOJSON: FeatureCollection<Polygon> = {
       },
     },
     // Zona 3: Aire (San Francisco / Este)
-    {
-      type: "Feature",
-      properties: { name: "Cobertura Aire 3", type: "aire", color: "#2563eb" }, // Blue-600
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [-71.26816, -41.146764],
-            [-71.276804, -41.153021],
-            [-71.270073, -41.157527],
-            [-71.262344, -41.158466],
-            [-71.252038, -41.159967],
-            [-71.249711, -41.159028],
-            [-71.25578, -41.142384],
-            [-71.260765, -41.142697],
-            [-71.26816, -41.146764],
-          ],
-        ],
-      },
-    },
+    // {
+    //   type: "Feature",
+    //   properties: { name: "Cobertura Aire 3", type: "aire", color: "#2563eb" }, // Blue-600
+    //   geometry: {
+    //     type: "Polygon",
+    //     coordinates: [
+    //       [
+    //         [-71.26816, -41.146764],
+    //         [-71.276804, -41.153021],
+    //         [-71.270073, -41.157527],
+    //         [-71.262344, -41.158466],
+    //         [-71.252038, -41.159967],
+    //         [-71.249711, -41.159028],
+    //         [-71.25578, -41.142384],
+    //         [-71.260765, -41.142697],
+    //         [-71.26816, -41.146764],
+    //       ],
+    //     ],
+    //   },
+    // },
     // Zona 4: FIBRA OPTICA (La zona verde)
     {
       type: "Feature",
@@ -91,22 +91,22 @@ export const COVERAGE_GEOJSON: FeatureCollection<Polygon> = {
       },
     },
     // Zona 5: Aire (Cerca de la costa)
-    {
-      type: "Feature",
-      properties: { name: "Cobertura Aire 4", type: "aire", color: "#93c5fd" }, // Blue-300
-      geometry: {
-        type: "Polygon",
-        coordinates: [
-          [
-            [-71.277156, -41.135185],
-            [-71.260591, -41.134053],
-            [-71.258926, -41.130054],
-            [-71.276949, -41.131014],
-            [-71.277156, -41.135185],
-          ],
-        ],
-      },
-    },
+    // {
+    //   type: "Feature",
+    //   properties: { name: "Cobertura Aire 4", type: "aire", color: "#93c5fd" }, // Blue-300
+    //   geometry: {
+    //     type: "Polygon",
+    //     coordinates: [
+    //       [
+    //         [-71.277156, -41.135185],
+    //         [-71.260591, -41.134053],
+    //         [-71.258926, -41.130054],
+    //         [-71.276949, -41.131014],
+    //         [-71.277156, -41.135185],
+    //       ],
+    //     ],
+    //   },
+    // },
   ],
 };
 
