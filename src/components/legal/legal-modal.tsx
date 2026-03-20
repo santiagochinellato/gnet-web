@@ -32,13 +32,17 @@ export function LegalModal({
 
   // Prevent scrolling when modal is open
   useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
+    if (!isOpen) return;
+
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = "unset";
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
     };
   }, [isOpen]);
 
@@ -53,12 +57,16 @@ export function LegalModal({
           exit={{ opacity: 0 }}
           className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4"
           onClick={handleBackdropClick}
+          onWheelCapture={(e) => {
+            // Prevent wheel events from escaping the modal.
+            e.stopPropagation();
+          }}
         >
           <motion.div
             initial={{ scale: 0.95, opacity: 0, y: 10 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.95, opacity: 0, y: 10 }}
-            className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh] border border-slate-200 dark:border-slate-800"
+            className="bg-white dark:bg-slate-900 w-full max-w-2xl rounded-2xl shadow-2xl flex flex-col max-h-[85vh] min-h-0 overflow-hidden border border-slate-200 dark:border-slate-800"
           >
             {/* Header */}
             <div className="flex items-center justify-between p-4 border-b border-slate-100 dark:border-slate-800 shrink-0">
@@ -75,7 +83,14 @@ export function LegalModal({
             </div>
 
             {/* Content */}
-            <div className="p-6 overflow-y-auto text-slate-600 dark:text-slate-300 text-sm leading-relaxed space-y-4">
+            <div
+              tabIndex={0}
+              onWheelCapture={(e) => {
+                // Ensure wheel scrolling affects only the modal content.
+                e.stopPropagation();
+              }}
+              className="p-6 overflow-y-auto h-full text-slate-600 dark:text-slate-300 text-sm leading-relaxed space-y-4 flex-1 min-h-0 overscroll-contain"
+            >
               {children}
             </div>
 
