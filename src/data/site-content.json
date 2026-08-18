@@ -149,6 +149,10 @@
     "description": "Conexión estable y rápida diseñada para la Patagonia.",
     "keywords": ["internet", "fibra optica", "bariloche", "isp", "velocidad"]
   },
+  "homeOfficeLink": {
+    "label": "HomeOffice",
+    "href": "http://10.1.1.6:3200/login"
+  },
   "footer": {
     "brandDescription": "Conectando Bariloche con tecnología de fibra óptica de clase mundial. Velocidad, estabilidad y soporte local real.",
     "servicesTitle": "Servicios",
@@ -164,7 +168,8 @@
       { "label": "Quiénes Somos", "href": "/#nosotros" },
       { "label": "Cobertura", "href": "/coverage" },
       { "label": "Contacto", "href": "/contacto" },
-      { "label": "Trabajá con nosotros", "href": "/rrhh" }
+      { "label": "Trabajá con nosotros", "href": "/rrhh" },
+      { "label": "HomeOffice", "href": "http://10.1.1.6:3200/login" }
     ],
     "contactTitle": "Contacto",
     "contactInfo": {

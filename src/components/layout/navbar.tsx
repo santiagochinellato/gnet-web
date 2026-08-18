@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ModeToggle } from "@/components/mode-toggle";
-import { cn } from "@/lib/utils";
-import { Menu, X, Phone } from "lucide-react";
+import { cn, isExternalHref } from "@/lib/utils";
+import { Menu, X, Phone, Laptop } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { NavLink } from "@/types/content";
@@ -12,9 +12,11 @@ import { NavLink } from "@/types/content";
 export function Navbar({
   links,
   ctaLink,
+  homeOfficeLink,
 }: {
   links: NavLink[];
   ctaLink?: NavLink;
+  homeOfficeLink?: NavLink;
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,11 +88,33 @@ export function Navbar({
 
         {/* CTA BUTTONS */}
         <div className="flex gap-3 items-center">
+          {homeOfficeLink && (
+            <a
+              href={homeOfficeLink.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="HomeOffice, acceso empleados"
+              className={cn(
+                "hidden lg:inline-flex cursor-pointer items-center justify-center gap-2 rounded-full h-10 px-4 text-sm font-semibold border transition-all",
+                showScrolledStyle
+                  ? "border-slate-300 text-slate-800 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                  : "border-white/60 text-white hover:bg-white/10",
+              )}
+            >
+              <Laptop className="w-4 h-4" />
+              <span className="truncate">{homeOfficeLink.label}</span>
+            </a>
+          )}
+
           {ctaLink && (
             <Link
               href={ctaLink.href}
-              target="_blank"
-              rel="noopener noreferrer"
+              target={isExternalHref(ctaLink.href) ? "_blank" : undefined}
+              rel={
+                isExternalHref(ctaLink.href)
+                  ? "noopener noreferrer"
+                  : undefined
+              }
               className="hidden xl:flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all"
             >
               <span className="truncate">{ctaLink.label}</span>
@@ -149,11 +173,28 @@ export function Navbar({
               );
             })}
             <div className="flex flex-col gap-3 mt-2">
+              {homeOfficeLink && (
+                <a
+                  href={homeOfficeLink.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="HomeOffice, acceso empleados"
+                  className="w-full border border-slate-300 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 hover:bg-slate-50"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Laptop className="w-4 h-4" />
+                  {homeOfficeLink.label}
+                </a>
+              )}
               {ctaLink && (
                 <Link
                   href={ctaLink.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target={isExternalHref(ctaLink.href) ? "_blank" : undefined}
+                  rel={
+                    isExternalHref(ctaLink.href)
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
                   className="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-white shadow-lg shadow-blue-500/20"
                 >
                   {ctaLink.label}

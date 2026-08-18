@@ -21,7 +21,7 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       ctaHighlight { ... }
     },
     "settings": *[_type == "siteSettings"][0]{
-      header { sucursalVirtualLink { label, href } },
+      header { sucursalVirtualLink { label, href }, homeOfficeLink { label, href } },
       navigation[] { label, href },
       footer { 
         ..., 
@@ -104,6 +104,22 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   }
 
   const rawFooter = settings?.footer || defaults.footer;
+  const homeOfficeLink: NavLink =
+    settings?.header?.homeOfficeLink ||
+    defaults.homeOfficeLink || {
+      label: "HomeOffice",
+      href: "http://10.1.1.6:3200/login",
+    };
+
+  const withHomeOfficeLink = (links: NavLink[] = []) => {
+    const exists = links.some(
+      (link) =>
+        link.href === homeOfficeLink.href ||
+        /homeoffice|acceso empleados/i.test(link.label),
+    );
+    return exists ? links : [...links, homeOfficeLink];
+  };
+
   const footer = {
     ...rawFooter,
     servicesLinks: rawFooter.servicesLinks?.map((link: NavLink) => {
@@ -116,7 +132,8 @@ export const getSiteContent = async (): Promise<SiteContent> => {
         return { ...link, href: "/planes" };
       }
       return link;
-    }) || []
+    }) || [],
+    companyLinks: withHomeOfficeLink(rawFooter.companyLinks),
   };
 
   return {
@@ -152,6 +169,7 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       label: "Sucursal Virtual",
       href: "https://gnetbari.wispro.co/portal/sign_in?locale=es"
     },
+    homeOfficeLink,
 
     // Pages
     isp: isp ? {

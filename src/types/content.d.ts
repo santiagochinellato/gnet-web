@@ -346,6 +346,7 @@ export interface SiteContent {
   footer: FooterContent;
   homeSeo?: SeoConfig;
   sucursalVirtualLink?: NavLink;
+  homeOfficeLink?: NavLink;
   isp: ISPContent;
   security: SecurityContent;
   planes: PlanesContent;

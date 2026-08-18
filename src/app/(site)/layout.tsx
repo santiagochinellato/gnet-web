@@ -27,6 +27,7 @@ export default async function SiteLayout({
         <Navbar
           links={content.navigation}
           ctaLink={content.sucursalVirtualLink}
+          homeOfficeLink={content.homeOfficeLink}
         />
         {children}
         <Toaster

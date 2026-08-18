@@ -1,12 +1,41 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import Link from "next/link";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { FooterContent } from "@/types/content";
-import { cn } from "@/lib/utils";
+import { cn, isExternalHref } from "@/lib/utils";
 import { LegalModal } from "@/components/legal/legal-modal";
+
+function FooterNavLink({
+  href,
+  className,
+  children,
+}: {
+  href: string;
+  className: string;
+  children: ReactNode;
+}) {
+  if (isExternalHref(href)) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={className}
+      >
+        {children}
+      </a>
+    );
+  }
+
+  return (
+    <Link href={href} className={className}>
+      {children}
+    </Link>
+  );
+}
 
 export function Footer({ content }: { content: FooterContent }) {
   const [activeModal, setActiveModal] = useState<"terms" | "privacy" | null>(
@@ -45,7 +74,7 @@ export function Footer({ content }: { content: FooterContent }) {
                     item.label?.toLowerCase().includes("wifi 6");
                   return (
                     <li key={item.label}>
-                      <Link
+                      <FooterNavLink
                         href={item.href}
                         className={cn(
                           "text-sm leading-6 transition-colors hover:underline",
@@ -55,7 +84,7 @@ export function Footer({ content }: { content: FooterContent }) {
                         )}
                       >
                         {item.label}
-                      </Link>
+                      </FooterNavLink>
                     </li>
                   );
                 })}
@@ -72,7 +101,7 @@ export function Footer({ content }: { content: FooterContent }) {
                     item.label?.toLowerCase().includes("wifi 6");
                   return (
                     <li key={item.label}>
-                      <Link
+                      <FooterNavLink
                         href={item.href}
                         className={cn(
                           "text-sm leading-6 transition-colors hover:underline",
@@ -82,7 +111,7 @@ export function Footer({ content }: { content: FooterContent }) {
                         )}
                       >
                         {item.label}
-                      </Link>
+                      </FooterNavLink>
                     </li>
                   );
                 })}

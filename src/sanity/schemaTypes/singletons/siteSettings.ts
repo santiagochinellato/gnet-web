@@ -15,6 +15,12 @@ export default defineType({
           title: 'Sucursal Virtual Link',
           type: 'link',
           description: 'Link for the "Sucursal Virtual" button in the navbar'
+        }),
+        defineField({
+          name: 'homeOfficeLink',
+          title: 'HomeOffice / Acceso empleados',
+          type: 'link',
+          description: 'Botón de acceso para empleados (HomeOffice)'
         })
       ]
     }),
