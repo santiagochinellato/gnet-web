@@ -2,6 +2,7 @@ import { client } from "@/sanity/lib/client";
 import { SiteContent, NavLink } from "@/types/content";
 import { groq } from "next-sanity";
 import defaultContent from "@/data/site-content.json";
+import { isSucursalVirtualLink } from "@/lib/utils";
 
 // Helper to extract URL from Sanity image object if projected correctly
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -21,7 +22,7 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       ctaHighlight { ... }
     },
     "settings": *[_type == "siteSettings"][0]{
-      header { sucursalVirtualLink { label, href }, homeOfficeLink { label, href } },
+      header { homeOfficeLink { label, href } },
       navigation[] { label, href },
       footer { 
         ..., 
@@ -90,7 +91,9 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   const defaults = defaultContent as unknown as SiteContent;
 
   // Check if "Obtené wifi 6" exists in navigation (by href), if not add it
-  const navigation: NavLink[] = settings?.navigation || defaults.navigation;
+  const navigation: NavLink[] = (
+    settings?.navigation || defaults.navigation
+  ).filter((link) => !isSucursalVirtualLink(link));
   const wifiLinkExists = navigation.some(link => link.href === "/wifi-6");
   
   if (!wifiLinkExists) {
@@ -122,7 +125,9 @@ export const getSiteContent = async (): Promise<SiteContent> => {
 
   const footer = {
     ...rawFooter,
-    servicesLinks: rawFooter.servicesLinks?.map((link: NavLink) => {
+    servicesLinks: rawFooter.servicesLinks?.filter(
+      (link: NavLink) => !isSucursalVirtualLink(link),
+    ).map((link: NavLink) => {
       // Force these specific links to go to /planes regardless of CMS input
       if (
         link.label === "Internet Hogar" ||
@@ -133,7 +138,14 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       }
       return link;
     }) || [],
-    companyLinks: withHomeOfficeLink(rawFooter.companyLinks),
+    companyLinks: withHomeOfficeLink(
+      (rawFooter.companyLinks || []).filter(
+        (link: NavLink) => !isSucursalVirtualLink(link),
+      ),
+    ),
+    legalLinks: (rawFooter.legalLinks || []).filter(
+      (link: NavLink) => !isSucursalVirtualLink(link),
+    ),
   };
 
   return {
@@ -165,10 +177,6 @@ export const getSiteContent = async (): Promise<SiteContent> => {
     
     homeSeo: home?.seo,
 
-    sucursalVirtualLink: settings?.header?.sucursalVirtualLink || {
-      label: "Sucursal Virtual",
-      href: "https://gnetbari.wispro.co/portal/sign_in?locale=es"
-    },
     homeOfficeLink,
 
     // Pages

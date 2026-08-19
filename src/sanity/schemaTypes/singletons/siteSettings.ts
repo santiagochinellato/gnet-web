@@ -11,12 +11,6 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
-          name: 'sucursalVirtualLink',
-          title: 'Sucursal Virtual Link',
-          type: 'link',
-          description: 'Link for the "Sucursal Virtual" button in the navbar'
-        }),
-        defineField({
           name: 'homeOfficeLink',
           title: 'HomeOffice / Acceso empleados',
           type: 'link',

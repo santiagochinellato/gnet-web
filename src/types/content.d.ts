@@ -345,7 +345,6 @@ export interface SiteContent {
   ctaHighlight: CTAHighlight;
   footer: FooterContent;
   homeSeo?: SeoConfig;
-  sucursalVirtualLink?: NavLink;
   homeOfficeLink?: NavLink;
   isp: ISPContent;
   security: SecurityContent;
