@@ -93,7 +93,7 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   // Check if "Obtené wifi 6" exists in navigation (by href), if not add it
   const navigation: NavLink[] = (
     settings?.navigation || defaults.navigation
-  ).filter((link) => !isSucursalVirtualLink(link));
+  ).filter((link: NavLink) => !isSucursalVirtualLink(link));
   const wifiLinkExists = navigation.some(link => link.href === "/wifi-6");
   
   if (!wifiLinkExists) {
