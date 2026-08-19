@@ -26,7 +26,6 @@ export default async function SiteLayout({
       <SmoothScroll>
         <Navbar
           links={content.navigation}
-          ctaLink={content.sucursalVirtualLink}
           homeOfficeLink={content.homeOfficeLink}
         />
         {children}

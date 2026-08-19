@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import { BrandLogo } from "@/components/ui/brand-logo";
 import { ModeToggle } from "@/components/mode-toggle";
-import { cn, isExternalHref } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { Menu, X, Phone, Laptop } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -11,11 +11,9 @@ import { NavLink } from "@/types/content";
 
 export function Navbar({
   links,
-  ctaLink,
   homeOfficeLink,
 }: {
   links: NavLink[];
-  ctaLink?: NavLink;
   homeOfficeLink?: NavLink;
 }) {
   const [scrolled, setScrolled] = useState(false);
@@ -106,21 +104,6 @@ export function Navbar({
             </a>
           )}
 
-          {ctaLink && (
-            <Link
-              href={ctaLink.href}
-              target={isExternalHref(ctaLink.href) ? "_blank" : undefined}
-              rel={
-                isExternalHref(ctaLink.href)
-                  ? "noopener noreferrer"
-                  : undefined
-              }
-              className="hidden xl:flex cursor-pointer items-center justify-center rounded-full h-10 px-6 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 text-white text-sm font-bold shadow-lg shadow-blue-500/20 transition-all"
-            >
-              <span className="truncate">{ctaLink.label}</span>
-            </Link>
-          )}
-
           {/* THEME TOGGLE */}
           <div className="hidden md:block">
             <ModeToggle
@@ -185,20 +168,6 @@ export function Navbar({
                   <Laptop className="w-4 h-4" />
                   {homeOfficeLink.label}
                 </a>
-              )}
-              {ctaLink && (
-                <Link
-                  href={ctaLink.href}
-                  target={isExternalHref(ctaLink.href) ? "_blank" : undefined}
-                  rel={
-                    isExternalHref(ctaLink.href)
-                      ? "noopener noreferrer"
-                      : undefined
-                  }
-                  className="w-full bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] hover:opacity-90 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-white shadow-lg shadow-blue-500/20"
-                >
-                  {ctaLink.label}
-                </Link>
               )}
               <div className="flex gap-3">
                 <button className="flex-1 bg-gray-100 dark:bg-slate-800 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-700 dark:text-slate-200">

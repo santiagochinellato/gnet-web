@@ -117,33 +117,35 @@ export function HeroForm() {
   return (
     <>
       <form
-        className="flex flex-col gap-3 w-full max-w-xl"
+        className="flex flex-col gap-3 w-full"
         onSubmit={handleSubmit}
       >
-        <div className="relative w-full">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300">
-            <User className="w-5 h-5" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="relative w-full">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300">
+              <User className="w-5 h-5" />
+            </div>
+            <input
+              name="name"
+              className="w-full h-12 pl-10 pr-4 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-400 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all"
+              placeholder="Tu nombre completo"
+              type="text"
+              required
+            />
           </div>
-          <input
-            name="name"
-            className="w-full h-12 pl-10 pr-4 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-400 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all"
-            placeholder="Tu nombre completo"
-            type="text"
-            required
-          />
-        </div>
 
-        <div className="relative w-full">
-          <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300">
-            <MapPin className="w-5 h-5" />
+          <div className="relative w-full">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-300">
+              <MapPin className="w-5 h-5" />
+            </div>
+            <input
+              name="address"
+              className="w-full h-12 pl-10 pr-4 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-400 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all"
+              placeholder="Dirección (Calle y Altura)"
+              type="text"
+              required
+            />
           </div>
-          <input
-            name="address"
-            className="w-full h-12 pl-10 pr-4 rounded-lg bg-slate-900/50 border border-slate-700 text-white placeholder-slate-400 focus:ring-2 focus:ring-[var(--color-primary)] focus:border-transparent outline-none transition-all"
-            placeholder="Dirección (Calle y Altura)"
-            type="text"
-            required
-          />
         </div>
 
         <div className="flex flex-col sm:flex-row gap-3">
