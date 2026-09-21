@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Metadata, Viewport } from "next";
+import { FaviconColorScheme } from "@/components/favicon-color-scheme";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -27,13 +28,34 @@ export const metadata: Metadata = {
   description: "Conexión estable y rápida diseñada para la Patagonia.",
   icons: {
     icon: [
-      { url: "/icon-48.png", sizes: "48x48", type: "image/png" },
-      { url: "/icon-96.png", sizes: "96x96", type: "image/png" },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon.ico", sizes: "48x48" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      {
+        url: "/icon-48.png",
+        sizes: "48x48",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-48.png",
+        sizes: "48x48",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon-96.png",
+        sizes: "96x96",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-96.png",
+        sizes: "96x96",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
-    shortcut: "/favicon.ico",
+    shortcut: "/favicon.svg",
   },
   openGraph: {
     title: "Gnet Telecomunicaciones",
@@ -96,6 +118,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} font-body antialiased bg-slate-50 dark:bg-slate-950 transition-colors duration-300`}
       >
+        <FaviconColorScheme />
         {children}
       </body>
     </html>
