@@ -95,7 +95,7 @@ export function Navbar({
               className={cn(
                 "hidden lg:inline-flex cursor-pointer items-center justify-center gap-2 rounded-full h-10 px-4 text-sm font-semibold border transition-all",
                 showScrolledStyle
-                  ? "border-slate-300 text-slate-800 hover:bg-slate-100 dark:border-slate-600 dark:text-slate-200 dark:hover:bg-slate-800"
+                  ? "bg-slate-900 text-white border-slate-900 hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:border-white dark:hover:bg-slate-100"
                   : "border-white/60 text-white hover:bg-white/10",
               )}
             >
@@ -162,7 +162,7 @@ export function Navbar({
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="HomeOffice, acceso empleados"
-                  className="w-full border border-slate-300 py-3 rounded-xl font-bold flex items-center justify-center gap-2 text-slate-800 hover:bg-slate-50"
+                  className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-slate-800 dark:bg-white dark:text-slate-900"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Laptop className="w-4 h-4" />
