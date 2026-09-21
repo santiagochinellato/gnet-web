@@ -1,6 +1,7 @@
 import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Metadata, Viewport } from "next";
+import { FaviconColorScheme } from "@/components/favicon-color-scheme";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,8 +53,6 @@ export const metadata: Metadata = {
         type: "image/png",
         media: "(prefers-color-scheme: dark)",
       },
-      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      { url: "/favicon.ico", sizes: "48x48" },
     ],
     apple: [{ url: "/apple-touch-icon.png", sizes: "180x180" }],
     shortcut: "/favicon.svg",
@@ -119,6 +118,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${inter.variable} ${poppins.variable} font-body antialiased bg-slate-50 dark:bg-slate-950 transition-colors duration-300`}
       >
+        <FaviconColorScheme />
         {children}
       </body>
     </html>
