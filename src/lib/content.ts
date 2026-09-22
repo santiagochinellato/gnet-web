@@ -2,7 +2,7 @@ import { client } from "@/sanity/lib/client";
 import { SiteContent, NavLink } from "@/types/content";
 import { groq } from "next-sanity";
 import defaultContent from "@/data/site-content.json";
-import { isSucursalVirtualLink } from "@/lib/utils";
+import { isHomeOfficeLink, isSucursalVirtualLink } from "@/lib/utils";
 
 // Helper to extract URL from Sanity image object if projected correctly
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -22,7 +22,7 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       ctaHighlight { ... }
     },
     "settings": *[_type == "siteSettings"][0]{
-      header { homeOfficeLink { label, href } },
+      header { showHomeOffice, homeOfficeLink { label, href } },
       navigation[] { label, href },
       footer { 
         ..., 
@@ -93,7 +93,10 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   // Check if "Obtené wifi 6" exists in navigation (by href), if not add it
   const navigation: NavLink[] = (
     settings?.navigation || defaults.navigation
-  ).filter((link: NavLink) => !isSucursalVirtualLink(link));
+  ).filter(
+    (link: NavLink) =>
+      !isSucursalVirtualLink(link) && !isHomeOfficeLink(link),
+  );
   const wifiLinkExists = navigation.some(link => link.href === "/wifi-6");
   
   if (!wifiLinkExists) {
@@ -107,21 +110,13 @@ export const getSiteContent = async (): Promise<SiteContent> => {
   }
 
   const rawFooter = settings?.footer || defaults.footer;
-  const homeOfficeLink: NavLink =
-    settings?.header?.homeOfficeLink ||
-    defaults.homeOfficeLink || {
-      label: "HomeOffice",
-      href: "http://10.1.1.6:3200/login",
-    };
-
-  const withHomeOfficeLink = (links: NavLink[] = []) => {
-    const exists = links.some(
-      (link) =>
-        link.href === homeOfficeLink.href ||
-        /homeoffice|acceso empleados/i.test(link.label),
-    );
-    return exists ? links : [...links, homeOfficeLink];
-  };
+  const sanityHomeOffice = settings?.header?.homeOfficeLink;
+  const homeOfficeLink: NavLink | undefined =
+    settings?.header?.showHomeOffice &&
+    sanityHomeOffice?.href &&
+    sanityHomeOffice?.label
+      ? sanityHomeOffice
+      : undefined;
 
   const footer = {
     ...rawFooter,
@@ -138,10 +133,9 @@ export const getSiteContent = async (): Promise<SiteContent> => {
       }
       return link;
     }) || [],
-    companyLinks: withHomeOfficeLink(
-      (rawFooter.companyLinks || []).filter(
-        (link: NavLink) => !isSucursalVirtualLink(link),
-      ),
+    companyLinks: (rawFooter.companyLinks || []).filter(
+      (link: NavLink) =>
+        !isSucursalVirtualLink(link) && !isHomeOfficeLink(link),
     ),
     legalLinks: (rawFooter.legalLinks || []).filter(
       (link: NavLink) => !isSucursalVirtualLink(link),
