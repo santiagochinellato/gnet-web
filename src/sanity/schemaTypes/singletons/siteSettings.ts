@@ -11,10 +11,19 @@ export default defineType({
       type: 'object',
       fields: [
         defineField({
+          name: 'showHomeOffice',
+          title: 'Mostrar botón HomeOffice',
+          type: 'boolean',
+          initialValue: false,
+          description:
+            'Activalo para mostrar el acceso de empleados en el navbar. Por defecto queda oculto.',
+        }),
+        defineField({
           name: 'homeOfficeLink',
           title: 'HomeOffice / Acceso empleados',
           type: 'link',
-          description: 'Botón de acceso para empleados (HomeOffice)'
+          description: 'Texto y URL del botón. Solo se muestra si "Mostrar botón HomeOffice" está activo.',
+          hidden: ({ parent }) => !parent?.showHomeOffice,
         })
       ]
     }),
